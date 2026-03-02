@@ -65,5 +65,41 @@
         },
         "iRes": 1,
         "name": "weaken"
+    },
+    "enrage": {
+        "cmd": "seia",
+        "o": {
+            "id": 517,
+            "icon": "iwd1,ied1",
+            "anim": "Point",
+            "range": 808,
+            "fx": "w",
+            "tgt": "h",
+            "typ": "m",
+            "strl": "sp_ei3",
+            "cd": 20000
+        },
+        "iRes": 1,
+        "name": "enrage"
+    },
+    "chain lightning ": {
+        "cmd": "seia",
+        "o": {
+            "id": 226,
+            "tgtMin": 1,
+            "mp": 0,
+            "anim": "Cast3",
+            "tgtMax": 4,
+            "range": 3000,
+            "fx": "c",
+            "damage": 0.8,
+            "tgt": "h",
+            "typ": "m",
+            "strl": "lit1",
+            "dsrc": "chain1",
+            "cd": 60000
+        },
+        "iRes": 1,
+        "name": "chain lightning "
     }
 }
