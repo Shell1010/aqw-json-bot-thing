@@ -18,7 +18,7 @@ class display(commands.Cog):
         interaction: discord.Interaction,
         current: str,
     ) -> list[discord.app_commands.Choice[str]]:
-        classes = self.bot.get_all_classes()
+        classes = await self.bot.get_all_classes()
     
         current = current.lower().strip()
     
@@ -52,7 +52,7 @@ class display(commands.Cog):
     @app_commands.allowed_contexts(guilds=True, dms=True, private_channels=True)
     @app_commands.autocomplete(current_class=class_autocomplete)
     async def class_(self, interaction: discord.Interaction, current_class: str):
-        data = self.bot.get_class_data(current_class)
+        data = await self.bot.get_class_data(current_class)
         view = ClassView(data)
         await interaction.response.send_message(view=view)
 
