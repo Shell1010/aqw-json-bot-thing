@@ -167,8 +167,9 @@ class ClassView(discord.ui.LayoutView):
         
         auras_len = data['auras']
         class_model = CLASS_CODES.get(data['sClassCat'], "Unknown")
+        mrm = '\n'.join(data['aMRM'])
         self.container.add_item(discord.ui.TextDisplay(f"**Class Model**: {class_model}"))
-        self.container.add_item(discord.ui.TextDisplay(f"**Mana Regen Model**: {'\n'.join(data['aMRM'])}"))
+        self.container.add_item(discord.ui.TextDisplay(f"**Mana Regen Model**: {mrm}"))
         self.container.add_item(discord.ui.Separator(visible=False))
         
         auras = discord.ui.Button(label="View Auras", style=discord.ButtonStyle.primary)
