@@ -46,7 +46,7 @@ class AQWMechanicsBot(commands.Bot):
         
 
     async def get_all_classes(self) -> dict:
-        async with self.session.get(self.url) as response:
+        async with self.session.get(self.class_url) as response:
             data = json.loads((await response.text()))
         
         data = {k.lower(): v for k, v in data.items()}
