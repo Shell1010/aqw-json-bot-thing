@@ -6,8 +6,9 @@ class PendingClassUpdate:
     class_update: dict | None = None
     aura_p: dict | None = None
     s_act: dict | None = None
+    seia: dict | None = None
     last_update: float = field(default_factory=monotonic)
 
     def ready(self) -> bool:
-        return self.class_update is not None and self.aura_p is not None and self.s_act is not None
+        return (self.class_update is not None and self.aura_p is not None and self.s_act is not None) or self.seia is not None
         

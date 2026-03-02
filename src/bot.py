@@ -10,7 +10,8 @@ class AQWMechanicsBot(commands.Bot):
         super().__init__(*args, **kwargs)
         self.admins = admins
         self.token = token
-        self.url = "https://raw.githubusercontent.com/Shell1010/aqw-json-bot-thing/refs/heads/main/classes.json"
+        self.class_url = "https://raw.githubusercontent.com/Shell1010/aqw-json-bot-thing/refs/heads/main/classes.json"
+        self.scroll_url = "https://raw.githubusercontent.com/Shell1010/aqw-json-bot-thing/refs/heads/main/scrolls.json"
 
     async def load_all_cogs(self):
         
@@ -29,6 +30,20 @@ class AQWMechanicsBot(commands.Bot):
         data = await self.get_all_classes()
         
         return data.get(class_name.lower(), {})
+        
+    async def get_scroll_data(self, scroll_name: str) -> dict:
+        data = await self.get_all_scrolls()
+        
+        return data.get(scroll_name.lower(), {})
+        
+    async def get_all_scrolls(self) -> dict:
+        async with self.session.get(self.scroll_url) as response:
+            data = json.loads((await response.text()))
+        
+        data = {k.lower(): v for k, v in data.items()}
+
+        return data
+        
 
     async def get_all_classes(self) -> dict:
         async with self.session.get(self.url) as response:
@@ -44,7 +59,7 @@ class AQWMechanicsBot(commands.Bot):
     @commands.Cog.listener()
     async def on_ready(self):
         print("Bot is online!")
-        # await self.tree.sync()
+        await self.tree.sync()
 
 
     async def setup_hook(self) -> None:

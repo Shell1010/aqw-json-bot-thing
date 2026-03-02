@@ -193,3 +193,23 @@ class ClassView(discord.ui.LayoutView):
     async def actives_callback(self, interaction: discord.Interaction):
         await interaction.response.edit_message(view=SkillsView(self.data))
 
+class ScrollView(discord.ui.View):
+    def __init__(self, data):
+        super().__init__()
+        self.data = data
+        
+        name = data['name']
+        obj = data['o']
+        self.container = discord.ui.Container()
+        title = discord.ui.TextDisplay(f"# {name}")
+        self.container.add_item(title)
+        self.container.add_item(discord.ui.Separator(visible=True))
+        text = ""
+        for k,v in obj.items():
+            if k in ['name', 'desc', 'id', 'fx', 'anim', 'strl', 'isOK', 'icon', 'tgtMin', 'auras']:
+                continue
+            text += f"**{k}**: {v}\n"
+        self.container.add_item(discord.ui.TextDisplay(text))
+        self.container.add_item(discord.ui.Separator(visible=False))
+        
+
