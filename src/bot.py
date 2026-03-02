@@ -10,6 +10,7 @@ class AQWMechanicsBot(commands.Bot):
         super().__init__(*args, **kwargs)
         self.admins = admins
         self.token = token
+        self.url = "https://raw.githubusercontent.com/Shell1010/aqw-json-bot-thing/refs/heads/main/classes.json"
 
     async def load_all_cogs(self):
         
@@ -22,21 +23,23 @@ class AQWMechanicsBot(commands.Bot):
                     print(f"Failed to load cog\n{e}")
         
         print("Cogs loaded.")
+        
+    async def get_class_data(self, class_name: str) -> dict:
+       
+        async with self.session.get(self.url) as response:
+            data = await response.json()
+        
+        data = {k.lower(): v for k, v in data.items()}
+        
+        return data.get(class_name.lower(), {})
 
-    def get_all_classes(self) -> dict:
-        with open("./classes.json", "r") as f:
-            data = json.load(f)
-    
+    async def get_all_classes(self) -> dict:
+        async with self.session.get(self.url) as response:
+            data = await response.json()
+        
         data = {k.lower(): v for k, v in data.items()}
 
         return data
-
-    def get_class_data(self, class_name: str) -> dict:
-        with open("./classes.json", "r") as f:
-            data = json.load(f)
-    
-        data = {k.lower(): v for k, v in data.items()}
-        return data.get(class_name.lower(), {})
 
     def start_bot(self):
         self.run(self.token)
