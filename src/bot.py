@@ -44,7 +44,7 @@ class AQWMechanicsBot(commands.Bot):
     @commands.Cog.listener()
     async def on_ready(self):
         print("Bot is online!")
-        await self.tree.sync()
+        # await self.tree.sync()
 
 
     async def setup_hook(self) -> None:
