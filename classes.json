@@ -3915,7 +3915,7 @@
         }
     },
     "Dark Master of Moglins": {
-        "uid": 23410,
+        "uid": 67265,
         "iCP": 302500,
         "cmd": "sAct",
         "sDesc": "Recommended Enhancement: Wizard. Thank you for your contribution to the 2018 Moglin Kickstarter! You have earned your place as a Master of Moglins and can now call on them to assist you and your allies in battle!",
@@ -3957,7 +3957,7 @@
                 "nam": "Moglin Blitz"
             }
         ],
-        "tInf": "p:23410",
+        "tInf": "p:67265",
         "actions": {
             "passive": [
                 {
@@ -8708,7 +8708,7 @@
         }
     },
     "Lord Of Order": {
-        "uid": 23410,
+        "uid": 67265,
         "iCP": 302500,
         "cmd": "sAct",
         "sDesc": "Mirror Drakath has granted you the unrivaled power of order. Wield your weapon to preserve the balance of both realms, and fight for the unity of all life!",
@@ -8752,7 +8752,7 @@
                 ]
             }
         ],
-        "tInf": "p:23410",
+        "tInf": "p:67265",
         "actions": {
             "passive": [
                 {
@@ -22049,6 +22049,248 @@
                     "typ": "m",
                     "strl": "sp_ice2",
                     "cd": 24000
+                },
+                {
+                    "ref": "i1",
+                    "icon": "icu1",
+                    "mp": 0,
+                    "anim": "Cheer",
+                    "nam": "Potions",
+                    "desc": "Equip a potion or scroll from your inventory to use it here.",
+                    "range": 808,
+                    "isOK": true,
+                    "fx": "",
+                    "tgt": "f",
+                    "typ": "i",
+                    "strl": "",
+                    "cd": 60000
+                }
+            ]
+        }
+    },
+    "Timeless Chronomancer": {
+        "uid": 67265,
+        "iCP": 302500,
+        "cmd": "sAct",
+        "sDesc": "Recommended Enhancements: Lucky, Hybrid. Corrupted Chronomancers rely on Hourglasses and Corruption they create using their Hourglass Pet (equipable items found in the Book of Lore) to manipulate and distort time itself.",
+        "sClassCat": "M3",
+        "aMRM": [
+            "Corrupted Chronomancers gain mana from all hits landed in combat, and especially on critical hits.  The amount depends on damage relative to *their own* HP total."
+        ],
+        "sClassName": "Timeless Chronomancer",
+        "auras": [
+            {
+                "nam": "Sandskin",
+                "e": [
+                    {
+                        "val": 0.1,
+                        "id": 21,
+                        "sta": "tdo",
+                        "typ": "+"
+                    }
+                ]
+            },
+            {
+                "nam": "Corruption Master",
+                "e": [
+                    {
+                        "val": 0.07,
+                        "id": 136,
+                        "sta": "tcr",
+                        "typ": "+"
+                    },
+                    {
+                        "val": 0.07,
+                        "id": 787,
+                        "sta": "thi",
+                        "typ": "+"
+                    },
+                    {
+                        "val": 0.07,
+                        "id": 200,
+                        "sta": "tha",
+                        "typ": "+"
+                    }
+                ]
+            }
+        ],
+        "tInf": "p:67265",
+        "actions": {
+            "passive": [
+                {
+                    "id": 1491,
+                    "ref": "p1",
+                    "icon": "i,i,i,i,cchronoP",
+                    "nam": "Sandskin",
+                    "desc": "Dodge chance increased by 10%",
+                    "auras": [
+                        {}
+                    ],
+                    "range": 301,
+                    "isOK": true,
+                    "fx": "m",
+                    "tgt": "s",
+                    "typ": "passive",
+                    "cd": 60000
+                },
+                {
+                    "id": 1492,
+                    "ref": "p2",
+                    "icon": "i,i,i,i,cchronoP",
+                    "nam": "Corruption Master",
+                    "desc": "Critical strike chance, Hit chance, and Haste increased by 7%",
+                    "auras": [
+                        {}
+                    ],
+                    "range": 301,
+                    "isOK": true,
+                    "fx": "m",
+                    "tgt": "s",
+                    "typ": "passive",
+                    "cd": 60000
+                }
+            ],
+            "active": [
+                {
+                    "icon": "i,i,i,i,i,cchronoAA",
+                    "mp": 0,
+                    "anim": "Attack1,Attack2",
+                    "nam": "Corrupted Sand Strike",
+                    "desc": "Deals damage based on your weapon damage. Each of your skills gets an additional benefit from hourglasses you equip in your consumables slot. Hourglasses can be obtained from the Hourglass Pet available from the Book of Lore.",
+                    "isOK": true,
+                    "range": 301,
+                    "auras": [
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                        {}
+                    ],
+                    "fx": "w",
+                    "damage": 1,
+                    "dsrc": "AP2",
+                    "id": 1486,
+                    "ref": "aa",
+                    "auto": true,
+                    "tgt": "h",
+                    "typ": "aa",
+                    "strl": "sp_corruptchaa",
+                    "cd": 2000
+                },
+                {
+                    "icon": "i,i,i,i,i,cchronoA1",
+                    "mp": 15,
+                    "nam": "Sand Rift",
+                    "anim": "Attack4",
+                    "desc": "Deals damage to your target and applies Temporal Rift to you. Temporal Rift stacks 4 times, lasts 30 seconds and is used by your other abilities.",
+                    "auras": [
+                        {},
+                        {},
+                        {}
+                    ],
+                    "isOK": true,
+                    "range": 301,
+                    "fx": "w",
+                    "damage": 0.1,
+                    "dsrc": "APSP2",
+                    "id": 1487,
+                    "ref": "a1",
+                    "tgt": "h",
+                    "typ": "pm",
+                    "strl": "sp_corruptcha1",
+                    "cd": 2500
+                },
+                {
+                    "icon": "i,i,i,i,i,cchronoA2",
+                    "nam": "Hourglass Inversion",
+                    "mp": 30,
+                    "anim": "Castgood",
+                    "auraCheck": "Temporal Rift",
+                    "desc": "Reverses time to heal you. Heal is increased by stacks of Temporal Rift and consumes those stacks.",
+                    "forceResult": "hit",
+                    "isOK": true,
+                    "range": 3000,
+                    "auras": [
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                        {}
+                    ],
+                    "fx": "w",
+                    "damage": -3,
+                    "dsrc": "Spell1",
+                    "id": 1488,
+                    "ref": "a2",
+                    "tgt": "s",
+                    "typ": "pm",
+                    "strl": "sp_corruptcha2",
+                    "cd": 8000
+                },
+                {
+                    "id": 1489,
+                    "icon": "i,i,i,i,i,cchronoA3",
+                    "ref": "a3",
+                    "nam": "Corruption Through Time",
+                    "anim": "Cast3",
+                    "mp": 20,
+                    "desc": "Applies Corruption Through Time. Corruption Through Time increases all damage you do by 20% for 10 seconds. Doesn't stack.",
+                    "auras": [
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                        {}
+                    ],
+                    "isOK": true,
+                    "range": 808,
+                    "fx": "w",
+                    "tgt": "h",
+                    "typ": "pm",
+                    "strl": "sp_corruptcha3",
+                    "cd": 6000
+                },
+                {
+                    "icon": "i,i,i,i,i,cchronoA4",
+                    "mp": 35,
+                    "nam": "Temporal Collapse",
+                    "anim": "Attack4",
+                    "desc": "If Temporal Rift is active, deal damage to your target based on the amount you've dealt in up to the past 10 seconds while it was active. Damage scales with each stack of Temporal Rift and consumes those stacks.",
+                    "auras": [
+                        {}
+                    ],
+                    "isOK": true,
+                    "range": 301,
+                    "fx": "w",
+                    "damage": 1.3,
+                    "dsrc": "Chrono2",
+                    "id": 1490,
+                    "ref": "a4",
+                    "tgt": "h",
+                    "typ": "m",
+                    "strl": "sp_corruptcha4",
+                    "cd": 15000
                 },
                 {
                     "ref": "i1",
