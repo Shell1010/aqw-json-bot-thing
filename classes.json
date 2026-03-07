@@ -18206,10 +18206,10 @@
         }
     },
     "SwordMaster": {
-        "uid": 23410,
+        "uid": 700,
         "iCP": 302500,
         "cmd": "sAct",
-        "sDesc": "The shadowy assassins of the Undead Legion, Blademasters move inhumanly fast. By the time you see them strike, their blades have already drawn blood. ",
+        "sDesc": "",
         "sClassCat": "M2",
         "aMRM": [
             "Rogues gain mana when they:\r",
@@ -18223,13 +18223,13 @@
                 "e": [
                     {
                         "val": 0.2,
-                        "id": 262,
+                        "id": "2183",
                         "sta": "scm",
                         "typ": "+"
                     },
                     {
-                        "val": 0.15,
-                        "id": 41,
+                        "val": 0.25,
+                        "id": "2180",
                         "sta": "tdo",
                         "typ": "+"
                     }
@@ -18240,7 +18240,7 @@
                 "e": [
                     {
                         "val": 1.2,
-                        "id": 907,
+                        "id": "2185",
                         "sta": "DEX",
                         "typ": "*"
                     }
@@ -18251,26 +18251,26 @@
                 "e": [
                     {
                         "val": 0.2,
-                        "id": 1,
+                        "id": "2186",
                         "sta": "cao",
                         "typ": "+"
                     }
                 ]
             }
         ],
-        "tInf": "p:23410",
+        "tInf": "p:700",
         "actions": {
             "passive": [
                 {
-                    "id": 1670,
+                    "id": "2807",
                     "ref": "p1",
                     "icon": "isp2",
                     "nam": "Keen Reflexes",
-                    "desc": "Increases critical strike damage 20% and dodge chance by 15%",
+                    "desc": "Crit Damage increased by 20% and Dodge increased by 25%.",
                     "auras": [
                         {}
                     ],
-                    "range": 301,
+                    "range": "301",
                     "isOK": true,
                     "fx": "m",
                     "tgt": "s",
@@ -18278,15 +18278,15 @@
                     "cd": 60000
                 },
                 {
-                    "id": 1671,
+                    "id": "2808",
                     "ref": "p2",
                     "icon": "isp2",
                     "nam": "Technique",
-                    "desc": "Increases Dexterity by 20%",
+                    "desc": "Starting at rank 1, your skills strike your target's Vitals, applying a DoT based on the damage of the skill used and guaranteeing that skill's chance based effects to apply. This effect has a 5 second cooldown. At rank 4, increases your Dexterity by 20%.",
                     "auras": [
                         {}
                     ],
-                    "range": 301,
+                    "range": "301",
                     "isOK": true,
                     "fx": "m",
                     "tgt": "s",
@@ -18294,15 +18294,15 @@
                     "cd": 60000
                 },
                 {
-                    "id": 1672,
+                    "id": "2809",
                     "ref": "p3",
                     "icon": "isp2",
                     "nam": "Tanden",
-                    "desc": "Increases Outgoing Damage by 20%",
+                    "desc": "Outgoing Damage increased by 20%.",
                     "auras": [
                         {}
                     ],
-                    "range": 301,
+                    "range": "301",
                     "isOK": true,
                     "fx": "m",
                     "tgt": "s",
@@ -18312,102 +18312,123 @@
             ],
             "active": [
                 {
-                    "id": 1665,
+                    "tgtMin": 1,
                     "icon": "iwd1",
-                    "ref": "aa",
-                    "mp": 0,
-                    "nam": "Nukitsuke",
+                    "mp": "0",
                     "anim": "Attack1,Attack2",
+                    "nam": "Nukitsuke",
+                    "tgtMax": 1,
                     "desc": "A blade strike from the hilt, fast enough to hit before your opponent gets a chance to act.",
+                    "range": "301",
                     "isOK": true,
-                    "range": 301,
                     "fx": "m",
                     "damage": 1,
+                    "dsrc": "AP2",
+                    "id": "2802",
+                    "ref": "aa",
                     "auto": true,
                     "tgt": "h",
                     "typ": "aa",
-                    "dsrc": "AP2",
                     "cd": 1750
                 },
                 {
                     "tgtMin": 1,
                     "icon": "imr1,isl1",
-                    "mp": 0,
-                    "anim": "Thrash",
+                    "mp": "0",
+                    "anim": "Attack1",
                     "nam": "Bladefury",
                     "tgtMax": 4,
-                    "desc": "Unleash a fury of steel to strike at up to 4 targets. This attack also has a 20% chance to apply Spinning Dragon, reducing their next attack to 0 damage.",
+                    "desc": "Unleash a fury of steel to strike at up to 4 targets. Has a 25% chance per target hit to apply Bladefury, increasing Crit Chance by 15% and Crit Damage by 50% for 5 seconds.",
                     "isOK": true,
                     "auras": [
+                        {},
+                        {},
+                        {},
+                        {},
                         {}
                     ],
-                    "range": 301,
+                    "range": "808",
                     "fx": "m",
-                    "damage": 2,
+                    "damage": 0.6,
                     "dsrc": "AP2",
-                    "id": 1666,
+                    "id": "2803",
                     "ref": "a1",
                     "tgt": "h",
                     "typ": "p",
                     "cd": 5000
                 },
                 {
-                    "id": 1667,
+                    "tgtMin": 1,
                     "icon": "ims3,imf1",
-                    "ref": "a2",
                     "nam": "Uke Negashi",
                     "anim": "Bow",
-                    "mp": 10,
-                    "desc": "A technique used to deflect incoming attacks and strike back at your target. Grants Evasion, increasing your Dodge by 25% and Crit Chance by 15% for 15 seconds.",
+                    "mp": "10",
+                    "tgtMax": 1,
+                    "desc": "A technique used to deflect incoming attacks and strike back at your target. Grants Evasion, increasing your Dodge by 25% and Crit Chance by 15% for 25 seconds. Also resets the cooldown of Technique.",
                     "auras": [
                         {}
                     ],
                     "isOK": true,
-                    "range": 301,
+                    "range": "301",
                     "fx": "m",
+                    "id": "2804",
+                    "ref": "a2",
                     "tgt": "s",
                     "typ": "p",
                     "cd": 25000
                 },
                 {
+                    "tgtMin": 1,
                     "icon": "imc1,imh2",
-                    "nam": "Sever",
+                    "mp": "15",
                     "anim": "Attack1",
-                    "mp": 15,
-                    "desc": "Strike at your target's tendons to deal moderate damage and affect their ability to fight back significantly, reducing their Outgoing Damage by 70% for 5 seconds.",
+                    "nam": "Sever",
+                    "tgtMax": 1,
+                    "desc": "Strike at your target's tendons to deal moderate damage and affect their ability to fight back significantly, reducing Outgoing Damage by 70% for 5 seconds. Also has a 35% chance to apply Precise Cut, reducing Damage Resistance by 30% for 5 seconds.",
+                    "isOK": true,
                     "auras": [
+                        {},
+                        {},
+                        {},
+                        {},
                         {}
                     ],
-                    "isOK": true,
-                    "range": 301,
+                    "range": "301",
                     "fx": "m",
-                    "damage": 1,
+                    "damage": 2.4,
                     "dsrc": "AP2",
-                    "id": 1668,
+                    "id": "2805",
                     "ref": "a3",
                     "tgt": "h",
                     "typ": "p",
                     "cd": 9000
                 },
                 {
+                    "tgtMin": 1,
                     "icon": "isl1,iwsword",
-                    "nam": "Nukiuchi",
+                    "mp": "20",
                     "anim": "Attack3",
-                    "mp": 20,
+                    "nam": "Nukiuchi",
+                    "tgtMax": 1,
                     "desc": "Attempt to split your target in two with a powerful strike. Has a 50% chance to stun your target for 2 seconds and a 50% chance to apply Spinning Dragon, reducing their next attack to 0 damage.",
+                    "isOK": true,
+                    "range": "808",
                     "auras": [
+                        {},
+                        {},
+                        {},
+                        {},
                         {},
                         {}
                     ],
-                    "isOK": true,
-                    "range": 401,
-                    "fx": "m",
-                    "damage": 3.6,
+                    "fx": "w",
+                    "damage": 5,
                     "dsrc": "AP2",
-                    "id": 1669,
+                    "id": "2806",
                     "ref": "a4",
                     "tgt": "h",
                     "typ": "p",
+                    "strl": "sp_Legion2026M1",
                     "cd": 10000
                 },
                 {
@@ -22291,6 +22312,1427 @@
                     "typ": "m",
                     "strl": "sp_corruptcha4",
                     "cd": 15000
+                },
+                {
+                    "ref": "i1",
+                    "icon": "icu1",
+                    "mp": 0,
+                    "anim": "Cheer",
+                    "nam": "Potions",
+                    "desc": "Equip a potion or scroll from your inventory to use it here.",
+                    "range": 808,
+                    "isOK": true,
+                    "fx": "",
+                    "tgt": "f",
+                    "typ": "i",
+                    "strl": "",
+                    "cd": 60000
+                }
+            ]
+        }
+    },
+    "Infinite Dark Caster": {
+        "uid": 700,
+        "iCP": 302500,
+        "cmd": "sAct",
+        "sDesc": "Your dedication to the Undead Legion has compelled Dage to grant you the immortal, timeless, and infinite power of Dark Casters past. Now you, too, may bask in the power of an era once lost. (This class shares its skills with the Evolved / Legion Dark Caster Class.)",
+        "sClassCat": "C1",
+        "aMRM": [
+            "Evolved Dark Casters gain mana from all hits landed in combat, and especially on crits.  The amount depends on damage relative to *their own* HP total."
+        ],
+        "sClassName": "Infinite Dark Caster",
+        "auras": [
+            {
+                "nam": "Vicious",
+                "e": [
+                    {
+                        "val": 0.12,
+                        "id": 140,
+                        "sta": "tcr",
+                        "typ": "+"
+                    }
+                ]
+            },
+            {
+                "nam": "Umbral Weave",
+                "e": [
+                    {
+                        "val": 0.1,
+                        "id": 22,
+                        "sta": "cao",
+                        "typ": "+"
+                    }
+                ]
+            },
+            {
+                "nam": "Dark Warp",
+                "e": [
+                    {
+                        "val": 0.15,
+                        "id": 386,
+                        "sta": "tdo",
+                        "typ": "+"
+                    }
+                ]
+            },
+            {
+                "nam": "Dracolich Spirit",
+                "e": [
+                    {
+                        "val": -0.12,
+                        "id": 387,
+                        "sta": "cpi",
+                        "typ": "+"
+                    }
+                ]
+            }
+        ],
+        "tInf": "p:700",
+        "actions": {
+            "passive": [
+                {
+                    "id": 740,
+                    "ref": "p1",
+                    "icon": "isp2",
+                    "nam": "Dark Vision",
+                    "desc": "Increase Crit by 12%",
+                    "auras": [
+                        {}
+                    ],
+                    "range": 301,
+                    "isOK": true,
+                    "fx": "m",
+                    "tgt": "s",
+                    "typ": "passive",
+                    "cd": 60000
+                },
+                {
+                    "id": 741,
+                    "ref": "p2",
+                    "icon": "isp2",
+                    "nam": "Umbral Cloak",
+                    "desc": "Damage increased by 10%, Dodge increased by 15%",
+                    "auras": [
+                        {},
+                        {}
+                    ],
+                    "range": 301,
+                    "isOK": true,
+                    "fx": "m",
+                    "tgt": "s",
+                    "typ": "passive",
+                    "cd": 60000
+                },
+                {
+                    "id": 743,
+                    "ref": "p3",
+                    "icon": "isp2",
+                    "nam": "Dracolich Spirit",
+                    "desc": "all physical damage received reduced by 12%",
+                    "auras": [
+                        {}
+                    ],
+                    "range": 301,
+                    "isOK": true,
+                    "fx": "m",
+                    "tgt": "s",
+                    "typ": "passive",
+                    "cd": 60000
+                }
+            ],
+            "active": [
+                {
+                    "icon": "iwd1",
+                    "mp": 0,
+                    "anim": "Cast1",
+                    "nam": "Dark Pulse",
+                    "desc": "A malevolent spell unique to Dark Casters. Fire out a long-range blast of dark energy, dealing 100% spell damage with a 20% chance to make your target flinch, stunning them for 1 second.",
+                    "isOK": true,
+                    "range": 808,
+                    "auras": [
+                        {}
+                    ],
+                    "fx": "w",
+                    "damage": 0.75,
+                    "dsrc": "SP2",
+                    "id": 1552,
+                    "ref": "aa",
+                    "auto": true,
+                    "tgt": "h",
+                    "typ": "aa",
+                    "strl": "sp_ed3",
+                    "cd": 1500
+                },
+                {
+                    "icon": "imf1,ieh1",
+                    "mp": 15,
+                    "nam": "Overshadowed",
+                    "anim": "Cast2",
+                    "desc": "A darkness spell that reduces hit chance and haste by 7%, causing their sight to deteriorate. Applies Blighted Sight, lowering your target's hit chance and haste slightly for each stack with a maximum of 3 stacks.",
+                    "auras": [
+                        {}
+                    ],
+                    "isOK": true,
+                    "range": 808,
+                    "fx": "w",
+                    "damage": 1.1,
+                    "dsrc": "AP2",
+                    "id": 1553,
+                    "ref": "a1",
+                    "tgt": "h",
+                    "typ": "m",
+                    "strl": "sp_ef2",
+                    "cd": 3000
+                },
+                {
+                    "tgtMin": 1,
+                    "icon": "ief2",
+                    "mp": 20,
+                    "anim": "Thrash",
+                    "nam": "Onyx Combustion",
+                    "tgtMax": 2,
+                    "desc": "Shadowy and explosive bolts are shot from your fingertips to deal moderately strong damage to two, nearby enemies.",
+                    "isOK": true,
+                    "auras": [
+                        {}
+                    ],
+                    "range": 401,
+                    "fx": "m",
+                    "damage": 1.68,
+                    "dsrc": "AP2",
+                    "id": 1555,
+                    "ref": "a2",
+                    "tgt": "h",
+                    "typ": "m",
+                    "cd": 4000
+                },
+                {
+                    "tgtMin": 1,
+                    "icon": "isf1",
+                    "nam": "Stygian Pact",
+                    "mp": 24,
+                    "anim": "Cast1",
+                    "tgtMax": 3,
+                    "desc": "As your life nears death, the Guide of the River Styx contracts with you to bring more souls to the Underworld in exchange for life and Styx Water. Heals you and 2 friendly targets and applies Styx Water to the first target, which gives a moderate heal-over-time for 12 seconds.",
+                    "isOK": true,
+                    "range": 808,
+                    "auras": [
+                        {}
+                    ],
+                    "fx": "w",
+                    "damage": -2.25,
+                    "from": "tgt",
+                    "dsrc": "APSP1",
+                    "ct": 2000,
+                    "id": 739,
+                    "ref": "a3",
+                    "tgt": "f",
+                    "typ": "m",
+                    "strl": "sp_eh1",
+                    "cd": 12000
+                },
+                {
+                    "tgtMin": 1,
+                    "icon": "isi1",
+                    "nam": "Soul Scourge",
+                    "mp": 35,
+                    "anim": "Cast3",
+                    "tgtMax": 3,
+                    "desc": "A powerful spell that unleashes the intangible and unavoidable darkness to lash out on up to 3 targets' souls. Their souls lie in agony and begin to rot, applying Decay to negate all healing for 10 seconds.",
+                    "forceResult": "crit",
+                    "isOK": true,
+                    "range": 808,
+                    "auras": [
+                        {}
+                    ],
+                    "fx": "w",
+                    "damage": 4.12,
+                    "dsrc": "AP2",
+                    "id": 1554,
+                    "ref": "a4",
+                    "tgt": "h",
+                    "typ": "m",
+                    "strl": "sp_ef2",
+                    "cd": 22000
+                },
+                {
+                    "ref": "i1",
+                    "icon": "icu1",
+                    "mp": 0,
+                    "anim": "Cheer",
+                    "nam": "Potions",
+                    "desc": "Equip a potion or scroll from your inventory to use it here.",
+                    "range": 808,
+                    "isOK": true,
+                    "fx": "",
+                    "tgt": "f",
+                    "typ": "i",
+                    "strl": "",
+                    "cd": 60000
+                }
+            ]
+        }
+    },
+    "Timeless Dark Caster": {
+        "uid": 700,
+        "iCP": 302500,
+        "cmd": "sAct",
+        "sDesc": "Dage has come around to gifting you with his skills in the Arcane Dark Arts and you have become one of his Legion's elite casters... an Arcane Dark Caster.",
+        "sClassCat": "C1",
+        "aMRM": [
+            "Arcane Dark Castersgain mana from all hits landed in combat, and especially on crits.  The amount depends on damage relative to *their own* HP total."
+        ],
+        "sClassName": "Timeless Dark Caster",
+        "auras": [
+            {
+                "nam": "Shadow Skin",
+                "e": [
+                    {
+                        "val": 0.2,
+                        "id": 351,
+                        "sta": "tdo",
+                        "typ": "+"
+                    }
+                ]
+            },
+            {
+                "nam": "Arcane Focus",
+                "e": [
+                    {
+                        "val": 0.2,
+                        "id": 246,
+                        "sta": "cmo",
+                        "typ": "+"
+                    }
+                ]
+            },
+            {
+                "nam": "Shadow Focus",
+                "e": [
+                    {
+                        "val": 0.2,
+                        "id": 482,
+                        "sta": "thi",
+                        "typ": "+"
+                    }
+                ]
+            }
+        ],
+        "tInf": "p:700",
+        "actions": {
+            "passive": [
+                {
+                    "id": 954,
+                    "ref": "p1",
+                    "icon": "isp2",
+                    "nam": "Shadow Skin",
+                    "desc": "Increases Dodge chance by 20%",
+                    "auras": [
+                        {}
+                    ],
+                    "range": 301,
+                    "isOK": true,
+                    "fx": "m",
+                    "tgt": "s",
+                    "typ": "passive",
+                    "cd": 60000
+                },
+                {
+                    "id": 955,
+                    "ref": "p2",
+                    "icon": "isp2",
+                    "nam": "Arcane Focus",
+                    "desc": "Increases Magic damage by 20%",
+                    "auras": [
+                        {}
+                    ],
+                    "range": 301,
+                    "isOK": true,
+                    "fx": "m",
+                    "tgt": "s",
+                    "typ": "passive",
+                    "cd": 60000
+                },
+                {
+                    "id": 956,
+                    "ref": "p3",
+                    "icon": "isp2",
+                    "nam": "Shadow Focus",
+                    "desc": "Increase hit rate by 20%",
+                    "auras": [
+                        {}
+                    ],
+                    "range": 301,
+                    "isOK": true,
+                    "fx": "m",
+                    "tgt": "s",
+                    "typ": "passive",
+                    "cd": 60000
+                }
+            ],
+            "active": [
+                {
+                    "icon": "iwd1",
+                    "mp": 0,
+                    "anim": "Cast1",
+                    "nam": "Dark Pulse",
+                    "desc": "A malevolent spell unique to Dark Casters. Fire out a long-range blast of dark energy, dealing 100% spell damage with a 20% chance to make your target flinch, stunning them for 1 second.",
+                    "isOK": true,
+                    "range": 808,
+                    "auras": [
+                        {}
+                    ],
+                    "fx": "w",
+                    "damage": 0.75,
+                    "dsrc": "SP2",
+                    "id": 1552,
+                    "ref": "aa",
+                    "auto": true,
+                    "tgt": "h",
+                    "typ": "aa",
+                    "strl": "sp_ed3",
+                    "cd": 1500
+                },
+                {
+                    "tgtMin": 1,
+                    "icon": "adc1",
+                    "mp": 16,
+                    "anim": "Cast1",
+                    "nam": "Envelop in Darkness",
+                    "tgtMax": 1,
+                    "desc": "You gather the darkness within and unleash it in a quick flurry of black arcane energy. Applies Consumed by Shadows which deals damage over time stacking up to 20 times and lasting 10 seconds. The duration is refreshed when restacked.",
+                    "isOK": true,
+                    "range": 3000,
+                    "auras": [
+                        {}
+                    ],
+                    "fx": "w",
+                    "damage": 0.6,
+                    "dsrc": "SP2",
+                    "id": 950,
+                    "ref": "a1",
+                    "tgt": "h",
+                    "typ": "m",
+                    "strl": "ef_spsb",
+                    "cd": 2000
+                },
+                {
+                    "tgtMin": 1,
+                    "icon": "adc2",
+                    "nam": "Dark Leech",
+                    "mp": 30,
+                    "anim": "Cast2",
+                    "tgtMax": 1,
+                    "desc": "You leach at the darkness within your foe, absorbing a steady amount of health over the course of 15 seconds. The darkness blinds them as well, reducing chance to hit by 15%. Can't miss.",
+                    "forceResult": "hit",
+                    "isOK": true,
+                    "range": 301,
+                    "auras": [
+                        {},
+                        {}
+                    ],
+                    "fx": "w",
+                    "damage": 0.8,
+                    "dsrc": "SP2",
+                    "id": 951,
+                    "ref": "a2",
+                    "tgt": "h",
+                    "typ": "m",
+                    "strl": "sp_efdl",
+                    "cd": 30000
+                },
+                {
+                    "tgtMin": 1,
+                    "icon": "adc3",
+                    "mp": 20,
+                    "anim": "Castgood:PetBuff",
+                    "nam": "Summon Arcane Shadow Minion",
+                    "tgtMax": 1,
+                    "desc": "Concentrate your shadow magic and summon an Arcane Shadow Minion to buff your dark magic and defend you. Increases all magic damage by 10% and reduces all damage taken by 5% per stack. The pact lasts for 10 seconds and can be stacked up to 5 times. Your minion is only visible when summoned out of combat and when you don't already have a pet. Otherwise they're still there, just not visible!",
+                    "isOK": true,
+                    "range": 301,
+                    "auras": [
+                        {},
+                        {}
+                    ],
+                    "fx": "w",
+                    "id": 952,
+                    "ref": "a3",
+                    "pet": 34192,
+                    "tgt": "s",
+                    "typ": "m",
+                    "strl": "sp_darkpact",
+                    "cd": 8000
+                },
+                {
+                    "tgtMin": 1,
+                    "icon": "adc4",
+                    "nam": "Arcane Overwhelming",
+                    "anim": "Attack4",
+                    "mp": 0,
+                    "tgtMax": 1,
+                    "desc": "You focus intently, completely enveloping yourself in arcane energy and rapidly regenerating mana for 5 seconds. You are Silenced for the duration, but your Dodge is increased by 30%. You also gain Arcane Unleashed, reducing all mana costs by 50% and increasing DoT damage by 50% and Haste by 30% for 20 seconds.",
+                    "auras": [
+                        {},
+                        {},
+                        {}
+                    ],
+                    "isOK": true,
+                    "range": 301,
+                    "fx": "c",
+                    "id": 953,
+                    "ref": "a4",
+                    "tgt": "s",
+                    "typ": "m",
+                    "strl": "ef_ab",
+                    "cd": 25000
+                },
+                {
+                    "ref": "i1",
+                    "icon": "icu1",
+                    "mp": 0,
+                    "anim": "Cheer",
+                    "nam": "Potions",
+                    "desc": "Equip a potion or scroll from your inventory to use it here.",
+                    "range": 808,
+                    "isOK": true,
+                    "fx": "",
+                    "tgt": "f",
+                    "typ": "i",
+                    "strl": "",
+                    "cd": 60000
+                }
+            ]
+        }
+    },
+    "Immortal Dark Caster": {
+        "uid": 700,
+        "iCP": 302500,
+        "cmd": "sAct",
+        "sDesc": "Dage the Evil's Legion is always looking for new, talented members. Dage has shared some of the secrets of his dark power with you and you have become on of his Legion's elite... a Dark Caster.",
+        "sClassCat": "C1",
+        "aMRM": [
+            "Dark Casters gain mana from all hits landed in combat, and especially on crits.  The amount depends on damage relative to *their own* HP total."
+        ],
+        "sClassName": "Immortal Dark Caster",
+        "auras": [
+            {
+                "nam": "Speed of Darkness",
+                "e": [
+                    {
+                        "val": 0.15,
+                        "id": 398,
+                        "sta": "thi",
+                        "typ": "+"
+                    },
+                    {
+                        "val": 0.15,
+                        "id": 36,
+                        "sta": "tha",
+                        "typ": "+"
+                    }
+                ]
+            },
+            {
+                "nam": "Dark Pact",
+                "e": [
+                    {
+                        "val": 0.15,
+                        "id": 2141,
+                        "sta": "cao",
+                        "typ": "+"
+                    },
+                    {
+                        "val": -0.15,
+                        "id": 215,
+                        "sta": "cai",
+                        "typ": "+"
+                    }
+                ]
+            },
+            {
+                "nam": "Stygian Blessing",
+                "e": [
+                    {
+                        "val": 0.2,
+                        "id": 211,
+                        "sta": "tcr",
+                        "typ": "+"
+                    }
+                ]
+            }
+        ],
+        "tInf": "p:700",
+        "actions": {
+            "passive": [
+                {
+                    "id": 2777,
+                    "ref": "p1",
+                    "icon": "isp2",
+                    "nam": "Speed of Darkness",
+                    "desc": "Haste and Hit Chance increased by 15%.",
+                    "auras": [
+                        {}
+                    ],
+                    "range": 301,
+                    "isOK": true,
+                    "fx": "m",
+                    "tgt": "s",
+                    "typ": "passive",
+                    "cd": 60000
+                },
+                {
+                    "id": 2778,
+                    "ref": "p2",
+                    "icon": "isp2",
+                    "nam": "Dark Pact",
+                    "desc": "Outgoing Damage and Damage Resistance increased by 15%.",
+                    "auras": [
+                        {}
+                    ],
+                    "range": 301,
+                    "isOK": true,
+                    "fx": "m",
+                    "tgt": "s",
+                    "typ": "passive",
+                    "cd": 60000
+                },
+                {
+                    "id": 2779,
+                    "ref": "p3",
+                    "icon": "isp2",
+                    "nam": "Stygian Blessing",
+                    "desc": "Crit Chance increased by 20%. The River Styx grants you momentary protection, increasing your Damage Resistance by 80% for 6 seconds upon striking a target with Dark Pulse for the first time.",
+                    "auras": [
+                        {}
+                    ],
+                    "range": 301,
+                    "isOK": true,
+                    "fx": "m",
+                    "tgt": "s",
+                    "typ": "passive",
+                    "cd": 60000
+                }
+            ],
+            "active": [
+                {
+                    "tgtMin": 1,
+                    "icon": "iwd1",
+                    "mp": 0,
+                    "anim": "Cast1",
+                    "nam": "Dark Pulse",
+                    "tgtMax": 1,
+                    "desc": "Fire out a blast of dark energy, with a 20% chance to make your target Flinch, stunning them for 1 second.",
+                    "isOK": true,
+                    "range": 808,
+                    "auras": [
+                        {},
+                        {},
+                        {}
+                    ],
+                    "fx": "w",
+                    "damage": 0.75,
+                    "dsrc": "SP2",
+                    "id": 2784,
+                    "ref": "aa",
+                    "auto": true,
+                    "tgt": "h",
+                    "typ": "aa",
+                    "hasPassives": true,
+                    "strl": "sp_ed3",
+                    "cd": 1500
+                },
+                {
+                    "tgtMin": 1,
+                    "icon": "iss1",
+                    "mp": 15,
+                    "anim": "Cast3",
+                    "nam": "Soul Grasp",
+                    "tgtMax": 1,
+                    "desc": "Magically grip your enemy's soul tighter and tighter, applying Soul Crush which reduces Outgoing Damage and Dodge by 10%, and Bound Soul, which is used by your other skills, both stacking to 3. \r\n\r\nIf Bound Soul and Branded Soul are both active, their stacks are converted to Soul Charge stacks. Effects last 10 seconds.",
+                    "isOK": true,
+                    "range": 808,
+                    "auras": [
+                        {},
+                        {},
+                        {},
+                        {}
+                    ],
+                    "fx": "w",
+                    "damage": 0.4,
+                    "dsrc": "SP2",
+                    "id": 2780,
+                    "ref": "a1",
+                    "tgt": "h",
+                    "typ": "m",
+                    "strl": "sp_Legion2026M3",
+                    "cd": 2000
+                },
+                {
+                    "tgtMin": 1,
+                    "icon": "ied2",
+                    "mp": 15,
+                    "anim": "Cast1",
+                    "nam": "Shadow Bolt",
+                    "tgtMax": 1,
+                    "desc": "A blast of charged spirit hits your target, applying Soul Burn which reduces Damage Resistance by 15%, and Branded Soul, which is used by your other skills, both stacking to 3. \r\n\r\nIf Bound Soul and Branded Soul are both active, their stacks are converted to Soul Charge stacks. Effects last 10 seconds.",
+                    "isOK": true,
+                    "range": 808,
+                    "auras": [
+                        {},
+                        {},
+                        {},
+                        {}
+                    ],
+                    "fx": "w",
+                    "damage": 0.35,
+                    "dsrc": "SP2",
+                    "id": 2781,
+                    "ref": "a2",
+                    "tgt": "h",
+                    "typ": "m",
+                    "strl": "sp_Legion2026M2",
+                    "cd": 2000
+                },
+                {
+                    "tgtMin": 1,
+                    "icon": "ied1",
+                    "nam": "Forbidden Rite",
+                    "mp": 15,
+                    "anim": "Castgood",
+                    "auraCheck": "Soul Charge",
+                    "tgtMax": 7,
+                    "desc": "Make a pact with the darkness to empower you and your allies' souls, healing based on Soul Charge stacks and consuming them. If Bound Soul is active, it's replaced with Soul Barrier, increasing Damage Resistance by 30%. If Branded Soul is active, it's replaced with Soul Conflate, increasing Crit Chance by 30%. Effects last 15 seconds.",
+                    "forceResult": "crit",
+                    "isOK": true,
+                    "range": 3000,
+                    "auras": [
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                        {}
+                    ],
+                    "fx": "w",
+                    "damage": -0.2,
+                    "dsrc": "Spell1",
+                    "id": 2782,
+                    "ref": "a3",
+                    "tgt": "f",
+                    "typ": "m",
+                    "strl": "sp_ed1v2",
+                    "cd": 8000
+                },
+                {
+                    "tgtMin": 1,
+                    "icon": "iwclaws",
+                    "nam": "Legion Strike",
+                    "mp": 35,
+                    "anim": "Cast3",
+                    "auraCheck": "Soul Charge",
+                    "tgtMax": 1,
+                    "desc": "Cast unavoidable soul shattering magic, dealing damage based on Soul Charge stacks while consuming them. If Bound Soul is active, it's replaced with Bathed in the Styx, increasing Physical Resistance by 30%. If Branded Soul is active, it's replaced with Curse of the Styx, reducing your target's Magical Resistance by 30%. Effects last 15 seconds.",
+                    "forceResult": "noMiss",
+                    "isOK": true,
+                    "range": 808,
+                    "auras": [
+                        {},
+                        {},
+                        {},
+                        {}
+                    ],
+                    "fx": "w",
+                    "damage": 1.4,
+                    "dsrc": "Spell1",
+                    "id": 2783,
+                    "ref": "a4",
+                    "tgt": "h",
+                    "typ": "m",
+                    "strl": "sp_Legion2026M4",
+                    "cd": 8000
+                },
+                {
+                    "ref": "i1",
+                    "icon": "icu1",
+                    "mp": 0,
+                    "anim": "Cheer",
+                    "nam": "Potions",
+                    "desc": "Equip a potion or scroll from your inventory to use it here.",
+                    "range": 808,
+                    "isOK": true,
+                    "fx": "",
+                    "tgt": "f",
+                    "typ": "i",
+                    "strl": "",
+                    "cd": 60000
+                }
+            ]
+        }
+    },
+    "Evolved Leprechaun": {
+        "uid": 700,
+        "iCP": 302500,
+        "cmd": "sAct",
+        "sDesc": "Luck is on your side. This green clad warrior depends heavily on it's LUCK stat to get larger and larger critical hits. ",
+        "sClassCat": "S1",
+        "aMRM": [
+            "Leprechauns gain mana when they:\r",
+            "-Strike an enemy in combat (more effective on crits)\r",
+            "-Dodge any attack (restores HP as well)"
+        ],
+        "sClassName": "Evolved Leprechaun",
+        "auras": [
+            {
+                "nam": "Gasta",
+                "e": [
+                    {
+                        "val": 0.1,
+                        "id": 2,
+                        "sta": "tha",
+                        "typ": "+"
+                    }
+                ]
+            },
+            {
+                "nam": "Gearaigh",
+                "e": [
+                    {
+                        "val": 0.1,
+                        "id": 23,
+                        "sta": "tcr",
+                        "typ": "+"
+                    }
+                ]
+            },
+            {
+                "nam": "Eirinn Go Brasch!",
+                "e": [
+                    {
+                        "val": 0.1,
+                        "id": 21,
+                        "sta": "tdo",
+                        "typ": "+"
+                    }
+                ]
+            }
+        ],
+        "tInf": "p:700",
+        "actions": {
+            "passive": [
+                {
+                    "id": 262,
+                    "ref": "p1",
+                    "icon": "isp2",
+                    "nam": "Gasta",
+                    "desc": "Increases haste by 10%",
+                    "auras": [
+                        {}
+                    ],
+                    "range": 301,
+                    "isOK": true,
+                    "fx": "m",
+                    "tgt": "s",
+                    "typ": "passive",
+                    "cd": 60000
+                },
+                {
+                    "id": 263,
+                    "ref": "p2",
+                    "icon": "isp2",
+                    "nam": "Gearaigh",
+                    "desc": "Increase Crit Chance by 10%.",
+                    "auras": [
+                        {}
+                    ],
+                    "range": 301,
+                    "isOK": true,
+                    "fx": "m",
+                    "tgt": "s",
+                    "typ": "passive",
+                    "cd": 60000
+                },
+                {
+                    "id": 1886,
+                    "ref": "p3",
+                    "icon": "isp2",
+                    "nam": "Eirinn Go Brasch!",
+                    "desc": "Increase Dodge chance by 10%",
+                    "auras": [
+                        {}
+                    ],
+                    "range": 301,
+                    "isOK": true,
+                    "fx": "m",
+                    "tgt": "s",
+                    "typ": "passive",
+                    "cd": 60000
+                }
+            ],
+            "active": [
+                {
+                    "id": 258,
+                    "icon": "iwd1",
+                    "ref": "aa",
+                    "mp": 0,
+                    "nam": "Amas",
+                    "anim": "Attack1,Attack2",
+                    "desc": "A basic attack, taught to all adventurers.",
+                    "isOK": true,
+                    "range": 301,
+                    "fx": "m",
+                    "damage": 1,
+                    "auto": true,
+                    "tgt": "h",
+                    "typ": "aa",
+                    "DmgFct": 2,
+                    "dsrc": "Lep1",
+                    "cd": 2000
+                },
+                {
+                    "icon": "iwdagger",
+                    "mp": 0,
+                    "anim": "Attack3",
+                    "nam": "Soilsigh",
+                    "desc": "Hone your aim for your foe's weak point, striking them while increasing your critical damage output. Gain Keen, increasing your Crit Damage by 50% and lasting 10 seconds. Duration cannot be refreshed. Always crits and can't miss.",
+                    "forceResult": "crit",
+                    "isOK": true,
+                    "range": 301,
+                    "auras": [
+                        {}
+                    ],
+                    "fx": "m",
+                    "damage": 0.5,
+                    "dsrc": "Lep1",
+                    "id": 259,
+                    "ref": "a1",
+                    "tgt": "h",
+                    "typ": "p",
+                    "DmgFct": 2,
+                    "cd": 16000
+                },
+                {
+                    "id": 261,
+                    "icon": "iiclass2",
+                    "ref": "a2",
+                    "nam": "Amharach",
+                    "mp": 10,
+                    "desc": "Surprise your opponent with a precisely aimed strike, dealing more damage the longer Keen has been active. Swiftly guard yourself after the strike, decreasing the damage you take by 40% for 6 seconds.",
+                    "auras": [
+                        {}
+                    ],
+                    "isOK": true,
+                    "range": 301,
+                    "fx": "m",
+                    "damage": 1,
+                    "tgt": "h",
+                    "typ": "p",
+                    "DmgFct": 2,
+                    "dsrc": "Lep2",
+                    "cd": 4000
+                },
+                {
+                    "icon": "iwd2",
+                    "nam": "Trodai",
+                    "anim": "Attack4",
+                    "mp": 10,
+                    "desc": "Take a fighting stance, striking the opponent and increasing your own fighting capabilities, gaining 10% Crit Chance and 20% Dodge for 8 seconds.",
+                    "auras": [
+                        {}
+                    ],
+                    "isOK": true,
+                    "range": 301,
+                    "fx": "m",
+                    "damage": 0.6,
+                    "dsrc": "AP2",
+                    "id": 260,
+                    "ref": "a3",
+                    "tgt": "h",
+                    "typ": "p",
+                    "DmgFct": 2,
+                    "cd": 4000
+                },
+                {
+                    "id": 264,
+                    "icon": "imc3,iwwand",
+                    "ref": "a4",
+                    "nam": "Slanaitheoir",
+                    "anim": "Castgood",
+                    "mp": 16,
+                    "desc": "Briefly invoke your ancestral luck, increasing your Crit Chance by 25%, Crit Damage by 75%, and doubling your luck for 4 seconds.",
+                    "auras": [
+                        {}
+                    ],
+                    "isOK": true,
+                    "range": 301,
+                    "fx": "m",
+                    "tgt": "s",
+                    "typ": "m",
+                    "cd": 20000
+                },
+                {
+                    "ref": "i1",
+                    "icon": "icu1",
+                    "mp": 0,
+                    "anim": "Cheer",
+                    "nam": "Potions",
+                    "desc": "Equip a potion or scroll from your inventory to use it here.",
+                    "range": 808,
+                    "isOK": true,
+                    "fx": "",
+                    "tgt": "f",
+                    "typ": "i",
+                    "strl": "",
+                    "cd": 60000
+                }
+            ]
+        }
+    },
+    "SwordMaster Assassin": {
+        "uid": 700,
+        "iCP": 302500,
+        "cmd": "sAct",
+        "sDesc": "Blademaster Assassins have always been a mystery, physically and mentally. Never seen by their foe, using the ancient ninja arts to help them overcome their enemies.",
+        "sClassCat": "M2",
+        "aMRM": [
+            "Blademaster Assassins gain mana when they:\r",
+            "-Strike an enemy in combat (more effective on crits)\r",
+            "-Dodge any attack (restores HP as well)"
+        ],
+        "sClassName": "SwordMaster Assassin",
+        "auras": [
+            {
+                "nam": "Kyushojutsu",
+                "e": [
+                    {
+                        "val": 0.12,
+                        "id": 140,
+                        "sta": "tcr",
+                        "typ": "+"
+                    }
+                ]
+            },
+            {
+                "nam": "Zanshin",
+                "e": [
+                    {
+                        "val": 0.1,
+                        "id": 19,
+                        "sta": "thi",
+                        "typ": "+"
+                    },
+                    {
+                        "val": 0.1,
+                        "id": 21,
+                        "sta": "tdo",
+                        "typ": "+"
+                    }
+                ]
+            },
+            {
+                "nam": "Taihenjutsu",
+                "e": [
+                    {
+                        "val": 0.08,
+                        "id": 489,
+                        "sta": "tha",
+                        "typ": "+"
+                    },
+                    {
+                        "val": 1.08,
+                        "id": 172,
+                        "sta": "DEX",
+                        "typ": "*"
+                    }
+                ]
+            }
+        ],
+        "tInf": "p:700",
+        "actions": {
+            "passive": [
+                {
+                    "id": 930,
+                    "ref": "p1",
+                    "icon": "isp2",
+                    "nam": "Kyushojutsu",
+                    "desc": "Increases Crit Chance by 12%",
+                    "auras": [
+                        {}
+                    ],
+                    "range": 301,
+                    "isOK": true,
+                    "fx": "m",
+                    "tgt": "s",
+                    "typ": "passive",
+                    "cd": 60000
+                },
+                {
+                    "id": 931,
+                    "ref": "p2",
+                    "icon": "isp2",
+                    "nam": "Zanshin",
+                    "desc": "Increases Hit Chance and Dodge by 10%",
+                    "auras": [
+                        {}
+                    ],
+                    "range": 301,
+                    "isOK": true,
+                    "fx": "m",
+                    "tgt": "s",
+                    "typ": "passive",
+                    "cd": 60000
+                },
+                {
+                    "id": 932,
+                    "ref": "p3",
+                    "icon": "isp2",
+                    "nam": "Taihenjutsu",
+                    "desc": "Increases Haste and Dexterity by 8%",
+                    "auras": [
+                        {}
+                    ],
+                    "range": 301,
+                    "isOK": true,
+                    "fx": "m",
+                    "tgt": "s",
+                    "typ": "passive",
+                    "cd": 60000
+                }
+            ],
+            "active": [
+                {
+                    "id": 713,
+                    "icon": "iwd1",
+                    "ref": "aa",
+                    "mp": 0,
+                    "nam": "Nukitsuke",
+                    "anim": "Attack1,Attack2",
+                    "desc": "A blade strike from the hilt, fast enough to hit before your opponent gets a chance to act.",
+                    "isOK": true,
+                    "range": 301,
+                    "fx": "m",
+                    "damage": 0.9,
+                    "auto": true,
+                    "tgt": "h",
+                    "typ": "aa",
+                    "dsrc": "AP2",
+                    "cd": 1750
+                },
+                {
+                    "tgtMin": 1,
+                    "icon": "isl1,iwsword",
+                    "mp": 5,
+                    "anim": "Unsheath",
+                    "nam": "Iaijutsu",
+                    "tgtMax": 1,
+                    "desc": "Sheaths your sword waiting for the perfect moment to strike, slashing your opponent by surprise for a guaranteed crit that can't miss. Also has a 50% chance to apply Spinning Dragon, reducing their next attack to 0 damage.",
+                    "forceResult": "crit",
+                    "isOK": true,
+                    "range": 301,
+                    "auras": [
+                        {}
+                    ],
+                    "fx": "m",
+                    "damage": 1.2,
+                    "dsrc": "AP2",
+                    "id": 926,
+                    "ref": "a1",
+                    "tgt": "h",
+                    "typ": "p",
+                    "cd": 6000
+                },
+                {
+                    "tgtMin": 1,
+                    "icon": "ied1,imf1",
+                    "nam": "Death's Dance",
+                    "anim": "Bow",
+                    "mp": 10,
+                    "tgtMax": 1,
+                    "desc": "Performs a deadly stance, increasing your Dodge by 30% and Critical Hit Damage by 20%. Also applies Do or Die, increasing your Outgoing Damage by 20% but increases your Damage Taken by 20% for the duration. Both effects last 18 seconds.",
+                    "auras": [
+                        {},
+                        {}
+                    ],
+                    "isOK": true,
+                    "range": 301,
+                    "fx": "m",
+                    "id": 927,
+                    "ref": "a2",
+                    "tgt": "s",
+                    "typ": "p",
+                    "cd": 20000
+                },
+                {
+                    "tgtMin": 1,
+                    "icon": "iea1,ime1",
+                    "nam": "Simple Solution",
+                    "mp": 15,
+                    "anim": "Cast3",
+                    "tgtMax": 3,
+                    "desc": "Deals moderately strong damage to an initial target and lesser damage to 2 other targets. Applies Slicing Winds, reducing their Crit Chance by 25% for 4 seconds.",
+                    "isOK": true,
+                    "range": 3000,
+                    "auras": [
+                        {}
+                    ],
+                    "fx": "w",
+                    "damage": 3.6,
+                    "from": "tgt",
+                    "dsrc": "AoE1",
+                    "id": 928,
+                    "ref": "a3",
+                    "tgt": "h",
+                    "typ": "p",
+                    "strl": "sp_ninja2",
+                    "cd": 8000
+                },
+                {
+                    "tgtMin": 1,
+                    "icon": "ied2,iwclaws",
+                    "mp": 20,
+                    "anim": "Cast1",
+                    "nam": "Umbral Shuriken",
+                    "tgtMax": 6,
+                    "desc": "Releases a barrage of Shurikens dealing high damage to up to 6 targets around the user. Applies Hemorrhage, inflicting a gruesome DoT and Decay, Cannot Heal!, preventing them from healing for 5 seconds.",
+                    "isOK": true,
+                    "range": 3000,
+                    "auras": [
+                        {},
+                        {}
+                    ],
+                    "fx": "p",
+                    "damage": 1.4,
+                    "dsrc": "AP2",
+                    "id": 929,
+                    "ref": "a4",
+                    "tgt": "h",
+                    "typ": "p",
+                    "strl": "sp_ninja1",
+                    "cd": 15000
+                },
+                {
+                    "ref": "i1",
+                    "icon": "icu1",
+                    "mp": 0,
+                    "anim": "Cheer",
+                    "nam": "Potions",
+                    "desc": "Equip a potion or scroll from your inventory to use it here.",
+                    "range": 808,
+                    "isOK": true,
+                    "fx": "",
+                    "tgt": "f",
+                    "typ": "i",
+                    "strl": "",
+                    "cd": 60000
+                }
+            ]
+        }
+    },
+    "Drakel Warlord": {
+        "uid": 700,
+        "iCP": 302500,
+        "cmd": "sAct",
+        "sDesc": "Drakel Warlords of kings of the arena. Using their brute strength and earned combat prowess they can dish out intimidating damage while fending bevies of physical attacks.",
+        "sClassCat": "M1",
+        "aMRM": [
+            "Drakel Warlords don't use mana. They gain power from sheer rage and fighting spirit."
+        ],
+        "sClassName": "Drakel Warlord",
+        "auras": [
+            {
+                "nam": "Expertise",
+                "e": [
+                    {
+                        "val": 0.15,
+                        "id": 37,
+                        "sta": "tcr",
+                        "typ": "+"
+                    }
+                ]
+            },
+            {
+                "nam": "Warlord's Respect",
+                "e": [
+                    {
+                        "val": -0.3,
+                        "id": 315,
+                        "sta": "cpi",
+                        "typ": "+"
+                    }
+                ]
+            },
+            {
+                "nam": "Horc Skin",
+                "e": [
+                    {
+                        "val": 1.5,
+                        "id": 111,
+                        "sta": "END",
+                        "typ": "*"
+                    }
+                ]
+            }
+        ],
+        "tInf": "p:700",
+        "actions": {
+            "passive": [
+                {
+                    "id": 1091,
+                    "ref": "p1",
+                    "icon": "isp2",
+                    "nam": "Expertise",
+                    "desc": "Increases Critical Hit Chance by 15%",
+                    "auras": [
+                        {}
+                    ],
+                    "range": 301,
+                    "isOK": true,
+                    "fx": "m",
+                    "tgt": "s",
+                    "typ": "passive",
+                    "cd": 60000
+                },
+                {
+                    "id": 1092,
+                    "ref": "p2",
+                    "icon": "isp2",
+                    "nam": "Warlord's Respect",
+                    "desc": "All physical damage taken reduced by 30%",
+                    "auras": [
+                        {}
+                    ],
+                    "range": 301,
+                    "isOK": true,
+                    "fx": "m",
+                    "tgt": "s",
+                    "typ": "passive",
+                    "cd": 60000
+                },
+                {
+                    "id": 1093,
+                    "ref": "p3",
+                    "icon": "isp2",
+                    "nam": "Drakel Skin",
+                    "desc": "Endurance increased by 50%",
+                    "auras": [
+                        {}
+                    ],
+                    "range": 301,
+                    "isOK": true,
+                    "fx": "m",
+                    "tgt": "s",
+                    "typ": "passive",
+                    "cd": 60000
+                }
+            ],
+            "active": [
+                {
+                    "tgtMin": 1,
+                    "icon": "iwsword",
+                    "mp": 0,
+                    "anim": "Attack1,Attack2",
+                    "nam": "Drakel\u2019s Crushing Strike",
+                    "tgtMax": 1,
+                    "desc": "A powerful strike meant to crush your opponents, a specialty of the Drakel Brawlers.",
+                    "range": 401,
+                    "isOK": true,
+                    "fx": "m",
+                    "damage": 2,
+                    "dsrc": "AP2",
+                    "id": 1086,
+                    "ref": "aa",
+                    "auto": true,
+                    "tgt": "h",
+                    "typ": "aa",
+                    "cd": 2000
+                },
+                {
+                    "tgtMin": 1,
+                    "icon": "drak1",
+                    "mp": 0,
+                    "anim": "UnarmedAttack2",
+                    "nam": "Strengthened Strike",
+                    "tgtMax": 1,
+                    "desc": "Tap into your Warlord strength to crush your foe. Your strengthened strike intimidates your foe, reducing any physical damage they deal by 8% for 10 seconds, up to 5 stacks.",
+                    "isOK": true,
+                    "auras": [
+                        {}
+                    ],
+                    "range": 401,
+                    "fx": "m",
+                    "damage": 1.5,
+                    "dsrc": "AP2",
+                    "id": 1087,
+                    "ref": "a1",
+                    "tgt": "h",
+                    "typ": "p",
+                    "cd": 3000
+                },
+                {
+                    "tgtMin": 1,
+                    "icon": "drak2",
+                    "nam": "Raged Strike",
+                    "anim": "Thrash",
+                    "mp": 0,
+                    "tgtMax": 3,
+                    "desc": "Your blood boils in rage, stunning your foes around you for 1 second. Your boiling blood heals your wounds over time for the next 12 seconds.",
+                    "auras": [
+                        {},
+                        {}
+                    ],
+                    "isOK": true,
+                    "range": 401,
+                    "fx": "m",
+                    "id": 1088,
+                    "ref": "a2",
+                    "tgt": "h",
+                    "typ": "p",
+                    "cd": 9000
+                },
+                {
+                    "tgtMin": 1,
+                    "icon": "drak3",
+                    "nam": "Strikes of Expertise",
+                    "anim": "Powerup",
+                    "mp": 0,
+                    "tgtMax": 1,
+                    "desc": "A warlord's experience on the battlefield allows them to position themselves to perfectly land attacks. Applies Prepared Strike, making any the next two autos done in the next 5 seconds always hit and crit.",
+                    "auras": [
+                        {}
+                    ],
+                    "isOK": true,
+                    "range": 301,
+                    "fx": "m",
+                    "id": 1089,
+                    "ref": "a3",
+                    "tgt": "s",
+                    "typ": "p",
+                    "cd": 9000
+                },
+                {
+                    "tgtMin": 1,
+                    "icon": "drak4",
+                    "nam": "Enter the Arena",
+                    "mp": 0,
+                    "anim": "Attack4",
+                    "tgtMax": 1,
+                    "desc": "Challenge your opponents, dealing guaranteed critical damage and drawing their attention for 1 second. You take a powerful stance, reducing incoming physical damage by 50% and increasing Critical Damage by 100% for 15 seconds.",
+                    "forceResult": "crit",
+                    "isOK": true,
+                    "range": 3000,
+                    "auras": [
+                        {},
+                        {}
+                    ],
+                    "fx": "p",
+                    "damage": 3,
+                    "dsrc": "AP2",
+                    "id": 1090,
+                    "ref": "a4",
+                    "tgt": "h",
+                    "typ": "p",
+                    "strl": "sp_drak4",
+                    "cd": 9000
                 },
                 {
                     "ref": "i1",
