@@ -101,5 +101,24 @@
         },
         "iRes": 1,
         "name": "chain lightning "
+    },
+    "blessed shard": {
+        "cmd": "seia",
+        "o": {
+            "id": 504,
+            "icon": "iei1,ieh1",
+            "anim": "Cast3",
+            "range": 808,
+            "fx": "p",
+            "damage": 0.5,
+            "tgt": "h",
+            "typ": "m",
+            "dsrc": "SP2",
+            "strl": "sp_ice1",
+            "filter": "Undead",
+            "cd": 30000
+        },
+        "iRes": 1,
+        "name": "blessed shard"
     }
 }
