@@ -14366,7 +14366,7 @@
         }
     },
     "Infinite Legion Dark Caster": {
-        "uid": 23410,
+        "uid": 4045,
         "iCP": 33208,
         "cmd": "sAct",
         "sDesc": "Your dedication to the Undead Legion has compelled Dage to grant you the immortal, timeless, and infinite power of Dark Casters past. Now you, too, may bask in the power of an era once lost. (This class shares its skills with the Evolved / Legion Dark Caster Class.)",
@@ -14377,48 +14377,43 @@
         "sClassName": "Infinite Legion Dark Caster",
         "auras": [
             {
-                "nam": "Vicious",
+                "nam": "Dark Vision",
                 "e": [
                     {
                         "val": 0.12,
-                        "id": 140,
+                        "id": 2188,
                         "sta": "tcr",
                         "typ": "+"
                     }
                 ]
             },
             {
-                "nam": "Umbral Weave",
+                "nam": "Umbral Cloak",
                 "e": [
                     {
                         "val": 0.1,
-                        "id": 22,
+                        "id": 2189,
                         "sta": "cao",
                         "typ": "+"
-                    }
-                ]
-            },
-            {
-                "nam": "Dark Warp",
-                "e": [
+                    },
                     {
                         "val": 0.15,
-                        "id": 386,
+                        "id": 2142,
                         "sta": "tdo",
                         "typ": "+"
                     }
                 ]
             }
         ],
-        "tInf": "p:23410",
+        "tInf": "p:4045",
         "actions": {
             "passive": [
                 {
-                    "id": 740,
+                    "id": 2811,
                     "ref": "p1",
                     "icon": "isp2",
                     "nam": "Dark Vision",
-                    "desc": "Increase Crit by 12%",
+                    "desc": "Crit Chance increased by 12%.",
                     "auras": [
                         {}
                     ],
@@ -14430,13 +14425,12 @@
                     "cd": 60000
                 },
                 {
-                    "id": 741,
+                    "id": 2812,
                     "ref": "p2",
                     "icon": "isp2",
                     "nam": "Umbral Cloak",
-                    "desc": "Damage increased by 10%, Dodge increased by 15%",
+                    "desc": "Outgoing Damage increased by 10% and Dodge increased by 15%.",
                     "auras": [
-                        {},
                         {}
                     ],
                     "range": 301,
@@ -14447,11 +14441,11 @@
                     "cd": 60000
                 },
                 {
-                    "id": 743,
+                    "id": 2813,
                     "ref": "p3",
                     "icon": "isp2",
-                    "nam": "Dracolich Spirit",
-                    "desc": "all physical damage received reduced by 12%",
+                    "nam": "Souls for the Legion",
+                    "desc": "Physical Resistance increased by 12%. Starting at rank 1, all damaging skills (except Dark Pulse) have a 35% chance per target hit to harvest Souls, which last 20 seconds and stack to 10.",
                     "auras": [
                         {}
                     ],
@@ -14469,7 +14463,7 @@
                     "mp": 0,
                     "anim": "Cast1",
                     "nam": "Dark Pulse",
-                    "desc": "A malevolent spell unique to Dark Casters. Fire out a long-range blast of dark energy, dealing 100% spell damage with a 20% chance to make your target flinch, stunning them for 1 second.",
+                    "desc": "Fire out a blast of dark energy, with a 20% chance to make your target Flinch, stunning them for 1 second.",
                     "isOK": true,
                     "range": 808,
                     "auras": [
@@ -14478,7 +14472,7 @@
                     "fx": "w",
                     "damage": 0.75,
                     "dsrc": "SP2",
-                    "id": 1552,
+                    "id": 2814,
                     "ref": "aa",
                     "auto": true,
                     "tgt": "h",
@@ -14487,46 +14481,51 @@
                     "cd": 1500
                 },
                 {
+                    "tgtMin": 1,
                     "icon": "imf1,ieh1",
                     "mp": 15,
-                    "nam": "Overshadowed",
                     "anim": "Cast2",
-                    "desc": "A darkness spell that reduces hit chance and haste by 7%, causing their sight to deteriorate. Applies Blighted Sight, lowering your target's hit chance and haste slightly for each stack with a maximum of 3 stacks.",
-                    "auras": [
-                        {}
-                    ],
+                    "nam": "Overshadowed",
+                    "tgtMax": 3,
+                    "desc": "A darkness spell that overwhelms your opponent's senses and applies Blighted Sight, reducing your target's Hit Chance and Haste by 7% for 8 seconds, stacks to 3.",
                     "isOK": true,
                     "range": 808,
+                    "auras": [
+                        {},
+                        {}
+                    ],
                     "fx": "w",
-                    "damage": 1.1,
-                    "dsrc": "AP2",
-                    "id": 1553,
+                    "damage": 0.55,
+                    "dsrc": "SP2",
+                    "id": 2815,
                     "ref": "a1",
                     "tgt": "h",
                     "typ": "m",
-                    "strl": "sp_ef2",
+                    "strl": "sp_ed1v2",
                     "cd": 3000
                 },
                 {
                     "tgtMin": 1,
                     "icon": "ief2",
                     "mp": 20,
-                    "anim": "Thrash",
+                    "anim": "Cast1",
                     "nam": "Onyx Combustion",
-                    "tgtMax": 2,
-                    "desc": "Shadowy and explosive bolts are shot from your fingertips to deal moderately strong damage to two, nearby enemies.",
+                    "tgtMax": 3,
+                    "desc": "Fire explosive bolts from your fingertips and applies Smouldering, reducing your target's Damage Resistance by 15% for 8 seconds, stacks to 3.",
                     "isOK": true,
+                    "range": 808,
                     "auras": [
+                        {},
                         {}
                     ],
-                    "range": 401,
-                    "fx": "m",
-                    "damage": 1.68,
-                    "dsrc": "AP2",
-                    "id": 1555,
+                    "fx": "w",
+                    "damage": 0.4,
+                    "dsrc": "SP2",
+                    "id": 2817,
                     "ref": "a2",
                     "tgt": "h",
                     "typ": "m",
+                    "strl": "sp_ef2",
                     "cd": 4000
                 },
                 {
@@ -14535,19 +14534,20 @@
                     "nam": "Stygian Pact",
                     "mp": 24,
                     "anim": "Cast1",
-                    "tgtMax": 3,
-                    "desc": "As your life nears death, the Guide of the River Styx contracts with you to bring more souls to the Underworld in exchange for life and Styx Water. Heals you and 2 friendly targets and applies Styx Water to the first target, which gives a moderate heal-over-time for 12 seconds.",
+                    "tgtMax": 7,
+                    "desc": "The Guide of the River Styx contracts with you to bring more souls to the Underworld in exchange for life and Styx Water. Heals you for a large amount and your allies for a smaller amount while applying Styx Water, an HoT based on your gathered Souls. Also applies Stygian Pact, increasing your Outgoing Damage by 5% each Soul, then consumes all Souls. Effects last 10 seconds.",
+                    "forceResult": "crit",
                     "isOK": true,
-                    "range": 808,
+                    "range": 3000,
                     "auras": [
+                        {},
+                        {},
                         {}
                     ],
                     "fx": "w",
-                    "damage": -2.25,
-                    "from": "tgt",
-                    "dsrc": "APSP1",
-                    "ct": 2000,
-                    "id": 739,
+                    "damage": -1.12,
+                    "dsrc": "AoE1",
+                    "id": 2810,
                     "ref": "a3",
                     "tgt": "f",
                     "typ": "m",
@@ -14561,21 +14561,22 @@
                     "mp": 35,
                     "anim": "Cast3",
                     "tgtMax": 3,
-                    "desc": "A powerful spell that unleashes the intangible and unavoidable darkness to lash out on up to 3 targets' souls. Their souls lie in agony and begin to rot, applying Decay to negate all healing for 10 seconds.",
+                    "desc": "A powerful spell that unleashes the intangible and unavoidable darkness to lash out on your target's soul. Their souls lie in agony and begin to rot, applying Decay which negates all non lifesteal healing for 10 seconds. Guaranteed to crit.",
                     "forceResult": "crit",
                     "isOK": true,
                     "range": 808,
                     "auras": [
+                        {},
                         {}
                     ],
                     "fx": "w",
                     "damage": 4.12,
-                    "dsrc": "AP2",
-                    "id": 1554,
+                    "dsrc": "SP2",
+                    "id": 2816,
                     "ref": "a4",
                     "tgt": "h",
                     "typ": "m",
-                    "strl": "sp_ef2",
+                    "strl": "sp_Legion2026M5",
                     "cd": 22000
                 },
                 {
@@ -18206,10 +18207,10 @@
         }
     },
     "SwordMaster": {
-        "uid": 700,
+        "uid": 4045,
         "iCP": 302500,
         "cmd": "sAct",
-        "sDesc": "",
+        "sDesc": "The shadowy assassins of the Undead Legion, Blademasters move inhumanly fast. By the time you see them strike, their blades have already drawn blood. ",
         "sClassCat": "M2",
         "aMRM": [
             "Rogues gain mana when they:\r",
@@ -18223,13 +18224,13 @@
                 "e": [
                     {
                         "val": 0.2,
-                        "id": "2183",
+                        "id": 2183,
                         "sta": "scm",
                         "typ": "+"
                     },
                     {
                         "val": 0.25,
-                        "id": "2180",
+                        "id": 2180,
                         "sta": "tdo",
                         "typ": "+"
                     }
@@ -18240,7 +18241,7 @@
                 "e": [
                     {
                         "val": 1.2,
-                        "id": "2185",
+                        "id": 2185,
                         "sta": "DEX",
                         "typ": "*"
                     }
@@ -18251,18 +18252,18 @@
                 "e": [
                     {
                         "val": 0.2,
-                        "id": "2186",
+                        "id": 2186,
                         "sta": "cao",
                         "typ": "+"
                     }
                 ]
             }
         ],
-        "tInf": "p:700",
+        "tInf": "p:4045",
         "actions": {
             "passive": [
                 {
-                    "id": "2807",
+                    "id": 2807,
                     "ref": "p1",
                     "icon": "isp2",
                     "nam": "Keen Reflexes",
@@ -18270,7 +18271,7 @@
                     "auras": [
                         {}
                     ],
-                    "range": "301",
+                    "range": 301,
                     "isOK": true,
                     "fx": "m",
                     "tgt": "s",
@@ -18278,7 +18279,7 @@
                     "cd": 60000
                 },
                 {
-                    "id": "2808",
+                    "id": 2808,
                     "ref": "p2",
                     "icon": "isp2",
                     "nam": "Technique",
@@ -18286,7 +18287,7 @@
                     "auras": [
                         {}
                     ],
-                    "range": "301",
+                    "range": 301,
                     "isOK": true,
                     "fx": "m",
                     "tgt": "s",
@@ -18294,7 +18295,7 @@
                     "cd": 60000
                 },
                 {
-                    "id": "2809",
+                    "id": 2809,
                     "ref": "p3",
                     "icon": "isp2",
                     "nam": "Tanden",
@@ -18302,7 +18303,7 @@
                     "auras": [
                         {}
                     ],
-                    "range": "301",
+                    "range": 301,
                     "isOK": true,
                     "fx": "m",
                     "tgt": "s",
@@ -18314,17 +18315,17 @@
                 {
                     "tgtMin": 1,
                     "icon": "iwd1",
-                    "mp": "0",
+                    "mp": 0,
                     "anim": "Attack1,Attack2",
                     "nam": "Nukitsuke",
                     "tgtMax": 1,
                     "desc": "A blade strike from the hilt, fast enough to hit before your opponent gets a chance to act.",
-                    "range": "301",
+                    "range": 301,
                     "isOK": true,
                     "fx": "m",
                     "damage": 1,
                     "dsrc": "AP2",
-                    "id": "2802",
+                    "id": 2802,
                     "ref": "aa",
                     "auto": true,
                     "tgt": "h",
@@ -18334,7 +18335,7 @@
                 {
                     "tgtMin": 1,
                     "icon": "imr1,isl1",
-                    "mp": "0",
+                    "mp": 0,
                     "anim": "Attack1",
                     "nam": "Bladefury",
                     "tgtMax": 4,
@@ -18347,11 +18348,11 @@
                         {},
                         {}
                     ],
-                    "range": "808",
+                    "range": 808,
                     "fx": "m",
                     "damage": 0.6,
                     "dsrc": "AP2",
-                    "id": "2803",
+                    "id": 2803,
                     "ref": "a1",
                     "tgt": "h",
                     "typ": "p",
@@ -18362,16 +18363,16 @@
                     "icon": "ims3,imf1",
                     "nam": "Uke Negashi",
                     "anim": "Bow",
-                    "mp": "10",
+                    "mp": 10,
                     "tgtMax": 1,
                     "desc": "A technique used to deflect incoming attacks and strike back at your target. Grants Evasion, increasing your Dodge by 25% and Crit Chance by 15% for 25 seconds. Also resets the cooldown of Technique.",
                     "auras": [
                         {}
                     ],
                     "isOK": true,
-                    "range": "301",
+                    "range": 301,
                     "fx": "m",
-                    "id": "2804",
+                    "id": 2804,
                     "ref": "a2",
                     "tgt": "s",
                     "typ": "p",
@@ -18380,7 +18381,7 @@
                 {
                     "tgtMin": 1,
                     "icon": "imc1,imh2",
-                    "mp": "15",
+                    "mp": 15,
                     "anim": "Attack1",
                     "nam": "Sever",
                     "tgtMax": 1,
@@ -18393,11 +18394,11 @@
                         {},
                         {}
                     ],
-                    "range": "301",
+                    "range": 301,
                     "fx": "m",
                     "damage": 2.4,
                     "dsrc": "AP2",
-                    "id": "2805",
+                    "id": 2805,
                     "ref": "a3",
                     "tgt": "h",
                     "typ": "p",
@@ -18406,13 +18407,13 @@
                 {
                     "tgtMin": 1,
                     "icon": "isl1,iwsword",
-                    "mp": "20",
+                    "mp": 20,
                     "anim": "Attack3",
                     "nam": "Nukiuchi",
                     "tgtMax": 1,
                     "desc": "Attempt to split your target in two with a powerful strike. Has a 50% chance to stun your target for 2 seconds and a 50% chance to apply Spinning Dragon, reducing their next attack to 0 damage.",
                     "isOK": true,
-                    "range": "808",
+                    "range": 808,
                     "auras": [
                         {},
                         {},
@@ -18424,7 +18425,7 @@
                     "fx": "w",
                     "damage": 5,
                     "dsrc": "AP2",
-                    "id": "2806",
+                    "id": 2806,
                     "ref": "a4",
                     "tgt": "h",
                     "typ": "p",
@@ -23057,10 +23058,10 @@
         }
     },
     "SwordMaster Assassin": {
-        "uid": 700,
+        "uid": 4045,
         "iCP": 302500,
         "cmd": "sAct",
-        "sDesc": "Blademaster Assassins have always been a mystery, physically and mentally. Never seen by their foe, using the ancient ninja arts to help them overcome their enemies.",
+        "sDesc": "",
         "sClassCat": "M2",
         "aMRM": [
             "Blademaster Assassins gain mana when they:\r",
@@ -23074,7 +23075,7 @@
                 "e": [
                     {
                         "val": 0.12,
-                        "id": 140,
+                        "id": "2135",
                         "sta": "tcr",
                         "typ": "+"
                     }
@@ -23085,14 +23086,8 @@
                 "e": [
                     {
                         "val": 0.1,
-                        "id": 19,
+                        "id": "2136",
                         "sta": "thi",
-                        "typ": "+"
-                    },
-                    {
-                        "val": 0.1,
-                        "id": 21,
-                        "sta": "tdo",
                         "typ": "+"
                     }
                 ]
@@ -23101,33 +23096,33 @@
                 "nam": "Taihenjutsu",
                 "e": [
                     {
-                        "val": 0.08,
-                        "id": 489,
+                        "val": 0.12,
+                        "id": "1888",
                         "sta": "tha",
                         "typ": "+"
                     },
                     {
-                        "val": 1.08,
-                        "id": 172,
+                        "val": 1.12,
+                        "id": "174",
                         "sta": "DEX",
                         "typ": "*"
                     }
                 ]
             }
         ],
-        "tInf": "p:700",
+        "tInf": "p:4045",
         "actions": {
             "passive": [
                 {
-                    "id": 930,
+                    "id": "2772",
                     "ref": "p1",
                     "icon": "isp2",
                     "nam": "Kyushojutsu",
-                    "desc": "Increases Crit Chance by 12%",
+                    "desc": "Crit Chance increased by 12%.",
                     "auras": [
                         {}
                     ],
-                    "range": 301,
+                    "range": "301",
                     "isOK": true,
                     "fx": "m",
                     "tgt": "s",
@@ -23135,15 +23130,15 @@
                     "cd": 60000
                 },
                 {
-                    "id": 931,
+                    "id": "2773",
                     "ref": "p2",
                     "icon": "isp2",
                     "nam": "Zanshin",
-                    "desc": "Increases Hit Chance and Dodge by 10%",
+                    "desc": "Hit Chance increased by 10%.",
                     "auras": [
                         {}
                     ],
-                    "range": 301,
+                    "range": "301",
                     "isOK": true,
                     "fx": "m",
                     "tgt": "s",
@@ -23151,15 +23146,15 @@
                     "cd": 60000
                 },
                 {
-                    "id": 932,
+                    "id": "2774",
                     "ref": "p3",
                     "icon": "isp2",
                     "nam": "Taihenjutsu",
-                    "desc": "Increases Haste and Dexterity by 8%",
+                    "desc": "Haste and Dexterity increased by 12%.",
                     "auras": [
                         {}
                     ],
-                    "range": 301,
+                    "range": "301",
                     "isOK": true,
                     "fx": "m",
                     "tgt": "s",
@@ -23169,44 +23164,83 @@
             ],
             "active": [
                 {
-                    "id": 713,
+                    "tgtMin": 1,
                     "icon": "iwd1",
-                    "ref": "aa",
-                    "mp": 0,
+                    "mp": "3",
+                    "anim": "Attack2",
                     "nam": "Nukitsuke",
-                    "anim": "Attack1,Attack2",
-                    "desc": "A blade strike from the hilt, fast enough to hit before your opponent gets a chance to act.",
+                    "tgtMax": 1,
+                    "desc": "A blade strike from the hilt, fast enough to hit before your opponent gets a chance to act.\r\n\r\nManually use while Sheathe is active to unsheathe, striking up to 6 targets and applying Spinning Dragon to them, reducing their next hit to 0.",
                     "isOK": true,
-                    "range": 301,
+                    "auras": [
+                        {},
+                        {},
+                        {}
+                    ],
+                    "range": "3000",
                     "fx": "m",
                     "damage": 0.9,
+                    "dsrc": "AP2",
+                    "id": "2767",
+                    "ref": "aa",
+                    "toggleAoeLimit": 6,
+                    "toggleAoe": "Sheathe",
                     "auto": true,
                     "tgt": "h",
                     "typ": "aa",
-                    "dsrc": "AP2",
                     "cd": 1750
                 },
                 {
                     "tgtMin": 1,
-                    "icon": "isl1,iwsword",
-                    "mp": 5,
-                    "anim": "Unsheath",
-                    "nam": "Iaijutsu",
-                    "tgtMax": 1,
-                    "desc": "Sheaths your sword waiting for the perfect moment to strike, slashing your opponent by surprise for a guaranteed crit that can't miss. Also has a 50% chance to apply Spinning Dragon, reducing their next attack to 0 damage.",
-                    "forceResult": "crit",
+                    "icon": "iea1,ime1",
+                    "nam": "Simple Solution",
+                    "mp": "15",
+                    "anim": "Cast3",
+                    "auraCheck": "Sheathe",
+                    "tgtMax": 6,
+                    "desc": "Deals damage and applies Slicing Winds, reducing your target's Crit Chance by 25% for 10 seconds.\r\n\r\nWhile Sheathed, deals no damage and applies Killing Edge, increasing Crit Chance and Crit Damage by 100% for 10 seconds, then immediately uses Nukitsuke afterwards.",
+                    "forceResult": "noMiss",
                     "isOK": true,
-                    "range": 301,
+                    "range": "3000",
                     "auras": [
+                        {},
                         {}
                     ],
-                    "fx": "m",
-                    "damage": 1.2,
-                    "dsrc": "AP2",
-                    "id": 926,
+                    "fx": "w",
+                    "damage": 2,
+                    "dsrc": "Spell2",
+                    "id": "2770",
                     "ref": "a1",
                     "tgt": "h",
                     "typ": "p",
+                    "strl": "sp_ninja2",
+                    "cd": 6000
+                },
+                {
+                    "tgtMin": 1,
+                    "icon": "ied2,iwclaws",
+                    "nam": "Umbral Shuriken",
+                    "mp": "15",
+                    "anim": "Cast1",
+                    "auraCheck": "Sheathe",
+                    "tgtMax": 6,
+                    "desc": "Releases a barrage of Shurikens and applies Hemorrhage for 5 seconds, a gruesome DoT for 5 seconds.\r\n\r\nWhile Sheathed, deals no damage and applies Precision Cut, reducing your target's Damage Resistance by 40% for 10 seconds and Decay, negating all non lifesteal healing received for 3 seconds, then immediately uses Nukitsuke afterwards.",
+                    "forceResult": "noMiss",
+                    "isOK": true,
+                    "range": "3000",
+                    "auras": [
+                        {},
+                        {},
+                        {}
+                    ],
+                    "fx": "p",
+                    "damage": 2.5,
+                    "dsrc": "Spell2",
+                    "id": "2771",
+                    "ref": "a2",
+                    "tgt": "h",
+                    "typ": "p",
+                    "strl": "sp_ninja1",
                     "cd": 6000
                 },
                 {
@@ -23214,69 +23248,42 @@
                     "icon": "ied1,imf1",
                     "nam": "Death's Dance",
                     "anim": "Bow",
-                    "mp": 10,
+                    "mp": "0",
                     "tgtMax": 1,
-                    "desc": "Performs a deadly stance, increasing your Dodge by 30% and Critical Hit Damage by 20%. Also applies Do or Die, increasing your Outgoing Damage by 20% but increases your Damage Taken by 20% for the duration. Both effects last 18 seconds.",
+                    "desc": "Performs a deadly stance, increasing your Dodge by 40% and reducing Damage Resistance by 20% for 10 seconds. \r\n\r\nWhile Sheathed, instead applies Prepared Strike, causing your next Nukitsuke to deal unavoidable critical damage. This effect can be stacked up to 4 additional times for bonus damage, but only deals bonus damage to the first target hit.",
                     "auras": [
                         {},
                         {}
                     ],
                     "isOK": true,
-                    "range": 301,
+                    "range": "301",
                     "fx": "m",
-                    "id": 927,
-                    "ref": "a2",
+                    "id": "2769",
+                    "ref": "a3",
                     "tgt": "s",
                     "typ": "p",
-                    "cd": 20000
+                    "cd": 2000
                 },
                 {
                     "tgtMin": 1,
-                    "icon": "iea1,ime1",
-                    "nam": "Simple Solution",
-                    "mp": 15,
-                    "anim": "Cast3",
-                    "tgtMax": 3,
-                    "desc": "Deals moderately strong damage to an initial target and lesser damage to 2 other targets. Applies Slicing Winds, reducing their Crit Chance by 25% for 4 seconds.",
-                    "isOK": true,
-                    "range": 3000,
-                    "auras": [
-                        {}
-                    ],
-                    "fx": "w",
-                    "damage": 3.6,
-                    "from": "tgt",
-                    "dsrc": "AoE1",
-                    "id": 928,
-                    "ref": "a3",
-                    "tgt": "h",
-                    "typ": "p",
-                    "strl": "sp_ninja2",
-                    "cd": 8000
-                },
-                {
-                    "tgtMin": 1,
-                    "icon": "ied2,iwclaws",
-                    "mp": 20,
-                    "anim": "Cast1",
-                    "nam": "Umbral Shuriken",
-                    "tgtMax": 6,
-                    "desc": "Releases a barrage of Shurikens dealing high damage to up to 6 targets around the user. Applies Hemorrhage, inflicting a gruesome DoT and Decay, Cannot Heal!, preventing them from healing for 5 seconds.",
-                    "isOK": true,
-                    "range": 3000,
+                    "icon": "isl1,iwsword",
+                    "nam": "Iaijutsu",
+                    "anim": "Unsheath",
+                    "mp": "0",
+                    "tgtMax": 1,
+                    "desc": "Sheaths your sword waiting for the perfect moment to strike, preventing you from using damaging skills for 2 seconds and removing Death's Dance. While Sheathed, your Damage Resistance is increased by 50% and you heal over time.",
                     "auras": [
                         {},
                         {}
                     ],
-                    "fx": "p",
-                    "damage": 1.4,
-                    "dsrc": "AP2",
-                    "id": 929,
+                    "isOK": true,
+                    "range": "3000",
+                    "fx": "m",
+                    "id": "2768",
                     "ref": "a4",
-                    "tgt": "h",
+                    "tgt": "s",
                     "typ": "p",
-                    "strl": "sp_ninja1",
-                    "cd": 15000
+                    "cd": 10000
                 },
                 {
                     "ref": "i1",
