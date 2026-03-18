@@ -65,4 +65,4 @@ class AQWMechanicsBot(commands.Bot):
     async def setup_hook(self) -> None:
         self.session = aiohttp.ClientSession()
         await self.load_all_cogs()
-        return await super().setup_hook()self.
+        return await super().setup_hook()
