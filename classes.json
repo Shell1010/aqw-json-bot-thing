@@ -15068,7 +15068,7 @@
         }
     },
     "Legion SwordMaster Assassin": {
-        "uid": 23410,
+        "uid": 3286,
         "iCP": 302500,
         "cmd": "sAct",
         "sDesc": "Legion Blademaster Assassin are the brute ninjas of the Legion. With harsh lifestyles, they can overcome any punishment to them. While being swift and nimble, they also do massive amount of damage when on the brink of death.",
@@ -15081,19 +15081,19 @@
         "sClassName": "Legion SwordMaster Assassin",
         "auras": [
             {
-                "nam": "Legion's Bargain",
+                "nam": "Legion's Boon",
                 "e": [
                     {
-                        "val": 0.1,
-                        "id": 22,
+                        "id": 2160,
+                        "typ": "+",
                         "sta": "cao",
-                        "typ": "+"
+                        "val": 0.1
                     },
                     {
-                        "val": 0.1,
-                        "id": 15,
-                        "sta": "cai",
-                        "typ": "+"
+                        "id": 2140,
+                        "typ": "+",
+                        "sta": "tha",
+                        "val": 0.1
                     }
                 ]
             },
@@ -15101,10 +15101,10 @@
                 "nam": "Requiem",
                 "e": [
                     {
-                        "val": 1.2,
-                        "id": 57,
+                        "id": 111,
+                        "typ": "*",
                         "sta": "END",
-                        "typ": "*"
+                        "val": 1.5
                     }
                 ]
             },
@@ -15112,193 +15112,214 @@
                 "nam": "Assassin's Discretion",
                 "e": [
                     {
-                        "val": 0.12,
-                        "id": 498,
+                        "id": 2163,
+                        "typ": "+",
                         "sta": "thi",
-                        "typ": "+"
+                        "val": 0.12
                     },
                     {
-                        "val": 0.12,
-                        "id": 471,
+                        "id": 140,
+                        "typ": "+",
+                        "sta": "tcr",
+                        "val": 0.12
+                    },
+                    {
+                        "id": 824,
+                        "typ": "+",
                         "sta": "tdo",
-                        "typ": "+"
+                        "val": 0.18
                     }
                 ]
             }
         ],
-        "tInf": "p:23410",
+        "tInf": "p:3286",
         "actions": {
-            "passive": [
-                {
-                    "id": 947,
-                    "ref": "p1",
-                    "icon": "isp2",
-                    "nam": "Legion's Bargain",
-                    "desc": "Increases Damage Output and Damage Taken by 10%.",
-                    "auras": [
-                        {}
-                    ],
-                    "range": 301,
-                    "isOK": true,
-                    "fx": "m",
-                    "tgt": "s",
-                    "typ": "passive",
-                    "cd": 60000
-                },
-                {
-                    "id": 948,
-                    "ref": "p2",
-                    "icon": "isp2",
-                    "nam": "Requiem",
-                    "desc": "Increases Endurance by 15%",
-                    "auras": [
-                        {}
-                    ],
-                    "range": 301,
-                    "isOK": true,
-                    "fx": "m",
-                    "tgt": "s",
-                    "typ": "passive",
-                    "cd": 60000
-                },
-                {
-                    "id": 949,
-                    "ref": "p3",
-                    "icon": "isp2",
-                    "nam": "Assassin's Discretion",
-                    "desc": "Increases Hit Chance and Dodge by 12%",
-                    "auras": [
-                        {}
-                    ],
-                    "range": 301,
-                    "isOK": true,
-                    "fx": "m",
-                    "tgt": "s",
-                    "typ": "passive",
-                    "cd": 60000
-                }
-            ],
             "active": [
                 {
-                    "id": 713,
-                    "icon": "iwd1",
-                    "ref": "aa",
-                    "mp": 0,
+                    "id": 2786,
                     "nam": "Nukitsuke",
-                    "anim": "Attack1,Attack2",
-                    "desc": "A blade strike from the hilt, fast enough to hit before your opponent gets a chance to act.",
-                    "isOK": true,
-                    "range": 301,
+                    "typ": "aa",
+                    "ref": "aa",
+                    "desc": "A blade strike from the hilt, fast enough to hit before your opponent gets a chance to act. While using Blood Arts, costs 10% of your max HP.",
+                    "tgt": "h",
+                    "tgtMax": 1,
                     "fx": "m",
                     "damage": 0.9,
+                    "dsrc": "BTX",
+                    "range": 3000,
+                    "mp": 0,
+                    "cd": 1750,
+                    "anim": "Thrash",
+                    "icon": "iwd1",
+                    "tgtMin": 1,
                     "auto": true,
-                    "tgt": "h",
-                    "typ": "aa",
-                    "dsrc": "AP2",
-                    "cd": 1750
+                    "DmgFct": 2,
+                    "xDmg": 0,
+                    "auraCheck": "Blood Arts",
+                    "isOK": true
                 },
                 {
+                    "id": 2789,
+                    "nam": "Consuming Blades",
+                    "typ": "p",
+                    "ref": "a1",
+                    "desc": "Lashes out on anyone too close, restoring 15% of your max HP per target hit. ",
+                    "tgt": "h",
+                    "tgtMax": 3,
+                    "fx": "w",
+                    "strl": "sp_ninja3",
+                    "damage": 0.55,
+                    "dsrc": "BTX",
+                    "range": 3000,
+                    "mp": 8,
+                    "cd": 5000,
+                    "anim": "Cast3",
+                    "icon": "ied5",
                     "tgtMin": 1,
-                    "icon": "isl1,iwsword",
-                    "mp": 12,
-                    "anim": "Attack3",
-                    "nam": "Diminished Steel",
-                    "tgtMax": 1,
-                    "desc": "Your inner Legion beckons, dealing more damage on the verge of death. Also has 50% chance to apply Spinning Dragon, reducing their next attack to 0 damage. Always crits and can't miss.",
-                    "forceResult": "crit",
-                    "isOK": true,
-                    "range": 301,
+                    "DmgFct": 2,
+                    "xDmg": -0.15,
+                    "auraCheck": "Burning Sensationn",
+                    "toggleAoe": "Burning Sensation",
+                    "isOK": true
+                },
+                {
+                    "id": 2790,
+                    "nam": "Dark Mantle",
+                    "typ": "p",
+                    "ref": "a2",
+                    "desc": "Unleashes a wave of darkness, applying a DoT and reducing Crit Chance by 20% for 5 seconds. While using Blood Arts, costs 10% of your max HP per target hit.",
+                    "tgt": "h",
+                    "tgtMax": 3,
+                    "fx": "w",
+                    "strl": "sp_ninja5",
+                    "damage": 0.75,
+                    "dsrc": "BTX",
+                    "range": 3000,
+                    "mp": 8,
+                    "cd": 5000,
+                    "anim": "Cast2",
+                    "icon": "ied6",
                     "auras": [
                         {}
                     ],
-                    "fx": "m",
-                    "damage": 1.35,
-                    "dsrc": "HPd",
-                    "id": 940,
-                    "ref": "a1",
-                    "tgt": "h",
-                    "typ": "p",
-                    "cd": 9000
+                    "tgtMin": 1,
+                    "DmgFct": 2,
+                    "xDmg": 0,
+                    "auraCheck": "Blood Arts",
+                    "toggleAoe": "Burning Sensation",
+                    "isOK": true
                 },
                 {
-                    "tgtMin": 1,
-                    "icon": "ipn2",
-                    "nam": "Reanimation",
-                    "anim": "Castgood",
-                    "mp": 18,
+                    "id": 2788,
+                    "nam": "River of Blood",
+                    "typ": "p",
+                    "ref": "a3",
+                    "desc": "Cast Blood Arts using the blood of the River Phlegethon, increasing Dodge, Outgoing Damage, and Crit Chance by 30%. The boiling blood deteriorates your undead form, negating all non lifesteal healing you receive. Use again to apply Burning Sensation, removing all of your skills' area of effect, increasing Crit Damage by 300%, Damage Resistance by 50%, reducing Dodge by 50%, and removing HP costs on your skills. Effects last 20 seconds.",
+                    "tgt": "s",
                     "tgtMax": 1,
-                    "desc": "As you come back to the living temporarily you empower yourself, increasing your Dodge by 25% and Outgoing Damage and Critical Strike Damage by 30% for 18 seconds. As your body deteriorates back into an undead form your flesh mutates, applying a moderate DoT to yourself while preventing you from receiving any healing from sources other than life drain for the duration.",
+                    "fx": "w",
+                    "range": 301,
+                    "mp": 0,
+                    "cd": 1500,
+                    "anim": "Cast3",
+                    "icon": "ipn2",
+                    "auras": [
+                        {},
+                        {},
+                        {}
+                    ],
+                    "tgtMin": 1,
+                    "isOK": true
+                },
+                {
+                    "id": 2787,
+                    "nam": "Diminished Steel",
+                    "typ": "p",
+                    "ref": "a4",
+                    "desc": "Your inner Legion beckons, dealing more damage on the verge of death. While Blood Arts is active, applies Spinning Dragon to your target, reducing their next attack to 0 damage and ending all Blood Arts effects. Always crits and can't miss.",
+                    "tgt": "h",
+                    "tgtMax": 3,
+                    "fx": "m",
+                    "damage": 1.5,
+                    "dsrc": "HPd",
+                    "range": 3000,
+                    "mp": 12,
+                    "cd": 10000,
+                    "anim": "Attack3",
+                    "icon": "isl1,iwsword",
                     "auras": [
                         {},
                         {}
                     ],
-                    "isOK": true,
-                    "range": 301,
-                    "fx": "p",
-                    "id": 941,
-                    "ref": "a2",
+                    "tgtMin": 1,
+                    "forceResult": "crit",
+                    "toggleAoe": "Burning Sensation",
+                    "isOK": true
+                },
+                {
+                    "nam": "Potions",
+                    "ref": "i1",
+                    "desc": "Equip a potion or scroll from your inventory to use it here.",
+                    "typ": "i",
+                    "fx": "",
+                    "strl": "",
+                    "tgt": "f",
+                    "range": 808,
+                    "mp": 0,
+                    "cd": 60000,
+                    "anim": "Cheer",
+                    "icon": "icu1",
+                    "isOK": true
+                }
+            ],
+            "passive": [
+                {
+                    "id": 2791,
+                    "nam": "Legion's Boon",
+                    "typ": "passive",
+                    "ref": "p1",
+                    "desc": "Outgoing Damage and Haste increased by 10%.",
                     "tgt": "s",
-                    "typ": "pm",
-                    "strl": "sp_ninja4",
-                    "cd": 20000
-                },
-                {
-                    "tgtMin": 1,
-                    "icon": "ied5",
-                    "mp": 20,
-                    "anim": "Cast3",
-                    "nam": "Consuming Blades",
-                    "tgtMax": 3,
-                    "desc": "Lashes out on anyone too close, dealing moderate damage at up to 3 targets while draining their life force, healing you for some of the damage done.",
-                    "isOK": true,
-                    "range": 3000,
-                    "fx": "p",
-                    "damage": 1.5,
-                    "dsrc": "Leech1",
-                    "id": 942,
-                    "ref": "a3",
-                    "tgt": "h",
-                    "typ": "p",
-                    "strl": "sp_ninja3",
-                    "cd": 11000
-                },
-                {
-                    "tgtMin": 1,
-                    "icon": "ied6",
-                    "mp": 25,
-                    "anim": "Cast2",
-                    "nam": "Dark Mantle",
-                    "tgtMax": 4,
-                    "desc": "Unleashes a wave of darkness dealing moderately strong damage at up to 4 targets around you while applying a moderate DoT and lowering their Crit Chance by 20% for 4 seconds.",
-                    "isOK": true,
-                    "range": 3000,
+                    "fx": "m",
+                    "range": 301,
+                    "icon": "isp2",
                     "auras": [
                         {}
                     ],
-                    "fx": "p",
-                    "damage": 2.2,
-                    "dsrc": "AP2",
-                    "id": 943,
-                    "ref": "a4",
-                    "tgt": "h",
-                    "typ": "p",
-                    "strl": "sp_ninja5",
-                    "cd": 10000
+                    "cd": 60000,
+                    "isOK": true
                 },
                 {
-                    "ref": "i1",
-                    "icon": "icu1",
-                    "mp": 0,
-                    "anim": "Cheer",
-                    "nam": "Potions",
-                    "desc": "Equip a potion or scroll from your inventory to use it here.",
-                    "range": 808,
-                    "isOK": true,
-                    "fx": "",
-                    "tgt": "f",
-                    "typ": "i",
-                    "strl": "",
-                    "cd": 60000
+                    "id": 2792,
+                    "nam": "Requiem",
+                    "typ": "passive",
+                    "ref": "p2",
+                    "desc": "Endurance increased by 50%.",
+                    "tgt": "s",
+                    "fx": "m",
+                    "range": 301,
+                    "icon": "isp2",
+                    "auras": [
+                        {}
+                    ],
+                    "cd": 60000,
+                    "isOK": true
+                },
+                {
+                    "id": 2793,
+                    "nam": "Assassin's Discretion",
+                    "typ": "passive",
+                    "ref": "p3",
+                    "desc": "Hit Chance and Crit Chance increased by 12% and Dodge increased by 18%.",
+                    "tgt": "s",
+                    "fx": "m",
+                    "range": 301,
+                    "icon": "isp2",
+                    "auras": [
+                        {}
+                    ],
+                    "cd": 60000,
+                    "isOK": true
                 }
             ]
         }
@@ -22101,7 +22122,7 @@
         }
     },
     "Infinite Dark Caster": {
-        "uid": 700,
+        "uid": 3286,
         "iCP": 302500,
         "cmd": "sAct",
         "sDesc": "Your dedication to the Undead Legion has compelled Dage to grant you the immortal, timeless, and infinite power of Dark Casters past. Now you, too, may bask in the power of an era once lost. (This class shares its skills with the Evolved / Legion Dark Caster Class.)",
@@ -22112,244 +22133,245 @@
         "sClassName": "Infinite Dark Caster",
         "auras": [
             {
-                "nam": "Vicious",
+                "nam": "Dark Vision",
                 "e": [
                     {
-                        "val": 0.12,
-                        "id": 140,
+                        "id": 2188,
+                        "typ": "+",
                         "sta": "tcr",
-                        "typ": "+"
+                        "val": 0.12
                     }
                 ]
             },
             {
-                "nam": "Umbral Weave",
+                "nam": "Umbral Cloak",
                 "e": [
                     {
-                        "val": 0.1,
-                        "id": 22,
+                        "id": 2189,
+                        "typ": "+",
                         "sta": "cao",
-                        "typ": "+"
-                    }
-                ]
-            },
-            {
-                "nam": "Dark Warp",
-                "e": [
+                        "val": 0.1
+                    },
                     {
-                        "val": 0.15,
-                        "id": 386,
+                        "id": 2142,
+                        "typ": "+",
                         "sta": "tdo",
-                        "typ": "+"
+                        "val": 0.15
                     }
                 ]
             },
             {
-                "nam": "Dracolich Spirit",
+                "nam": "Souls for the Legion",
                 "e": [
                     {
-                        "val": -0.12,
-                        "id": 387,
+                        "id": 2191,
+                        "typ": "+",
                         "sta": "cpi",
-                        "typ": "+"
+                        "val": -0.12
                     }
                 ]
             }
         ],
-        "tInf": "p:700",
+        "tInf": "p:3286",
         "actions": {
-            "passive": [
+            "active": [
                 {
-                    "id": 740,
-                    "ref": "p1",
-                    "icon": "isp2",
-                    "nam": "Dark Vision",
-                    "desc": "Increase Crit by 12%",
+                    "id": 2814,
+                    "nam": "Dark Pulse",
+                    "typ": "aa",
+                    "ref": "aa",
+                    "desc": "Fire out a blast of dark energy, with a 20% chance to make your target Flinch, stunning them for 1 second. Testttt",
+                    "tgt": "h",
+                    "fx": "w",
+                    "strl": "sp_ed3",
+                    "damage": 0.75,
+                    "dsrc": "SP2",
+                    "range": 808,
+                    "mp": 0,
+                    "cd": 1500,
+                    "anim": "Cast1",
+                    "icon": "iwd1",
                     "auras": [
                         {}
                     ],
-                    "range": 301,
-                    "isOK": true,
-                    "fx": "m",
-                    "tgt": "s",
-                    "typ": "passive",
-                    "cd": 60000
+                    "auto": true,
+                    "isOK": true
                 },
                 {
-                    "id": 741,
-                    "ref": "p2",
-                    "icon": "isp2",
-                    "nam": "Umbral Cloak",
-                    "desc": "Damage increased by 10%, Dodge increased by 15%",
+                    "id": 2815,
+                    "nam": "Overshadowed",
+                    "typ": "m",
+                    "ref": "a1",
+                    "desc": "A darkness spell that overwhelms your opponent's senses and applies Blighted Sight, reducing your target's Hit Chance and Haste by 7% for 8 seconds, stacks to 3.",
+                    "tgt": "h",
+                    "tgtMax": 3,
+                    "fx": "w",
+                    "strl": "sp_ed1v2",
+                    "damage": 0.55,
+                    "dsrc": "SP2",
+                    "range": 808,
+                    "mp": 15,
+                    "cd": 3000,
+                    "anim": "Cast2",
+                    "icon": "imf1,ieh1",
                     "auras": [
                         {},
                         {}
                     ],
-                    "range": 301,
-                    "isOK": true,
-                    "fx": "m",
-                    "tgt": "s",
-                    "typ": "passive",
-                    "cd": 60000
+                    "tgtMin": 1,
+                    "isOK": true
                 },
                 {
-                    "id": 743,
-                    "ref": "p3",
-                    "icon": "isp2",
-                    "nam": "Dracolich Spirit",
-                    "desc": "all physical damage received reduced by 12%",
+                    "id": 2817,
+                    "nam": "Onyx Combustion",
+                    "typ": "m",
+                    "ref": "a2",
+                    "desc": "Fire explosive bolts from your fingertips and applies Smouldering, reducing your target's Damage Resistance by 15% for 8 seconds, stacks to 3.",
+                    "tgt": "h",
+                    "tgtMax": 3,
+                    "fx": "w",
+                    "strl": "sp_ef2",
+                    "damage": 0.4,
+                    "dsrc": "SP2",
+                    "range": 808,
+                    "mp": 20,
+                    "cd": 4000,
+                    "anim": "Cast1",
+                    "icon": "ief2",
                     "auras": [
+                        {},
                         {}
                     ],
-                    "range": 301,
-                    "isOK": true,
-                    "fx": "m",
-                    "tgt": "s",
-                    "typ": "passive",
-                    "cd": 60000
+                    "tgtMin": 1,
+                    "isOK": true
+                },
+                {
+                    "id": 2810,
+                    "nam": "Stygian Pact",
+                    "typ": "m",
+                    "ref": "a3",
+                    "desc": "The Guide of the River Styx contracts with you to bring more souls to the Underworld in exchange for life and Styx Water. Heals you for a large amount and your allies for a smaller amount while applying Styx Water, an HoT based on your gathered Souls. Also applies Stygian Pact, increasing your Outgoing Damage by 5% each Soul, then consumes all Souls. Effects last 10 seconds.",
+                    "tgt": "f",
+                    "tgtMax": 7,
+                    "fx": "w",
+                    "strl": "sp_eh1",
+                    "damage": -1.12,
+                    "dsrc": "AoE1",
+                    "range": 3000,
+                    "mp": 24,
+                    "cd": 12000,
+                    "anim": "Cast1",
+                    "icon": "isf1",
+                    "auras": [
+                        {},
+                        {},
+                        {}
+                    ],
+                    "tgtMin": 1,
+                    "forceResult": "crit",
+                    "isOK": true
+                },
+                {
+                    "id": 2816,
+                    "nam": "Soul Scourge",
+                    "typ": "m",
+                    "ref": "a4",
+                    "desc": "A powerful spell that unleashes the intangible and unavoidable darkness to lash out on your target's soul. Their souls lie in agony and begin to rot, applying Decay which negates all non lifesteal healing for 10 seconds. Guaranteed to crit.",
+                    "tgt": "h",
+                    "tgtMax": 3,
+                    "fx": "w",
+                    "strl": "sp_Legion2026M5",
+                    "damage": 4.12,
+                    "dsrc": "SP2",
+                    "range": 808,
+                    "mp": 35,
+                    "cd": 22000,
+                    "anim": "Cast3",
+                    "icon": "isi1",
+                    "auras": [
+                        {},
+                        {}
+                    ],
+                    "tgtMin": 1,
+                    "forceResult": "crit",
+                    "isOK": true
+                },
+                {
+                    "nam": "Potions",
+                    "ref": "i1",
+                    "desc": "Equip a potion or scroll from your inventory to use it here.",
+                    "typ": "i",
+                    "fx": "",
+                    "strl": "",
+                    "tgt": "f",
+                    "range": 808,
+                    "mp": 0,
+                    "cd": 60000,
+                    "anim": "Cheer",
+                    "icon": "icu1",
+                    "isOK": true
                 }
             ],
-            "active": [
+            "passive": [
                 {
-                    "icon": "iwd1",
-                    "mp": 0,
-                    "anim": "Cast1",
-                    "nam": "Dark Pulse",
-                    "desc": "A malevolent spell unique to Dark Casters. Fire out a long-range blast of dark energy, dealing 100% spell damage with a 20% chance to make your target flinch, stunning them for 1 second.",
-                    "isOK": true,
-                    "range": 808,
-                    "auras": [
-                        {}
-                    ],
-                    "fx": "w",
-                    "damage": 0.75,
-                    "dsrc": "SP2",
-                    "id": 1552,
-                    "ref": "aa",
-                    "auto": true,
-                    "tgt": "h",
-                    "typ": "aa",
-                    "strl": "sp_ed3",
-                    "cd": 1500
-                },
-                {
-                    "icon": "imf1,ieh1",
-                    "mp": 15,
-                    "nam": "Overshadowed",
-                    "anim": "Cast2",
-                    "desc": "A darkness spell that reduces hit chance and haste by 7%, causing their sight to deteriorate. Applies Blighted Sight, lowering your target's hit chance and haste slightly for each stack with a maximum of 3 stacks.",
-                    "auras": [
-                        {}
-                    ],
-                    "isOK": true,
-                    "range": 808,
-                    "fx": "w",
-                    "damage": 1.1,
-                    "dsrc": "AP2",
-                    "id": 1553,
-                    "ref": "a1",
-                    "tgt": "h",
-                    "typ": "m",
-                    "strl": "sp_ef2",
-                    "cd": 3000
-                },
-                {
-                    "tgtMin": 1,
-                    "icon": "ief2",
-                    "mp": 20,
-                    "anim": "Thrash",
-                    "nam": "Onyx Combustion",
-                    "tgtMax": 2,
-                    "desc": "Shadowy and explosive bolts are shot from your fingertips to deal moderately strong damage to two, nearby enemies.",
-                    "isOK": true,
-                    "auras": [
-                        {}
-                    ],
-                    "range": 401,
+                    "id": 2811,
+                    "nam": "Dark Vision",
+                    "typ": "passive",
+                    "ref": "p1",
+                    "desc": "Crit Chance increased by 12%.",
+                    "tgt": "s",
                     "fx": "m",
-                    "damage": 1.68,
-                    "dsrc": "AP2",
-                    "id": 1555,
-                    "ref": "a2",
-                    "tgt": "h",
-                    "typ": "m",
-                    "cd": 4000
-                },
-                {
-                    "tgtMin": 1,
-                    "icon": "isf1",
-                    "nam": "Stygian Pact",
-                    "mp": 24,
-                    "anim": "Cast1",
-                    "tgtMax": 3,
-                    "desc": "As your life nears death, the Guide of the River Styx contracts with you to bring more souls to the Underworld in exchange for life and Styx Water. Heals you and 2 friendly targets and applies Styx Water to the first target, which gives a moderate heal-over-time for 12 seconds.",
-                    "isOK": true,
-                    "range": 808,
+                    "range": 301,
+                    "icon": "isp2",
                     "auras": [
                         {}
                     ],
-                    "fx": "w",
-                    "damage": -2.25,
-                    "from": "tgt",
-                    "dsrc": "APSP1",
-                    "ct": 2000,
-                    "id": 739,
-                    "ref": "a3",
-                    "tgt": "f",
-                    "typ": "m",
-                    "strl": "sp_eh1",
-                    "cd": 12000
+                    "cd": 60000,
+                    "isOK": true
                 },
                 {
-                    "tgtMin": 1,
-                    "icon": "isi1",
-                    "nam": "Soul Scourge",
-                    "mp": 35,
-                    "anim": "Cast3",
-                    "tgtMax": 3,
-                    "desc": "A powerful spell that unleashes the intangible and unavoidable darkness to lash out on up to 3 targets' souls. Their souls lie in agony and begin to rot, applying Decay to negate all healing for 10 seconds.",
-                    "forceResult": "crit",
-                    "isOK": true,
-                    "range": 808,
+                    "id": 2812,
+                    "nam": "Umbral Cloak",
+                    "typ": "passive",
+                    "ref": "p2",
+                    "desc": "Outgoing Damage increased by 10% and Dodge increased by 15%.",
+                    "tgt": "s",
+                    "fx": "m",
+                    "range": 301,
+                    "icon": "isp2",
                     "auras": [
                         {}
                     ],
-                    "fx": "w",
-                    "damage": 4.12,
-                    "dsrc": "AP2",
-                    "id": 1554,
-                    "ref": "a4",
-                    "tgt": "h",
-                    "typ": "m",
-                    "strl": "sp_ef2",
-                    "cd": 22000
+                    "cd": 60000,
+                    "isOK": true
                 },
                 {
-                    "ref": "i1",
-                    "icon": "icu1",
-                    "mp": 0,
-                    "anim": "Cheer",
-                    "nam": "Potions",
-                    "desc": "Equip a potion or scroll from your inventory to use it here.",
-                    "range": 808,
-                    "isOK": true,
-                    "fx": "",
-                    "tgt": "f",
-                    "typ": "i",
-                    "strl": "",
-                    "cd": 60000
+                    "id": 2813,
+                    "nam": "Souls for the Legion",
+                    "typ": "passive",
+                    "ref": "p3",
+                    "desc": "Physical Resistance increased by 12%. Starting at rank 1, all damaging skills (except Dark Pulse) have a 35% chance per target hit to harvest Souls, which last 20 seconds and stack to 10.",
+                    "tgt": "s",
+                    "fx": "m",
+                    "range": 301,
+                    "icon": "isp2",
+                    "auras": [
+                        {}
+                    ],
+                    "cd": 60000,
+                    "isOK": true
                 }
             ]
         }
     },
     "Timeless Dark Caster": {
-        "uid": 700,
+        "uid": 3286,
         "iCP": 302500,
         "cmd": "sAct",
         "sDesc": "Dage has come around to gifting you with his skills in the Arcane Dark Arts and you have become one of his Legion's elite casters... an Arcane Dark Caster.",
         "sClassCat": "C1",
         "aMRM": [
-            "Arcane Dark Castersgain mana from all hits landed in combat, and especially on crits.  The amount depends on damage relative to *their own* HP total."
+            "Arcane Dark Casters gain mana from all hits landed in combat, and especially on crits. The amount depends on damage relative to *their own* HP total."
         ],
         "sClassName": "Timeless Dark Caster",
         "auras": [
@@ -22357,10 +22379,10 @@
                 "nam": "Shadow Skin",
                 "e": [
                     {
-                        "val": 0.2,
-                        "id": 351,
+                        "id": 2177,
+                        "typ": "+",
                         "sta": "tdo",
-                        "typ": "+"
+                        "val": 0.2
                     }
                 ]
             },
@@ -22368,208 +22390,224 @@
                 "nam": "Arcane Focus",
                 "e": [
                     {
-                        "val": 0.2,
-                        "id": 246,
+                        "id": 2178,
+                        "typ": "+",
                         "sta": "cmo",
-                        "typ": "+"
+                        "val": 0.2
+                    },
+                    {
+                        "id": 932,
+                        "typ": "+",
+                        "sta": "thi",
+                        "val": 0.2
                     }
                 ]
             },
             {
-                "nam": "Shadow Focus",
+                "nam": "Arcane Reserves",
                 "e": [
                     {
-                        "val": 0.2,
-                        "id": 482,
-                        "sta": "thi",
-                        "typ": "+"
+                        "id": 1054,
+                        "typ": "+",
+                        "sta": "cmc",
+                        "val": -1
+                    },
+                    {
+                        "id": 36,
+                        "typ": "+",
+                        "sta": "tha",
+                        "val": 0.15
                     }
                 ]
             }
         ],
-        "tInf": "p:700",
+        "tInf": "p:3286",
         "actions": {
-            "passive": [
-                {
-                    "id": 954,
-                    "ref": "p1",
-                    "icon": "isp2",
-                    "nam": "Shadow Skin",
-                    "desc": "Increases Dodge chance by 20%",
-                    "auras": [
-                        {}
-                    ],
-                    "range": 301,
-                    "isOK": true,
-                    "fx": "m",
-                    "tgt": "s",
-                    "typ": "passive",
-                    "cd": 60000
-                },
-                {
-                    "id": 955,
-                    "ref": "p2",
-                    "icon": "isp2",
-                    "nam": "Arcane Focus",
-                    "desc": "Increases Magic damage by 20%",
-                    "auras": [
-                        {}
-                    ],
-                    "range": 301,
-                    "isOK": true,
-                    "fx": "m",
-                    "tgt": "s",
-                    "typ": "passive",
-                    "cd": 60000
-                },
-                {
-                    "id": 956,
-                    "ref": "p3",
-                    "icon": "isp2",
-                    "nam": "Shadow Focus",
-                    "desc": "Increase hit rate by 20%",
-                    "auras": [
-                        {}
-                    ],
-                    "range": 301,
-                    "isOK": true,
-                    "fx": "m",
-                    "tgt": "s",
-                    "typ": "passive",
-                    "cd": 60000
-                }
-            ],
             "active": [
                 {
-                    "icon": "iwd1",
-                    "mp": 0,
-                    "anim": "Cast1",
+                    "id": 2801,
                     "nam": "Dark Pulse",
-                    "desc": "A malevolent spell unique to Dark Casters. Fire out a long-range blast of dark energy, dealing 100% spell damage with a 20% chance to make your target flinch, stunning them for 1 second.",
-                    "isOK": true,
+                    "typ": "aa",
+                    "ref": "aa",
+                    "desc": "Fire out a blast of dark energy, with a 20% chance to make your target Flinch, stunning them for 1 second. Damage dealt is based on Spell Power and Arcane Overwhelming.",
+                    "tgt": "h",
+                    "tgtMax": 1,
+                    "fx": "w",
+                    "strl": "sp_ed3",
+                    "damage": 1.5,
+                    "dsrc": "Spell1",
                     "range": 808,
+                    "mp": 0,
+                    "cd": 1500,
+                    "anim": "Cast1",
+                    "icon": "iwd1",
                     "auras": [
                         {}
                     ],
-                    "fx": "w",
-                    "damage": 0.75,
-                    "dsrc": "SP2",
-                    "id": 1552,
-                    "ref": "aa",
+                    "tgtMin": 1,
                     "auto": true,
-                    "tgt": "h",
-                    "typ": "aa",
-                    "strl": "sp_ed3",
-                    "cd": 1500
+                    "auraCheck": "Arcane Overwhelming",
+                    "isOK": true
                 },
                 {
-                    "tgtMin": 1,
-                    "icon": "adc1",
-                    "mp": 16,
-                    "anim": "Cast1",
+                    "id": 2794,
                     "nam": "Envelop in Darkness",
+                    "typ": "m",
+                    "ref": "a1",
+                    "desc": "You gather the darkness within and unleash it in a quick flurry of black arcane energy. Inflicts your target with Consumed by Shadows, a 15 second DoT that stacks to 20.",
+                    "tgt": "h",
                     "tgtMax": 1,
-                    "desc": "You gather the darkness within and unleash it in a quick flurry of black arcane energy. Applies Consumed by Shadows which deals damage over time stacking up to 20 times and lasting 10 seconds. The duration is refreshed when restacked.",
-                    "isOK": true,
-                    "range": 3000,
-                    "auras": [
-                        {}
-                    ],
                     "fx": "w",
+                    "strl": "ef_spsb",
                     "damage": 0.6,
                     "dsrc": "SP2",
-                    "id": 950,
-                    "ref": "a1",
-                    "tgt": "h",
-                    "typ": "m",
-                    "strl": "ef_spsb",
-                    "cd": 2000
+                    "range": 3000,
+                    "mp": 15,
+                    "cd": 2000,
+                    "anim": "Cast1",
+                    "icon": "adc1",
+                    "auras": [
+                        {}
+                    ],
+                    "tgtMin": 1,
+                    "isOK": true
                 },
                 {
-                    "tgtMin": 1,
-                    "icon": "adc2",
+                    "id": 2795,
                     "nam": "Dark Leech",
-                    "mp": 30,
-                    "anim": "Cast2",
-                    "tgtMax": 1,
-                    "desc": "You leach at the darkness within your foe, absorbing a steady amount of health over the course of 15 seconds. The darkness blinds them as well, reducing chance to hit by 15%. Can't miss.",
-                    "forceResult": "hit",
-                    "isOK": true,
-                    "range": 301,
-                    "auras": [
-                        {},
-                        {}
-                    ],
-                    "fx": "w",
-                    "damage": 0.8,
-                    "dsrc": "SP2",
-                    "id": 951,
+                    "typ": "m",
                     "ref": "a2",
+                    "desc": "You leach at the darkness within your foe, absorbing health from them while damaging them over time and reducing their Hit Chance, Crit Chance, and Dodge by 15% for 15 seconds. Can't miss.",
                     "tgt": "h",
-                    "typ": "m",
-                    "strl": "sp_efdl",
-                    "cd": 30000
-                },
-                {
-                    "tgtMin": 1,
-                    "icon": "adc3",
-                    "mp": 20,
-                    "anim": "Castgood:PetBuff",
-                    "nam": "Summon Arcane Shadow Minion",
                     "tgtMax": 1,
-                    "desc": "Concentrate your shadow magic and summon an Arcane Shadow Minion to buff your dark magic and defend you. Increases all magic damage by 10% and reduces all damage taken by 5% per stack. The pact lasts for 10 seconds and can be stacked up to 5 times. Your minion is only visible when summoned out of combat and when you don't already have a pet. Otherwise they're still there, just not visible!",
-                    "isOK": true,
-                    "range": 301,
-                    "auras": [
-                        {},
-                        {}
-                    ],
                     "fx": "w",
-                    "id": 952,
-                    "ref": "a3",
-                    "pet": 34192,
-                    "tgt": "s",
-                    "typ": "m",
-                    "strl": "sp_darkpact",
-                    "cd": 8000
+                    "strl": "sp_efdl",
+                    "damage": 1,
+                    "dsrc": "Leech3",
+                    "range": 808,
+                    "mp": 20,
+                    "cd": 3000,
+                    "anim": "Cast2",
+                    "icon": "adc2",
+                    "auras": [
+                        {}
+                    ],
+                    "tgtMin": 1,
+                    "forceResult": "noMiss",
+                    "isOK": true
                 },
                 {
-                    "tgtMin": 1,
-                    "icon": "adc4",
-                    "nam": "Arcane Overwhelming",
-                    "anim": "Attack4",
-                    "mp": 0,
+                    "id": 2796,
+                    "nam": "Summon Arcane Shadow Minion",
+                    "typ": "m",
+                    "ref": "a3",
+                    "desc": "Concentrate your shadow magic and summon an Arcane Shadow Minion to buff your dark magic and defend you (only appears if summoned outside of combat). The two of you form a Pact, increasing Outgoing Damage and Damage Resistance by 10% for 15 seconds, stacks to 5. ",
+                    "tgt": "s",
                     "tgtMax": 1,
-                    "desc": "You focus intently, completely enveloping yourself in arcane energy and rapidly regenerating mana for 5 seconds. You are Silenced for the duration, but your Dodge is increased by 30%. You also gain Arcane Unleashed, reducing all mana costs by 50% and increasing DoT damage by 50% and Haste by 30% for 20 seconds.",
+                    "fx": "w",
+                    "strl": "sp_darkpact",
+                    "range": 301,
+                    "mp": 20,
+                    "cd": 2000,
+                    "anim": "Castgood:PetBuff",
+                    "icon": "adc3",
                     "auras": [
                         {},
                         {},
                         {}
                     ],
-                    "isOK": true,
-                    "range": 301,
-                    "fx": "c",
-                    "id": 953,
-                    "ref": "a4",
-                    "tgt": "s",
-                    "typ": "m",
-                    "strl": "ef_ab",
-                    "cd": 25000
+                    "tgtMin": 1,
+                    "pet": 34192,
+                    "hasPassives": true,
+                    "isOK": true
                 },
                 {
-                    "ref": "i1",
-                    "icon": "icu1",
+                    "id": 2797,
+                    "nam": "Arcane Overwhelming",
+                    "typ": "m",
+                    "ref": "a4",
+                    "desc": "You focus intently, completely enveloping yourself in arcane energy and fully restoring your mana. For 5 seconds, Dark Pulse deals damage based on your target's Consumed by Shadows stacks, your Haste and Dodge are increased by 30%, and Crit Chance by 100%. You become Silenced for the duration, being unable to use skills that cost mana.",
+                    "tgt": "h",
+                    "tgtMax": 1,
+                    "fx": "w",
+                    "strl": "ef_ab",
+                    "range": 3000,
                     "mp": 0,
-                    "anim": "Cheer",
+                    "cd": 30000,
+                    "anim": "Cast3",
+                    "icon": "adc4",
+                    "auras": [
+                        {},
+                        {}
+                    ],
+                    "tgtMin": 1,
+                    "hasPassives": true,
+                    "isOK": true
+                },
+                {
                     "nam": "Potions",
+                    "ref": "i1",
                     "desc": "Equip a potion or scroll from your inventory to use it here.",
-                    "range": 808,
-                    "isOK": true,
-                    "fx": "",
-                    "tgt": "f",
                     "typ": "i",
+                    "fx": "",
                     "strl": "",
-                    "cd": 60000
+                    "tgt": "f",
+                    "range": 808,
+                    "mp": 0,
+                    "cd": 60000,
+                    "anim": "Cheer",
+                    "icon": "icu1",
+                    "isOK": true
+                }
+            ],
+            "passive": [
+                {
+                    "id": 2798,
+                    "nam": "Shadow Skin",
+                    "typ": "passive",
+                    "ref": "p1",
+                    "desc": "Dodge increased by 20%.",
+                    "tgt": "s",
+                    "fx": "m",
+                    "range": 301,
+                    "icon": "isp2",
+                    "auras": [
+                        {}
+                    ],
+                    "cd": 60000,
+                    "isOK": true
+                },
+                {
+                    "id": 2799,
+                    "nam": "Arcane Focus",
+                    "typ": "passive",
+                    "ref": "p2",
+                    "desc": "Outgoing Magic Damage and Hit Chance increased by 20%.",
+                    "tgt": "s",
+                    "fx": "m",
+                    "range": 301,
+                    "icon": "isp2",
+                    "auras": [
+                        {}
+                    ],
+                    "cd": 60000,
+                    "isOK": true
+                },
+                {
+                    "id": 2800,
+                    "nam": "Arcane Reserves",
+                    "typ": "passive",
+                    "ref": "p3",
+                    "desc": "Haste increased by 15%. Draw upon your Arcane Shadow Minion's mana reserves while they're inactive, reducing mana costs by 100%. Each time you form a Pact with your minion, your mana costs increase by 20% for 15 seconds, up to 5 times.",
+                    "tgt": "s",
+                    "fx": "m",
+                    "range": 301,
+                    "icon": "isp2",
+                    "auras": [
+                        {}
+                    ],
+                    "cd": 60000,
+                    "isOK": true
                 }
             ]
         }
