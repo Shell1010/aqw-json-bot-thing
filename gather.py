@@ -28,7 +28,7 @@ def handle_message(msg: dict, pending: PendingClassUpdate):
     
     if pending.ready():
         process_class(pending)
-        pending.__init__()  # reset state
+        pending.__init__() 
         
 def csv_to_json():
     with open("scrolls.csv", "r") as f:

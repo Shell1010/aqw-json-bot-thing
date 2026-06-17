@@ -483,7 +483,7 @@
         }
     },
     "Alpha DOOMmega": {
-        "uid": 23877,
+        "uid": 16846,
         "iCP": 302500,
         "cmd": "sAct",
         "sDesc": "Become the Alpha AND the Omega! The beginning and the end of all your battles starts with... YOU!",
@@ -499,16 +499,16 @@
                 "nam": "Blood Commander",
                 "e": [
                     {
-                        "val": 0.1,
                         "id": 2068,
+                        "typ": "+",
                         "sta": "cpo",
-                        "typ": "+"
+                        "val": 0.1
                     },
                     {
-                        "val": 1.1,
                         "id": 144,
+                        "typ": "*",
                         "sta": "STR",
-                        "typ": "*"
+                        "val": 1.1
                     }
                 ]
             },
@@ -516,16 +516,16 @@
                 "nam": "Hybrid Armor",
                 "e": [
                     {
-                        "val": -0.15,
                         "id": 2069,
+                        "typ": "+",
                         "sta": "cpi",
-                        "typ": "+"
+                        "val": -0.15
                     },
                     {
-                        "val": -0.15,
                         "id": 2063,
+                        "typ": "+",
                         "sta": "cmi",
-                        "typ": "+"
+                        "val": -0.15
                     }
                 ]
             },
@@ -533,192 +533,203 @@
                 "nam": "Deadly Precision",
                 "e": [
                     {
-                        "val": 0.1,
                         "id": 2070,
+                        "typ": "+",
                         "sta": "tha",
-                        "typ": "+"
+                        "val": 0.1
                     },
                     {
-                        "val": 0.3,
                         "id": 27,
+                        "typ": "+",
                         "sta": "thi",
-                        "typ": "+"
+                        "val": 0.3
                     }
                 ]
             }
         ],
-        "tInf": "p:23877",
+        "tInf": "p:16846",
         "actions": {
-            "passive": [
-                {
-                    "id": 466,
-                    "ref": "p1",
-                    "icon": "isp2",
-                    "nam": "Death's Might",
-                    "desc": "Increase Str by 12%",
-                    "auras": [
-                        {}
-                    ],
-                    "range": 301,
-                    "isOK": true,
-                    "fx": "m",
-                    "tgt": "s",
-                    "typ": "passive",
-                    "cd": 60000
-                },
-                {
-                    "id": 467,
-                    "ref": "p2",
-                    "icon": "isp2",
-                    "nam": "Ruthless",
-                    "desc": "Physical Damage taken reduced by 20%",
-                    "auras": [
-                        {}
-                    ],
-                    "range": 301,
-                    "isOK": true,
-                    "fx": "m",
-                    "tgt": "s",
-                    "typ": "passive",
-                    "cd": 60000
-                },
-                {
-                    "id": 1425,
-                    "ref": "p3",
-                    "icon": "isp2",
-                    "nam": "Death's Coming",
-                    "desc": "DoT damage done increased by 20%",
-                    "auras": [
-                        {}
-                    ],
-                    "range": 301,
-                    "isOK": true,
-                    "fx": "m",
-                    "tgt": "s",
-                    "typ": "passive",
-                    "cd": 60000
-                }
-            ],
             "active": [
                 {
-                    "id": 1426,
-                    "icon": "iei3,iwd1",
-                    "ref": "aa",
-                    "nam": "Soul Slash",
-                    "anim": "Cast1,Cast2",
-                    "mp": 0,
-                    "desc": "You slowly chip away at your opponent. Applies Soul Slash to your opponent, dealing damage over time. Lasts 1 second unless reapplied and doesn't stack. Can't miss.",
-                    "auras": [
-                        {}
-                    ],
-                    "isOK": true,
-                    "range": 301,
-                    "fx": "m",
-                    "auto": true,
-                    "tgt": "h",
+                    "id": 2724,
+                    "nam": "Auto Attack",
                     "typ": "aa",
-                    "cd": 2000
-                },
-                {
-                    "id": 463,
-                    "icon": "iwsword,iei3",
-                    "ref": "a1",
-                    "nam": "Chilling Strike",
-                    "anim": "Cast1",
-                    "mp": 5,
-                    "desc": "The chill of death seeps into your foe. Death's Chill deals damage over time while Decay, Cannot Heal prevents an enemy from healing. Also applies Frozen Core which increases all DoT damage and heals received by 5% for 16 seconds and stacks to 5. Auras last 16 seconds unless reapplied. Can't miss.",
-                    "forceResult": "hit",
-                    "auras": [
-                        {},
-                        {},
-                        {}
-                    ],
-                    "isOK": true,
-                    "range": 301,
-                    "fx": "m",
+                    "ref": "aa",
+                    "desc": "A strong attack known only to disciplined fighters. Damage dealt is based on weapon damage.",
                     "tgt": "h",
-                    "typ": "p",
-                    "cd": 5000
-                },
-                {
-                    "id": 464,
-                    "icon": "iei2",
-                    "ref": "a2",
-                    "nam": "Frostfang",
-                    "anim": "Cast2",
-                    "mp": 15,
-                    "desc": "Causes Frostbite, a damage over time effect that also slows your foe's haste by 20% for 10 seconds. Can't miss.",
-                    "forceResult": "hit",
-                    "auras": [
-                        {}
-                    ],
-                    "isOK": true,
-                    "range": 301,
+                    "tgtMax": 1,
                     "fx": "m",
-                    "tgt": "h",
-                    "typ": "p",
-                    "cd": 8000
-                },
-                {
-                    "id": 465,
-                    "icon": "ied1,imh1",
-                    "ref": "a3",
-                    "nam": "Deathgrip",
-                    "anim": "CastGood",
-                    "mp": 20,
-                    "desc": "Causes Deathgrip on your foe. Your foe feels the life slowly crushed out of them causing damage over time and reducing the damage they do by 20% for 15 seconds. Has a 10% chance to stun for 6 seconds. Can't miss.",
-                    "forceResult": "hit",
-                    "auras": [
-                        {},
-                        {}
-                    ],
-                    "isOK": true,
+                    "damage": 1.1,
+                    "dsrc": "AP2",
                     "range": 301,
-                    "fx": "m",
-                    "tgt": "h",
-                    "typ": "p",
-                    "cd": 18000
-                },
-                {
-                    "id": 468,
-                    "icon": "ied1,imf1",
-                    "ref": "a4",
-                    "nam": "Death Shroud",
-                    "anim": "Castgood",
-                    "mp": 25,
-                    "desc": "You tap into the power of Death to pull your form back together. Causes you to heal over time and reduces physical damage you take by 50% for 12 seconds. Also applies Death's Release to your target dealing significant damage after 5 seconds. Can't miss.",
-                    "forceResult": "hit",
-                    "auras": [
-                        {},
-                        {}
-                    ],
-                    "isOK": true,
-                    "range": 301,
-                    "fx": "m",
-                    "tgt": "h",
-                    "typ": "m",
-                    "cd": 20000
-                },
-                {
-                    "ref": "i1",
-                    "icon": "icu1",
                     "mp": 0,
-                    "anim": "Cheer",
-                    "nam": "Potions",
-                    "desc": "Equip a potion or scroll from your inventory to use it here.",
-                    "range": 808,
-                    "isOK": true,
-                    "fx": "",
+                    "cd": 2000,
+                    "anim": "Attack1,Attack2",
+                    "icon": "iwd1",
+                    "tgtMin": 1,
+                    "auto": true,
+                    "isOK": true
+                },
+                {
+                    "id": 2725,
+                    "nam": "Double Strike",
+                    "typ": "pm",
+                    "ref": "a1",
+                    "desc": "Instantly attack, dealing additional damage based on your target's current health percentage while reducing their Damage Resistance by 15% for 5 seconds.",
+                    "tgt": "h",
+                    "tgtMax": 1,
+                    "fx": "m",
+                    "damage": 1.2,
+                    "dsrc": "cHPdt",
+                    "range": 301,
+                    "mp": 5,
+                    "cd": 2000,
+                    "anim": "Thrash",
+                    "icon": "iiclass2",
+                    "auras": [
+                        {}
+                    ],
+                    "tgtMin": 1,
+                    "isOK": true
+                },
+                {
+                    "id": 2727,
+                    "nam": "Maul",
+                    "typ": "p",
+                    "ref": "a2",
+                    "desc": "Strike and weaken an enemy, stunning them and negating all non lifesteal healing they receive for 3 seconds.",
+                    "tgt": "h",
+                    "tgtMax": 1,
+                    "fx": "w",
+                    "damage": 0.4,
+                    "dsrc": "AP2",
+                    "range": 301,
+                    "mp": 20,
+                    "cd": 10000,
+                    "anim": "Stab",
+                    "icon": "iss1",
+                    "auras": [
+                        {},
+                        {}
+                    ],
+                    "tgtMin": 1,
+                    "isOK": true
+                },
+                {
+                    "id": 2726,
+                    "nam": "Field Medic",
+                    "typ": "pm",
+                    "ref": "a3",
+                    "desc": "Heals you and up to 6 additional allies while applying Field Medic for 10 seconds, an HoT that also increases Damage and DoT Resistance by 30%.",
                     "tgt": "f",
+                    "tgtMax": 7,
+                    "fx": "w",
+                    "strl": "sp_eh1",
+                    "damage": -2.5,
+                    "dsrc": "APSP1",
+                    "range": 3000,
+                    "mp": 20,
+                    "cd": 10000,
+                    "anim": "Castgood",
+                    "icon": "imf1,ieh1",
+                    "auras": [
+                        {}
+                    ],
+                    "tgtMin": 1,
+                    "forceResult": "crit",
+                    "isOK": true
+                },
+                {
+                    "id": 2728,
+                    "nam": "Bunker Buster",
+                    "typ": "ma",
+                    "ref": "a4",
+                    "desc": "Fire an explosive, dealing unavoidable critical true damage to your target, increased the lower their health percentage is.",
+                    "tgt": "h",
+                    "tgtMax": 1,
+                    "fx": "w",
+                    "strl": "sp_AMa3",
+                    "damage": 5,
+                    "dsrc": "HPdt",
+                    "range": 808,
+                    "mp": 10,
+                    "cd": 15000,
+                    "anim": "GunAttack",
+                    "icon": "ime2",
+                    "tgtMin": 1,
+                    "forceResult": "crit",
+                    "isOK": true
+                },
+                {
+                    "nam": "Potions",
+                    "ref": "i1",
+                    "desc": "Equip a potion or scroll from your inventory to use it here.",
                     "typ": "i",
+                    "fx": "",
                     "strl": "",
-                    "cd": 60000
+                    "tgt": "f",
+                    "range": 808,
+                    "mp": 0,
+                    "cd": 60000,
+                    "anim": "Cheer",
+                    "icon": "icu1",
+                    "isOK": true
+                }
+            ],
+            "passive": [
+                {
+                    "id": 2729,
+                    "nam": "Blood Commander",
+                    "typ": "passive",
+                    "ref": "p1",
+                    "desc": "Outgoing Physical Damage and Strength increased by 10%.",
+                    "tgt": "s",
+                    "fx": "m",
+                    "range": 301,
+                    "icon": "isp2",
+                    "auras": [
+                        {}
+                    ],
+                    "cd": 60000,
+                    "isOK": true
+                },
+                {
+                    "id": 2730,
+                    "nam": "Hybrid Armor",
+                    "typ": "passive",
+                    "ref": "p2",
+                    "desc": "Physical and Magical Resistance increased by 15%.",
+                    "tgt": "s",
+                    "fx": "m",
+                    "range": 301,
+                    "icon": "isp2",
+                    "auras": [
+                        {}
+                    ],
+                    "cd": 60000,
+                    "isOK": true
+                },
+                {
+                    "id": 2731,
+                    "nam": "Deadly Precision",
+                    "typ": "passive",
+                    "ref": "p3",
+                    "desc": "Hit Chance increased by 30% and Haste increased by 10%.",
+                    "tgt": "s",
+                    "fx": "m",
+                    "range": 301,
+                    "icon": "isp2",
+                    "auras": [
+                        {}
+                    ],
+                    "cd": 60000,
+                    "isOK": true
                 }
             ]
         }
     },
     "Arachnomancer": {
-        "uid": 52322,
+        "uid": 16846,
         "iCP": 302500,
         "cmd": "sAct",
         "sDesc": "Arachnomancers are masters of the web, and the command of the spiders is at their fingertips. They possess keen intellect of stealth. Their web-weaving skills are only matched by how quickly they can inject toxic venom into their prey.",
@@ -765,7 +776,7 @@
                 ]
             }
         ],
-        "tInf": "p:52322",
+        "tInf": "p:16846",
         "actions": {
             "active": [
                 {
@@ -3594,7 +3605,7 @@
         }
     },
     "Classic Ninja": {
-        "uid": 23410,
+        "uid": 16846,
         "iCP": 28621,
         "cmd": "sAct",
         "sDesc": "Ninjas operate in silence secrecy. They are capable fighters, but prefer to attack quickly and decisively, eliminating the threat of resistance.",
@@ -3611,10 +3622,10 @@
                 "nam": "Elusive",
                 "e": [
                     {
-                        "val": 0.15,
                         "id": 41,
+                        "typ": "+",
                         "sta": "tdo",
-                        "typ": "+"
+                        "val": 0.15
                     }
                 ]
             },
@@ -3622,166 +3633,166 @@
                 "nam": "Incisive",
                 "e": [
                     {
-                        "val": 0.15,
                         "id": 37,
+                        "typ": "+",
                         "sta": "tcr",
-                        "typ": "+"
+                        "val": 0.15
                     },
                     {
-                        "val": 0.1,
                         "id": 19,
+                        "typ": "+",
                         "sta": "thi",
-                        "typ": "+"
+                        "val": 0.1
                     }
                 ]
             }
         ],
-        "tInf": "p:23410",
+        "tInf": "p:16846",
         "actions": {
-            "passive": [
-                {
-                    "id": 113,
-                    "ref": "p1",
-                    "icon": "isp2",
-                    "nam": "Elusive",
-                    "desc": "Dodge increased by 15%.",
-                    "auras": [
-                        {}
-                    ],
-                    "range": 301,
-                    "isOK": true,
-                    "fx": "m",
-                    "tgt": "s",
-                    "typ": "passive",
-                    "cd": 60000
-                },
-                {
-                    "id": 114,
-                    "ref": "p2",
-                    "icon": "isp2",
-                    "nam": "Incisive",
-                    "desc": "Hit Chance increased by 10% and Crit Chance increased by 15%.",
-                    "auras": [
-                        {}
-                    ],
-                    "range": 301,
-                    "isOK": true,
-                    "fx": "m",
-                    "tgt": "s",
-                    "typ": "passive",
-                    "cd": 60000
-                }
-            ],
             "active": [
                 {
                     "id": 108,
-                    "icon": "iwd1",
-                    "ref": "aa",
-                    "mp": 0,
                     "nam": "Auto Attack",
-                    "anim": "Attack1,Attack2",
+                    "typ": "aa",
+                    "ref": "aa",
                     "desc": "A rapid attack studied only by a reclusive few. Damage dealt is based on weapon damage.",
-                    "isOK": true,
-                    "range": 301,
+                    "tgt": "h",
                     "fx": "m",
                     "damage": 0.8,
-                    "auto": true,
-                    "tgt": "h",
-                    "typ": "aa",
-                    "DmgFct": 2,
                     "dsrc": "AP2",
-                    "cd": 1500
+                    "range": 301,
+                    "mp": 0,
+                    "cd": 1500,
+                    "anim": "Attack1,Attack2",
+                    "icon": "iwd1",
+                    "auto": true,
+                    "DmgFct": 2,
+                    "isOK": true
                 },
                 {
                     "id": 128,
-                    "icon": "imr1,iwd1",
-                    "ref": "a1",
                     "nam": "Crosscut",
-                    "anim": "Thrash",
-                    "mp": 15,
+                    "typ": "p",
+                    "ref": "a1",
                     "desc": "Instantly attack twice, dealing extra damage.",
-                    "isOK": true,
-                    "range": 301,
+                    "tgt": "h",
                     "fx": "m",
                     "damage": 1.5,
-                    "tgt": "h",
-                    "typ": "p",
                     "dsrc": "AP2",
-                    "cd": 2000
+                    "range": 301,
+                    "mp": 15,
+                    "cd": 2000,
+                    "anim": "Thrash",
+                    "icon": "imr1,iwd1",
+                    "isOK": true
                 },
                 {
-                    "icon": "ied2,iwsword",
-                    "mp": 25,
+                    "id": 129,
                     "nam": "Shadowblade",
-                    "anim": "Attack3",
+                    "typ": "pm",
+                    "ref": "a2",
                     "desc": "Deals physical and magical damage, and dramatically reduces their hit chance 6 seconds.",
-                    "auras": [
-                        {}
-                    ],
-                    "isOK": true,
-                    "range": 301,
+                    "tgt": "h",
                     "fx": "w",
+                    "strl": "sp_ed1",
                     "damage": 0.5,
                     "dsrc": "APSP2",
-                    "id": 129,
-                    "ref": "a2",
-                    "tgt": "h",
-                    "typ": "pm",
-                    "strl": "sp_ed1",
-                    "cd": 12000
-                },
-                {
-                    "icon": "ied2,ief2",
-                    "nam": "Shadowburn",
-                    "anim": "Attack4",
-                    "mp": 5,
-                    "desc": "Deals light weapon damage plus magical damage, stunning any target afflicted by Shadowblade for 3s, or returning 20 mana otherwise.",
+                    "range": 301,
+                    "mp": 25,
+                    "cd": 12000,
+                    "anim": "Attack3",
+                    "icon": "ied2,iwsword",
                     "auras": [
                         {}
                     ],
-                    "isOK": true,
-                    "range": 808,
+                    "isOK": true
+                },
+                {
+                    "id": 130,
+                    "nam": "Shadowburn",
+                    "typ": "pm",
+                    "ref": "a3",
+                    "desc": "Deals light weapon damage plus magical damage, stunning any target afflicted by Shadowblade for 3s, or returning 20 mana otherwise.",
+                    "tgt": "h",
                     "fx": "m",
                     "damage": 0.5,
                     "dsrc": "APSP2",
-                    "id": 130,
-                    "ref": "a3",
-                    "tgt": "h",
-                    "typ": "pm",
-                    "cd": 6000
+                    "range": 808,
+                    "mp": 5,
+                    "cd": 6000,
+                    "anim": "Attack4",
+                    "icon": "ied2,ief2",
+                    "auras": [
+                        {}
+                    ],
+                    "isOK": true
                 },
                 {
                     "id": 131,
-                    "icon": "iea1",
-                    "ref": "a4",
                     "nam": "Thin Air",
-                    "anim": "Bow",
-                    "mp": 30,
+                    "typ": "p",
+                    "ref": "a4",
                     "desc": "Increases Dodge and Haste by 5% every time you are hit. Lasts 30 seconds and can't be refreshed.",
+                    "tgt": "s",
+                    "fx": "m",
+                    "range": 301,
+                    "mp": 30,
+                    "cd": 30000,
+                    "anim": "Bow",
+                    "icon": "iea1",
                     "auras": [
                         {}
                     ],
-                    "isOK": true,
-                    "range": 301,
-                    "fx": "m",
-                    "tgt": "s",
-                    "typ": "p",
-                    "cd": 30000
+                    "isOK": true
                 },
                 {
-                    "ref": "i1",
-                    "icon": "icu1",
-                    "mp": 0,
-                    "anim": "Cheer",
                     "nam": "Potions",
+                    "ref": "i1",
                     "desc": "Equip a potion or scroll from your inventory to use it here.",
-                    "range": 808,
-                    "isOK": true,
-                    "fx": "",
-                    "tgt": "f",
                     "typ": "i",
+                    "fx": "",
                     "strl": "",
-                    "cd": 60000
+                    "tgt": "f",
+                    "range": 808,
+                    "mp": 0,
+                    "cd": 60000,
+                    "anim": "Cheer",
+                    "icon": "icu1",
+                    "isOK": true
+                }
+            ],
+            "passive": [
+                {
+                    "id": 113,
+                    "nam": "Elusive",
+                    "typ": "passive",
+                    "ref": "p1",
+                    "desc": "Dodge increased by 15%.",
+                    "tgt": "s",
+                    "fx": "m",
+                    "range": 301,
+                    "icon": "isp2",
+                    "auras": [
+                        {}
+                    ],
+                    "cd": 60000,
+                    "isOK": true
+                },
+                {
+                    "id": 114,
+                    "nam": "Incisive",
+                    "typ": "passive",
+                    "ref": "p2",
+                    "desc": "Hit Chance increased by 10% and Crit Chance increased by 15%.",
+                    "tgt": "s",
+                    "fx": "m",
+                    "range": 301,
+                    "icon": "isp2",
+                    "auras": [
+                        {}
+                    ],
+                    "cd": 60000,
+                    "isOK": true
                 }
             ]
         }
