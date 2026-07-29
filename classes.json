@@ -1,6 +1,6 @@
 {
     "ArchMage": {
-        "uid": 52322,
+        "uid": 26091,
         "iCP": 302500,
         "cmd": "sAct",
         "sDesc": "Mana is a permeating force, present in all life and space. Archmages guide the course of free-flowing mana in the air, creating phenomena in the physical world and altering its course.",
@@ -50,7 +50,7 @@
                 ]
             }
         ],
-        "tInf": "p:52322",
+        "tInf": "p:26091",
         "actions": {
             "active": [
                 {
@@ -1485,7 +1485,7 @@
         }
     },
     "Archivist of Time": {
-        "uid": 52322,
+        "uid": 16846,
         "iCP": 302500,
         "cmd": "sAct",
         "sDesc": "The Archivist serves as the observer of the flow, holding the power to revise timelines as they deviate.",
@@ -1527,7 +1527,7 @@
                 ]
             }
         ],
-        "tInf": "p:52322",
+        "tInf": "p:16846",
         "actions": {
             "active": [
                 {
@@ -2949,7 +2949,7 @@
         }
     },
     "Chrono DataKnight": {
-        "uid": 52322,
+        "uid": 16846,
         "iCP": 24445,
         "cmd": "sAct",
         "sDesc": "Chrono Dragonknights combine ancient Draconian magic and Chronomancy to rip deadly rifts in time.",
@@ -2990,7 +2990,7 @@
                 ]
             }
         ],
-        "tInf": "p:52322",
+        "tInf": "p:16846",
         "actions": {
             "active": [
                 {
@@ -24587,6 +24587,268 @@
                     "fx": "m",
                     "range": 301,
                     "icon": "isp2",
+                    "auras": [
+                        {}
+                    ],
+                    "cd": 60000,
+                    "isOK": true
+                }
+            ]
+        }
+    },
+    "Glacial Warlord": {
+        "cmd": "sAct",
+        "uid": 26091,
+        "sClassName": "Glacial Warlord",
+        "sClassCat": "M1",
+        "iCP": 302500,
+        "sDesc": "Glacial Warlords use their Frozen Heart ability to switch between offensive and defensive states. The strongest of the Glacial Warlords have mastered the ability to utilize both states at the same time.",
+        "aMRM": [
+            "Glacial Warlords gain mana when they:\r",
+            "-Strike an enemy in combat (more effective on crits)\r",
+            "-Are struck by an enemy in combat"
+        ],
+        "tInf": "p:26091",
+        "auras": [
+            {
+                "nam": "Heavy Armor Master",
+                "e": [
+                    {
+                        "id": 273,
+                        "typ": "+",
+                        "sta": "cai",
+                        "val": -0.5
+                    },
+                    {
+                        "id": 716,
+                        "typ": "+",
+                        "sta": "cpi",
+                        "val": -0.2
+                    }
+                ]
+            },
+            {
+                "nam": "Strong Arm",
+                "e": [
+                    {
+                        "id": 458,
+                        "typ": "*",
+                        "sta": "STR",
+                        "val": 1.5
+                    },
+                    {
+                        "id": 124,
+                        "typ": "+",
+                        "sta": "tcr",
+                        "val": -10
+                    }
+                ]
+            },
+            {
+                "nam": "Skull Crusher"
+            }
+        ],
+        "actions": {
+            "active": [
+                {
+                    "id": 2173,
+                    "nam": "Powerful Blow",
+                    "typ": "aa",
+                    "ref": "aa",
+                    "desc": "An attack that strikes with full force, but takes longer to build up power.\r\n\r\nIf Frozen Heart isn't active, applies Cryopathy to your target, reducing their Damage Resistance by 5% for 15 seconds, stacks to 10. ",
+                    "tgt": "h",
+                    "tgtMax": 1,
+                    "fx": "m",
+                    "damage": 1.75,
+                    "dsrc": "AP2",
+                    "range": 301,
+                    "mp": 0,
+                    "cd": 2750,
+                    "anim": "Attack1",
+                    "icon": "i,i,i,i,i,GlaWaa",
+                    "auras": [
+                        {},
+                        {}
+                    ],
+                    "tgtMin": 1,
+                    "auto": true,
+                    "DmgFct": 2,
+                    "auraName": "Brittle",
+                    "addCrit": -10,
+                    "hasPassives": true,
+                    "isOK": true
+                },
+                {
+                    "id": 2174,
+                    "nam": "Frozen Heart",
+                    "typ": "p",
+                    "ref": "a1",
+                    "desc": "Toggles Frozen Heart. While active, Frozen Heart reduces your Damage Resistance by 50%, causes all skills to crit, and changes the properties of your other skills. Use again to remove Frozen Heart. Can't miss.",
+                    "tgt": "h",
+                    "fx": "m",
+                    "damage": 1.5,
+                    "dsrc": "Hours1",
+                    "range": 301,
+                    "mp": 10,
+                    "cd": 2500,
+                    "anim": "Attack4",
+                    "icon": "i,i,i,i,i,GlaWa1",
+                    "auras": [
+                        {},
+                        {}
+                    ],
+                    "DmgFct": 2,
+                    "storedID": 2692,
+                    "applyAura": 1,
+                    "auraCheck": "Frozen Heart",
+                    "checkQty": 1,
+                    "forceResult": "noMiss",
+                    "addCrit": -10,
+                    "removeAura": "Frozen Heart",
+                    "isOK": true
+                },
+                {
+                    "id": 2175,
+                    "nam": "Bitter Cold",
+                    "typ": "p",
+                    "ref": "a2",
+                    "desc": "A chilling attack that freezes your target to the core, stunning them for 1 second. If Frozen Heart isn't active, applies Frigid to your target, reducing their Crit Chance by 20% for 10 seconds.\r\n\r\nIf Frozen Heart is active, applies Cold Wave to your target, reducing their Dodge by 20%. ",
+                    "tgt": "h",
+                    "tgtMax": 1,
+                    "fx": "w",
+                    "strl": "sp_GlaWa2",
+                    "damage": 2,
+                    "dsrc": "AP2",
+                    "range": 301,
+                    "mp": 15,
+                    "cd": 7000,
+                    "anim": "Attack3",
+                    "icon": "i,i,i,i,i,GlaWa2",
+                    "auras": [
+                        {},
+                        {},
+                        {}
+                    ],
+                    "tgtMin": 1,
+                    "DmgFct": 2,
+                    "auraName": "Brittle",
+                    "addCrit": -10,
+                    "hasPassives": true,
+                    "isOK": true
+                },
+                {
+                    "id": 2176,
+                    "nam": "Glacier Crush",
+                    "typ": "p",
+                    "ref": "a3",
+                    "desc": "Attack with the might of a glacier. If Frozen Heart isn't active, applies Bone Chill to your target, reducing their Haste and outgoing damage by 30% for 15 seconds.\r\n\r\nIf Frozen Heart is active, applies Frozen Ferocity, increasing your Hit Chance by 20% and Haste by 10% for 15 seconds.",
+                    "tgt": "h",
+                    "tgtMax": 1,
+                    "fx": "w",
+                    "strl": "sp_GlaWa3",
+                    "damage": 2.75,
+                    "dsrc": "AP2",
+                    "range": 301,
+                    "mp": 25,
+                    "cd": 12000,
+                    "anim": "Attack4",
+                    "icon": "i,i,i,i,i,GlaWa3",
+                    "auras": [
+                        {},
+                        {}
+                    ],
+                    "tgtMin": 1,
+                    "DmgFct": 2,
+                    "auraName": "Brittle",
+                    "addCrit": -10,
+                    "hasPassives": true,
+                    "isOK": true
+                },
+                {
+                    "id": 2177,
+                    "nam": "Warcry",
+                    "typ": "p",
+                    "ref": "a4",
+                    "desc": "An invigorating shout. If Frozen Heart isn't active, heals you and up to 6 allies while applying Warlord's Rally, increasing Crit Chance and Damage Resistance by 25% and reducing mana costs by 50% for 20 seconds. \r\n\r\nIf Frozen Heart is active, heals you and applies Warcry, healing you over time and increasing your Crit Damage by 75% for 20 seconds.",
+                    "tgt": "f",
+                    "tgtMax": 7,
+                    "fx": "w",
+                    "strl": "sp_classm6",
+                    "damage": -8,
+                    "dsrc": "AP1",
+                    "range": 3000,
+                    "mp": 10,
+                    "cd": 14000,
+                    "anim": "Psychic2",
+                    "icon": "i,i,i,i,i,GlaWa4",
+                    "auras": [
+                        {},
+                        {}
+                    ],
+                    "tgtMin": 1,
+                    "toggleAoe": "Frozen Heart",
+                    "addCrit": -10,
+                    "isOK": true
+                },
+                {
+                    "nam": "Potions",
+                    "ref": "i1",
+                    "desc": "Equip a potion or scroll from your inventory to use it here.",
+                    "typ": "i",
+                    "fx": "",
+                    "strl": "",
+                    "tgt": "f",
+                    "range": 808,
+                    "mp": 0,
+                    "cd": 60000,
+                    "anim": "Cheer",
+                    "icon": "icu1",
+                    "isOK": true
+                }
+            ],
+            "passive": [
+                {
+                    "id": 2179,
+                    "nam": "Heavy Armor Master",
+                    "typ": "passive",
+                    "ref": "p1",
+                    "desc": "Damage Resistance Increased by 50% and Physical Resistance increased by 20%.",
+                    "tgt": "s",
+                    "fx": "m",
+                    "range": 301,
+                    "icon": "i,i,i,i,i,GlaWp1",
+                    "auras": [
+                        {}
+                    ],
+                    "cd": 60000,
+                    "isOK": true
+                },
+                {
+                    "id": 2178,
+                    "nam": "Strong Arm",
+                    "typ": "passive",
+                    "ref": "p2",
+                    "desc": "Strength increased by 50%.",
+                    "tgt": "s",
+                    "fx": "m",
+                    "range": 301,
+                    "icon": "i,i,i,i,i,GlaWp1",
+                    "auras": [
+                        {}
+                    ],
+                    "cd": 60000,
+                    "isOK": true
+                },
+                {
+                    "id": 727,
+                    "nam": "Skull Crusher",
+                    "typ": "passive",
+                    "ref": "p3",
+                    "desc": "Starting at rank 1, all skills can't crit unless Frozen Heart is active. At rank 10, if Frozen Heart is active, Powerful Blow applies Skull Crusher, increasing your outgoing damage by 5% for 15 seconds, stacks to 10.",
+                    "tgt": "s",
+                    "fx": "m",
+                    "range": 301,
+                    "icon": "i,i,i,i,i,GlaWp1",
                     "auras": [
                         {}
                     ],
