@@ -1,6 +1,6 @@
 {
     "ArchMage": {
-        "uid": 26091,
+        "uid": 6552,
         "iCP": 302500,
         "cmd": "sAct",
         "sDesc": "Mana is a permeating force, present in all life and space. Archmages guide the course of free-flowing mana in the air, creating phenomena in the physical world and altering its course.",
@@ -50,7 +50,7 @@
                 ]
             }
         ],
-        "tInf": "p:26091",
+        "tInf": "p:6552",
         "actions": {
             "active": [
                 {
@@ -3157,7 +3157,7 @@
         }
     },
     "Chrono ShadowHunter": {
-        "uid": 24438,
+        "uid": 6552,
         "iCP": 302500,
         "cmd": "sAct",
         "sDesc": "The beasts lurking in the shadows can not be allowed a foothold in any place or time. Thanks to the Chrono Shadowslayers, dark forests and bloodthirsty creatures are excised from history.",
@@ -3171,10 +3171,10 @@
                 "nam": "Reinforced Chamber",
                 "e": [
                     {
-                        "val": 0.1,
                         "id": 1223,
+                        "typ": "+",
                         "sta": "cao",
-                        "typ": "+"
+                        "val": 0.1
                     }
                 ]
             },
@@ -3182,10 +3182,10 @@
                 "nam": "Sharpshooter",
                 "e": [
                     {
-                        "val": 0.1,
                         "id": 893,
+                        "typ": "+",
                         "sta": "tcr",
-                        "typ": "+"
+                        "val": 0.1
                     }
                 ]
             },
@@ -3193,222 +3193,222 @@
                 "nam": "Blessed Ammunition",
                 "e": [
                     {
-                        "val": 1.2,
                         "id": 196,
+                        "typ": "*",
                         "sta": "LCK",
-                        "typ": "*"
+                        "val": 1.2
                     }
                 ]
             }
         ],
-        "tInf": "p:24438",
+        "tInf": "p:6552",
         "actions": {
-            "passive": [
-                {
-                    "tgtMin": 1,
-                    "id": 2122,
-                    "icon": "i,i,i,i,i,Gunop1",
-                    "ref": "p1",
-                    "nam": "Reinforced Chamber",
-                    "mp": 0,
-                    "tgtMax": 1,
-                    "desc": "Your high-tech parts allow you to shoot faster and more powerful shots for +10% damage.",
-                    "auras": [
-                        {}
-                    ],
-                    "isOK": true,
-                    "range": 301,
-                    "fx": "w",
-                    "tgt": "h",
-                    "typ": "passive",
-                    "cd": 2000
-                },
-                {
-                    "tgtMin": 1,
-                    "id": 2123,
-                    "icon": "i,i,i,i,i,Gunop1",
-                    "ref": "p2",
-                    "nam": "Sharpshooter",
-                    "mp": 0,
-                    "tgtMax": 1,
-                    "desc": "You pinpoint critical weaknesses with ease, granting you +10% Crit Chance.",
-                    "auras": [
-                        {}
-                    ],
-                    "isOK": true,
-                    "range": 301,
-                    "fx": "w",
-                    "tgt": "h",
-                    "typ": "passive",
-                    "cd": 2000
-                },
-                {
-                    "tgtMin": 1,
-                    "id": 2124,
-                    "icon": "i,i,i,i,i,Gunop1",
-                    "ref": "p3",
-                    "nam": "Blessed Ammunition",
-                    "mp": 0,
-                    "tgtMax": 1,
-                    "desc": "+20% Luck.",
-                    "auras": [
-                        {}
-                    ],
-                    "isOK": true,
-                    "range": 301,
-                    "fx": "w",
-                    "tgt": "h",
-                    "typ": "passive",
-                    "cd": 2000
-                }
-            ],
             "active": [
                 {
-                    "anim": "GunAttack3",
-                    "auraCheck": "Bang",
-                    "nam": "Fire!",
-                    "desc": "Fire as fast as you can pull the trigger! Your shots are so fast that they're unavoidable. Your cylinder holds 6 shots, needing to be reloaded when empty.",
-                    "forceResult": "noMiss",
-                    "range": 401,
-                    "isOK": true,
-                    "fx": "w",
-                    "dsrc": "Hours1",
                     "id": 2117,
-                    "checkQty": 5,
-                    "DmgFct": 2,
-                    "strl": "sp_qchronoa1v2",
-                    "storedID": 2636,
-                    "tgtMin": 1,
-                    "icon": "i,i,i,i,i,Gunoaa",
-                    "mp": 15,
-                    "tgtMax": 1,
-                    "auras": [
-                        {},
-                        {},
-                        {},
-                        {},
-                        {}
-                    ],
-                    "damage": 1.15,
-                    "applyAura": 0,
+                    "nam": "Fire!",
+                    "typ": "p",
                     "ref": "aa",
-                    "removeAura": "Bang",
-                    "auto": true,
+                    "desc": "Fire as fast as you can pull the trigger! Your shots are so fast that they're unavoidable. Your cylinder holds 6 shots, needing to be reloaded when empty.",
                     "tgt": "h",
-                    "typ": "p",
-                    "cd": 200
-                },
-                {
-                    "tgtMin": 1,
-                    "icon": "i,i,i,i,i,Gunoa1",
-                    "nam": "Reload",
-                    "auraCheck": "Temporal Rift",
-                    "mp": -1000,
-                    "anim": "Cast3",
                     "tgtMax": 1,
-                    "forceResult": "crit",
-                    "desc": "Load 6 shots into your revolver and refill your mana. Removes Tracer rounds and FMJ rounds.\r\n\r\nIf you have 4 or more stacks of Temporal Rift, consume them and enter Gunslinger Stance for 2 seconds, granting you free shots and generating Chaos Rifts, which block Temporal Rift and increase your Crit Damage by 20% per stack for 10 seconds.",
-                    "isOK": true,
-                    "range": 301,
-                    "auras": [
-                        {},
-                        {}
-                    ],
                     "fx": "w",
-                    "damage": 0,
-                    "applyAura": 1,
+                    "strl": "sp_qchronoa1v2",
+                    "damage": 1.15,
                     "dsrc": "Hours1",
-                    "id": 2118,
-                    "ref": "a1",
-                    "checkQty": 4,
-                    "removeAura": "Temporal Rift",
-                    "tgt": "s",
-                    "typ": "ma",
+                    "range": 401,
+                    "mp": 15,
+                    "cd": 200,
+                    "anim": "GunAttack3",
+                    "icon": "i,i,i,i,i,Gunoaa",
+                    "auras": [
+                        {},
+                        {},
+                        {},
+                        {},
+                        {}
+                    ],
+                    "tgtMin": 1,
+                    "auto": true,
                     "DmgFct": 2,
-                    "strl": "sp_cssa1",
-                    "cd": 6000
+                    "storedID": 2636,
+                    "applyAura": 0,
+                    "auraCheck": "Bang",
+                    "checkQty": 5,
+                    "forceResult": "noMiss",
+                    "removeAura": "Bang",
+                    "isOK": true
                 },
                 {
-                    "tgtMin": 1,
-                    "id": 2119,
-                    "icon": "i,i,i,i,i,Gunoa2",
-                    "ref": "a2",
-                    "nam": "Tracer Rounds",
-                    "mp": 5,
+                    "id": 2118,
+                    "nam": "Reload",
+                    "typ": "ma",
+                    "ref": "a1",
+                    "desc": "Load 6 shots into your revolver and refill your mana. Removes Tracer rounds and FMJ rounds.\r\n\r\nIf you have 4 or more stacks of Temporal Rift, consume them and enter Gunslinger Stance for 2 seconds, granting you free shots and generating Chaos Rifts, which block Temporal Rift and increase your Crit Damage by 20% per stack for 10 seconds.",
+                    "tgt": "s",
                     "tgtMax": 1,
-                    "desc": "Load Tracers and fire one, increasing your Defense by 20% and Dodge by 40% until you reload. Gain a Temporal Rift, stacking to 4 and lasting 10 seconds, and a HoT for 4 seconds based on max health. Replaces FMJ rounds.\r\n\r\nFiring with Tracer rounds Paints your opponent, reducing their damage, Dodge, and Crit Chance by 6% per stack, up to 4 stacks, for 16 seconds.",
-                    "auras": [
-                        {},
-                        {},
-                        {}
-                    ],
-                    "isOK": true,
-                    "range": 401,
                     "fx": "w",
-                    "tgt": "h",
-                    "typ": "p",
-                    "cd": 3000
-                },
-                {
-                    "tgtMin": 1,
-                    "icon": "i,i,i,i,i,Gunoa3",
-                    "nam": "FMJ Rounds",
-                    "mp": 5,
-                    "tgtMax": 1,
-                    "desc": "Load Full Metal Jackets and fire an empowered shot, dealing additional damage and increasing your Physical Damage by 25% until you reload. Gain a Temporal Rift, stacking to 4 and lasting 10 seconds. Replaces Tracer rounds.\r\n\r\nFiring with FMJ rounds shreds your opponent's defense by 6% per stack, up to 6 stacks, for 12 seconds.",
+                    "strl": "sp_cssa1",
+                    "damage": 0,
+                    "dsrc": "Hours1",
+                    "range": 301,
+                    "mp": -1000,
+                    "cd": 6000,
+                    "anim": "Cast3",
+                    "icon": "i,i,i,i,i,Gunoa1",
                     "auras": [
                         {},
                         {}
                     ],
-                    "isOK": true,
+                    "tgtMin": 1,
+                    "DmgFct": 2,
+                    "applyAura": 1,
+                    "auraCheck": "Temporal Rift",
+                    "checkQty": 4,
+                    "forceResult": "crit",
+                    "removeAura": "Temporal Rift",
+                    "isOK": true
+                },
+                {
+                    "id": 2119,
+                    "nam": "Tracer Rounds",
+                    "typ": "p",
+                    "ref": "a2",
+                    "desc": "Load Tracers and fire one, increasing your Defense by 20% and Dodge by 40% until you reload. Gain a Temporal Rift, stacking to 4 and lasting 10 seconds, and a HoT for 4 seconds based on max health. Replaces FMJ rounds.\r\n\r\nFiring with Tracer rounds Paints your opponent, reducing their damage, Dodge, and Crit Chance by 6% per stack, up to 4 stacks, for 16 seconds.",
+                    "tgt": "h",
+                    "tgtMax": 1,
+                    "fx": "w",
                     "range": 401,
+                    "mp": 5,
+                    "cd": 3000,
+                    "icon": "i,i,i,i,i,Gunoa2",
+                    "auras": [
+                        {},
+                        {},
+                        {}
+                    ],
+                    "tgtMin": 1,
+                    "isOK": true
+                },
+                {
+                    "id": 2120,
+                    "nam": "FMJ Rounds",
+                    "typ": "p",
+                    "ref": "a3",
+                    "desc": "Load Full Metal Jackets and fire an empowered shot, dealing additional damage and increasing your Physical Damage by 25% until you reload. Gain a Temporal Rift, stacking to 4 and lasting 10 seconds. Replaces Tracer rounds.\r\n\r\nFiring with FMJ rounds shreds your opponent's defense by 6% per stack, up to 6 stacks, for 12 seconds.",
+                    "tgt": "h",
+                    "tgtMax": 1,
                     "fx": "w",
                     "damage": 1.7,
                     "dsrc": "APSP2",
-                    "id": 2120,
-                    "ref": "a3",
-                    "tgt": "h",
-                    "typ": "p",
-                    "cd": 1500
-                },
-                {
-                    "tgtMin": 1,
-                    "icon": "i,i,i,i,i,Gunoa4",
-                    "mp": 0,
-                    "anim": "GunAttack3",
-                    "nam": "Silver Bullet",
-                    "tgtMax": 1,
-                    "desc": "Fire a silver bullet, dealing powerful damage based on how much damage was dealt in the last 10 seconds while a Rift was present. Empties your rounds and Blinds your target, reducing their Hit Chance by 50% for 1 second.",
-                    "isOK": true,
-                    "range": 808,
+                    "range": 401,
+                    "mp": 5,
+                    "cd": 1500,
+                    "icon": "i,i,i,i,i,Gunoa3",
                     "auras": [
                         {},
                         {}
                     ],
-                    "fx": "w",
-                    "damage": 0.3,
-                    "dsrc": "Chrono2",
-                    "id": 2121,
-                    "ref": "a4",
-                    "tgt": "h",
-                    "typ": "p",
-                    "strl": "sp_cssa4",
-                    "cd": 6000
+                    "tgtMin": 1,
+                    "isOK": true
                 },
                 {
-                    "ref": "i1",
-                    "icon": "icu1",
-                    "mp": 0,
-                    "anim": "Cheer",
-                    "nam": "Potions",
-                    "desc": "Equip a potion or scroll from your inventory to use it here.",
+                    "id": 2121,
+                    "nam": "Silver Bullet",
+                    "typ": "p",
+                    "ref": "a4",
+                    "desc": "Fire a silver bullet, dealing powerful damage based on how much damage was dealt in the last 10 seconds while a Rift was present. Empties your rounds and Blinds your target, reducing their Hit Chance by 50% for 1 second.",
+                    "tgt": "h",
+                    "tgtMax": 1,
+                    "fx": "w",
+                    "strl": "sp_cssa4",
+                    "damage": 0.3,
+                    "dsrc": "Chrono2",
                     "range": 808,
-                    "isOK": true,
-                    "fx": "",
-                    "tgt": "f",
+                    "mp": 0,
+                    "cd": 6000,
+                    "anim": "GunAttack3",
+                    "icon": "i,i,i,i,i,Gunoa4",
+                    "auras": [
+                        {},
+                        {}
+                    ],
+                    "tgtMin": 1,
+                    "isOK": true
+                },
+                {
+                    "nam": "Potions",
+                    "ref": "i1",
+                    "desc": "Equip a potion or scroll from your inventory to use it here.",
                     "typ": "i",
+                    "fx": "",
                     "strl": "",
-                    "cd": 60000
+                    "tgt": "f",
+                    "range": 808,
+                    "mp": 0,
+                    "cd": 60000,
+                    "anim": "Cheer",
+                    "icon": "icu1",
+                    "isOK": true
+                }
+            ],
+            "passive": [
+                {
+                    "id": 2122,
+                    "nam": "Reinforced Chamber",
+                    "typ": "passive",
+                    "ref": "p1",
+                    "desc": "Your high-tech parts allow you to shoot faster and more powerful shots for +10% damage.",
+                    "tgt": "h",
+                    "tgtMax": 1,
+                    "fx": "w",
+                    "range": 301,
+                    "mp": 0,
+                    "cd": 2000,
+                    "icon": "i,i,i,i,i,Gunop1",
+                    "auras": [
+                        {}
+                    ],
+                    "tgtMin": 1,
+                    "isOK": true
+                },
+                {
+                    "id": 2123,
+                    "nam": "Sharpshooter",
+                    "typ": "passive",
+                    "ref": "p2",
+                    "desc": "You pinpoint critical weaknesses with ease, granting you +10% Crit Chance.",
+                    "tgt": "h",
+                    "tgtMax": 1,
+                    "fx": "w",
+                    "range": 301,
+                    "mp": 0,
+                    "cd": 2000,
+                    "icon": "i,i,i,i,i,Gunop1",
+                    "auras": [
+                        {}
+                    ],
+                    "tgtMin": 1,
+                    "isOK": true
+                },
+                {
+                    "id": 2124,
+                    "nam": "Blessed Ammunition",
+                    "typ": "passive",
+                    "ref": "p3",
+                    "desc": "+20% Luck.",
+                    "tgt": "h",
+                    "tgtMax": 1,
+                    "fx": "w",
+                    "range": 301,
+                    "mp": 0,
+                    "cd": 2000,
+                    "icon": "i,i,i,i,i,Gunop1",
+                    "auras": [
+                        {}
+                    ],
+                    "tgtMin": 1,
+                    "isOK": true
                 }
             ]
         }
@@ -21288,8 +21288,8 @@
         }
     },
     "Horc Evader": {
-        "uid": 24707,
-        "iCP": 56101,
+        "uid": 6552,
+        "iCP": 302500,
         "cmd": "sAct",
         "sDesc": "The Horcs have trained you in the arts of evasion. Once you have mastered these skills you will be truly untouchable.",
         "sClassCat": "M2",
@@ -21305,16 +21305,16 @@
                 "nam": "BIg Game Hunter",
                 "e": [
                     {
-                        "val": 0.1,
                         "id": 878,
+                        "typ": "+",
                         "sta": "tcr",
-                        "typ": "+"
+                        "val": 0.1
                     },
                     {
-                        "val": 0.1,
                         "id": 19,
+                        "typ": "+",
                         "sta": "thi",
-                        "typ": "+"
+                        "val": 0.1
                     }
                 ]
             },
@@ -21322,184 +21322,194 @@
                 "nam": "No Sudden Movements",
                 "e": [
                     {
-                        "val": 0.1,
                         "id": 879,
+                        "typ": "+",
                         "sta": "tdo",
-                        "typ": "+"
+                        "val": 0.1
                     }
                 ]
+            },
+            {
+                "nam": "Weak Spot"
             }
         ],
-        "tInf": "p:24707",
+        "tInf": "p:6552",
         "actions": {
-            "passive": [
-                {
-                    "id": 2644,
-                    "ref": "p1",
-                    "icon": "isp2",
-                    "nam": "Toured The World",
-                    "desc": "WIS increased by 20%.",
-                    "auras": [
-                        {}
-                    ],
-                    "range": 301,
-                    "isOK": true,
-                    "fx": "m",
-                    "tgt": "s",
-                    "typ": "passive",
-                    "cd": 60000
-                },
-                {
-                    "id": 2645,
-                    "ref": "p2",
-                    "icon": "isp2",
-                    "nam": "Agitato Allegro",
-                    "desc": "Haste, Hit Chance, and Crit Chance increased by 10%.",
-                    "auras": [
-                        {}
-                    ],
-                    "range": 301,
-                    "isOK": true,
-                    "fx": "m",
-                    "tgt": "s",
-                    "typ": "passive",
-                    "cd": 60000
-                }
-            ],
             "active": [
                 {
-                    "tgtMin": 1,
-                    "icon": "iwd1",
-                    "mp": 0,
-                    "anim": "Dance,Dance2,Stepdance",
-                    "nam": "Autoplay",
-                    "tgtMax": 1,
-                    "desc": "Enemies are as affected by your song as by any attack.",
-                    "range": 301,
-                    "isOK": true,
-                    "fx": "m",
-                    "damage": 0.9,
-                    "dsrc": "SP2",
-                    "id": 2640,
-                    "ref": "aa",
-                    "auto": true,
-                    "tgt": "h",
+                    "id": 1581,
+                    "nam": "Evader Daggers",
                     "typ": "aa",
-                    "cd": 1500
-                },
-                {
-                    "tgtMin": 1,
-                    "icon": "imr2,iiclass2",
-                    "nam": "Bodhran",
-                    "anim": "Castgood",
-                    "mp": 0,
-                    "tgtMax": 20,
-                    "desc": "Drums of War inspire you and your allies, increasing outgoing damage by 20%, Haste by 10%, and Crit Chance by 5% for 10 seconds. Also applies Drumbeat, causing your other skills to apply an additional effect based on the order they're used in.",
-                    "auras": [
-                        {},
-                        {}
-                    ],
-                    "isOK": true,
-                    "range": 3000,
-                    "fx": "w",
-                    "id": 2639,
-                    "ref": "a1",
-                    "tgt": "f",
-                    "typ": "m",
-                    "strl": "sp_el2",
-                    "cd": 6000
-                },
-                {
-                    "tgtMin": 1,
-                    "icon": "iep1",
-                    "nam": "Cantor's Lament",
-                    "mp": 0,
-                    "anim": "Psychic1",
-                    "auraCheck": "Dissonance's Interlude",
-                    "tgtMax": 1,
-                    "desc": "Direct a high pitched sound at your target. Deals damage and applies Crescendo to your target, a DoT that gets stronger with each tick, lasts 10 seconds and doesn't refresh. Can't miss.\r\n\r\nDrumbeat effect:\r\nSkill 4 > Skill 5 > Skill 3 - This skill deals increased damage.",
-                    "forceResult": "noMiss",
-                    "isOK": true,
-                    "range": 808,
-                    "auras": [
-                        {},
-                        {},
-                        {},
-                        {}
-                    ],
+                    "ref": "aa",
+                    "desc": "A basic attack, taught to all adventurers. Damage dealt is based on your weapon damage and Blood Trail stacks on your target.",
+                    "tgt": "h",
                     "fx": "m",
-                    "damage": 0.6,
-                    "dsrc": "Spell1",
-                    "id": 2641,
-                    "ref": "a2",
+                    "damage": 0.4,
+                    "dsrc": "DK1",
+                    "range": 301,
+                    "mp": 0,
+                    "cd": 2000,
+                    "anim": "Thrash,Stab",
+                    "icon": "iwd1",
+                    "auto": true,
+                    "dlook": "Blood Trail",
+                    "isOK": true
+                },
+                {
+                    "id": 1583,
+                    "nam": "Blood Trail",
+                    "typ": "p",
+                    "ref": "a1",
+                    "desc": "Sick your pet on your target, leaving a Blood Trail, a DoT that stacks to 4 and reduces your target's Crit Chance by 10%, lasts 10 seconds.",
                     "tgt": "h",
-                    "typ": "m",
-                    "cd": 3000
-                },
-                {
-                    "tgtMin": 1,
-                    "icon": "ieh1,iee1",
-                    "nam": "O'Carolan's Reel",
-                    "anim": "Castgood",
-                    "mp": 0,
-                    "tgtMax": 20,
-                    "desc": "Perfect for skirmishes, brawls, battles, wars, and fighting in general. Applies Healing Reel to you and your allies, an HoT for 10 seconds. \r\n\r\nDrumbeat effect:\r\nSkill 5 > Skill 3 > Skill 4 - Applies Healing Jig to you and your allies, an additional HoT and increasing Damage Resistance by 15% for 10 seconds.",
-                    "auras": [
-                        {},
-                        {},
-                        {},
-                        {},
-                        {}
-                    ],
-                    "isOK": true,
-                    "range": 3000,
-                    "fx": "w",
-                    "id": 2642,
-                    "ref": "a3",
-                    "tgt": "f",
-                    "typ": "m",
-                    "strl": "sp_eh1",
-                    "cd": 3000
-                },
-                {
-                    "tgtMin": 1,
-                    "icon": "iwarmor",
-                    "nam": "Dissonance",
-                    "anim": "Airguitar",
-                    "mp": 0,
                     "tgtMax": 1,
-                    "desc": "A tune so vile it drives your enemies mad. Applies Dissonance, reducing your target's outgoing damage, Haste, and Crit Chance by 15% while granting additional mana to allies striking the target for 10 seconds.\r\n\r\nDrumbeat effect:\r\nSkill 3 > Skill 4 > Skill 5 - Applies Cacophony to your target, reducing their Damage Resistance by 15% for 10 seconds. ",
+                    "fx": "w",
+                    "damage": 1,
+                    "dsrc": "AP2",
+                    "range": 301,
+                    "mp": 3,
+                    "cd": 3000,
+                    "anim": "Point:PetAttack1",
+                    "icon": "imf1,iwsword",
                     "auras": [
-                        {},
-                        {},
-                        {},
                         {},
                         {}
                     ],
-                    "isOK": true,
-                    "range": 808,
-                    "fx": "w",
-                    "id": 2643,
-                    "ref": "a4",
-                    "tgt": "h",
-                    "typ": "m",
-                    "strl": "sp_eh1",
-                    "cd": 3000
+                    "tgtMin": 1,
+                    "hasPassives": true,
+                    "isOK": true
                 },
                 {
-                    "ref": "i1",
-                    "icon": "icu1",
-                    "mp": 0,
-                    "anim": "Cheer",
-                    "nam": "Potions",
-                    "desc": "Equip a potion or scroll from your inventory to use it here.",
+                    "id": 1584,
+                    "nam": "Take Cover",
+                    "typ": "p",
+                    "ref": "a2",
+                    "desc": "Retreat into the foliage to plan your next move. Applies Take Cover, increasing your Dodge and Crit Chance by 25% for 20 seconds while restoring 45 mana. Removes Blood Trail stacks from your target.",
+                    "tgt": "h",
+                    "tgtMax": 1,
+                    "fx": "w",
                     "range": 808,
-                    "isOK": true,
-                    "fx": "",
-                    "tgt": "f",
+                    "mp": -45,
+                    "cd": 8000,
+                    "anim": "Point:PetAttack2",
+                    "icon": "ied1",
+                    "auras": [
+                        {},
+                        {}
+                    ],
+                    "tgtMin": 1,
+                    "forceResult": "noMiss",
+                    "isOK": true
+                },
+                {
+                    "id": 1582,
+                    "nam": "Whistle",
+                    "typ": "p",
+                    "ref": "a3",
+                    "desc": "Calls a pet to your side or sends it into a rage, increasing your outgoing damage by 50%, but reducing your Damage Resistance by 15% for 12 seconds.",
+                    "tgt": "s",
+                    "tgtMax": 1,
+                    "fx": "w",
+                    "range": 301,
+                    "mp": 40,
+                    "cd": 8000,
+                    "anim": "Castgood:PetBuff",
+                    "icon": "iipet,imm1",
+                    "auras": [
+                        {}
+                    ],
+                    "tgtMin": 1,
+                    "pet": 10127,
+                    "isOK": true
+                },
+                {
+                    "id": 1585,
+                    "nam": "Hunter's Call",
+                    "typ": "p",
+                    "ref": "a4",
+                    "desc": "You decide to put an end to this hunt. Deals increased damage for each stack of Blood Trail your target has while applying Hunter's Call, increasing your Haste by 30% for 12 seconds. Can't miss.",
+                    "tgt": "h",
+                    "tgtMax": 1,
+                    "fx": "w",
+                    "damage": 1,
+                    "dsrc": "DK1",
+                    "range": 808,
+                    "mp": 20,
+                    "cd": 6000,
+                    "anim": "RangedAttack1:PetAttack1,RangedAttack1:PetAttack2",
+                    "icon": "iwbow",
+                    "auras": [
+                        {}
+                    ],
+                    "tgtMin": 1,
+                    "forceResult": "noMiss",
+                    "dlook": "Blood Trail",
+                    "isOK": true
+                },
+                {
+                    "nam": "Potions",
+                    "ref": "i1",
+                    "desc": "Equip a potion or scroll from your inventory to use it here.",
                     "typ": "i",
+                    "fx": "",
                     "strl": "",
-                    "cd": 60000
+                    "tgt": "f",
+                    "range": 808,
+                    "mp": 0,
+                    "cd": 60000,
+                    "anim": "Cheer",
+                    "icon": "icu1",
+                    "isOK": true
+                }
+            ],
+            "passive": [
+                {
+                    "id": 1586,
+                    "nam": "Master Tracker",
+                    "typ": "passive",
+                    "ref": "p1",
+                    "desc": "Hit Chance and Crit Chance increased by 10%.",
+                    "tgt": "s",
+                    "fx": "m",
+                    "range": 301,
+                    "icon": "isp2",
+                    "auras": [
+                        {}
+                    ],
+                    "cd": 60000,
+                    "isOK": true
+                },
+                {
+                    "id": 1587,
+                    "nam": "No Sudden Movements",
+                    "typ": "passive",
+                    "ref": "p2",
+                    "desc": "Dodge increased by 10%.",
+                    "tgt": "s",
+                    "fx": "m",
+                    "range": 301,
+                    "icon": "isp2",
+                    "auras": [
+                        {}
+                    ],
+                    "cd": 60000,
+                    "isOK": true
+                },
+                {
+                    "id": 1588,
+                    "nam": "Weak Spot",
+                    "typ": "passive",
+                    "ref": "p3",
+                    "desc": "Blood Trail has a small chance to locate your target's Weak Spot, increasing your Crit Chance by 100% for 10 seconds.",
+                    "tgt": "s",
+                    "fx": "m",
+                    "range": 301,
+                    "icon": "isp2",
+                    "auras": [
+                        {}
+                    ],
+                    "cd": 60000,
+                    "isOK": true
                 }
             ]
         }
