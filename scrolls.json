@@ -70,14 +70,14 @@
         "cmd": "seia",
         "o": {
             "id": 517,
-            "icon": "iwd1,ied1",
-            "anim": "Point",
-            "range": 808,
-            "fx": "w",
-            "tgt": "h",
             "typ": "m",
+            "tgt": "h",
+            "fx": "w",
             "strl": "sp_ei3",
-            "cd": 20000
+            "range": 808,
+            "cd": 20000,
+            "anim": "Point",
+            "icon": "iwd1,ied1"
         },
         "iRes": 1,
         "name": "enrage"
