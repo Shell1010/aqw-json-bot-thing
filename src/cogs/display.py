@@ -3,7 +3,7 @@ from typing import TYPE_CHECKING
 import discord
 from discord import app_commands
 from discord.ext import commands
-from ..classes.views import ClassView, ScrollView
+from ..classes.views import ClassView, ScrollView, SearchResultsView
 
 if TYPE_CHECKING:
     from ..bot import AQWMechanicsBot
@@ -94,6 +94,25 @@ class display(commands.Cog):
     async def class_(self, interaction: discord.Interaction, name: str):
         data = await self.bot.get_class_data(name)
         view = ClassView(data)
+        await interaction.response.send_message(view=view)
+
+    @app_commands.command(name="search")
+    @app_commands.allowed_installs(guilds=True, users=True)
+    @app_commands.allowed_contexts(guilds=True, dms=True, private_channels=True)
+    @app_commands.describe(query="The value to search for (optional)", param="The JSON parameter to search on", source="Which data source to search")
+    @app_commands.choices(source=[
+        discord.app_commands.Choice(name="Classes", value="classes"),
+        discord.app_commands.Choice(name="Scrolls", value="scrolls"),
+        discord.app_commands.Choice(name="Both", value="both"),
+    ])
+    async def search(self, interaction: discord.Interaction, param: str, query: str | None = None, source: str = "both"):
+        results = await self.bot.search_data(param, query, source)
+        
+        if not results:
+            await interaction.response.send_message(f"No results found for param `{param}`" + (f" with query `{query}`" if query else ""))
+            return
+        
+        view = SearchResultsView(results, param)
         await interaction.response.send_message(view=view)
 
 async def setup(bot: AQWMechanicsBot):

@@ -36,6 +36,66 @@ class AQWMechanicsBot(commands.Bot):
         
         return data.get(scroll_name.lower(), {})
         
+    def _find_key_recursive(self, data, key: str, path: str = "") -> list[str]:
+        results = []
+        if isinstance(data, dict):
+            for k, v in data.items():
+                current_path = f"{path}.{k}" if path else k
+                if k == key:
+                    results.append((current_path, v))
+                results.extend(self._find_key_recursive(v, key, current_path))
+        elif isinstance(data, list):
+            for i, item in enumerate(data):
+                current_path = f"{path}[{i}]"
+                results.extend(self._find_key_recursive(item, key, current_path))
+        return results
+
+    def _key_exists_recursive(self, data, key: str) -> bool:
+        if isinstance(data, dict):
+            if key in data:
+                return True
+            return any(self._key_exists_recursive(v, key) for v in data.values())
+        elif isinstance(data, list):
+            return any(self._key_exists_recursive(item, key) for item in data)
+        return False
+
+    async def search_data(self, param: str, query: str | None = None, source: str = "both") -> list[dict]:
+        results = []
+
+        if source in ("classes", "both"):
+            classes = await self.get_all_classes()
+            for name, data in classes.items():
+                if not self._key_exists_recursive(data, param):
+                    continue
+                if query is not None:
+                    matches = self._find_key_recursive(data, param)
+                    found = False
+                    for _, val in matches:
+                        if query.lower() in str(val).lower():
+                            found = True
+                            break
+                    if not found:
+                        continue
+                results.append({"source": "class", "name": name, "data": data})
+
+        if source in ("scrolls", "both"):
+            scrolls = await self.get_all_scrolls()
+            for name, data in scrolls.items():
+                if not self._key_exists_recursive(data, param):
+                    continue
+                if query is not None:
+                    matches = self._find_key_recursive(data, param)
+                    found = False
+                    for _, val in matches:
+                        if query.lower() in str(val).lower():
+                            found = True
+                            break
+                    if not found:
+                        continue
+                results.append({"source": "scroll", "name": name, "data": data})
+
+        return results
+
     async def get_all_scrolls(self) -> dict:
         async with self.session.get(self.scroll_url) as response:
             data = json.loads((await response.text()))

@@ -212,5 +212,80 @@ class ScrollView(discord.ui.LayoutView):
             text += f"**{k}**: {v}\n"
         self.container.add_item(discord.ui.TextDisplay(text))
         self.container.add_item(discord.ui.Separator(visible=False))
+
+
+class SearchResultsView(discord.ui.LayoutView):
+    MAX_RESULTS = 25
+    PAGE_SIZE = 10
+
+    def __init__(self, results: list[dict], param: str, current_page: int = 0):
+        super().__init__()
+        self.results = results[:self.MAX_RESULTS]
+        self.param = param
+        self.current_page = current_page
+        self.total_pages = max(1, len(self.results) // self.PAGE_SIZE + (1 if len(self.results) % self.PAGE_SIZE else 0))
+
+        self.container = discord.ui.Container()
+        self.add_item(self.container)
+
+        start = self.current_page * self.PAGE_SIZE
+        end = start + self.PAGE_SIZE
+        page_results = self.results[start:end]
+
+        lines = [f"# Search Results ({len(self.results)}) | Page {self.current_page + 1}/{self.total_pages}"]
+        lines.append("")
+
+        for r in page_results:
+            s = r["source"]
+            n = r["name"]
+            d = r["data"]
+            pfx = "Class" if s == "class" else "Scroll"
+            matches = self._collect_matches(d, self.param)
+            lines.append(f"**{pfx}: {n}**")
+            for m in matches[:10]:
+                lines.append(m)
+            if len(matches) > 10:
+                lines.append(f"*... and {len(matches) - 10} more matches*")
+            lines.append("")
+
+        content = "\n".join(lines)
+        if len(content) > 4000:
+            content = content[:3997] + "..."
+
+        self.container.add_item(discord.ui.TextDisplay(content))
+        self.container.add_item(discord.ui.Separator(visible=False))
+
+        if self.total_pages > 1:
+            action_row = discord.ui.ActionRow()
+            back_btn = discord.ui.Button(label="<-", style=discord.ButtonStyle.secondary, custom_id="search_back", disabled=self.current_page == 0)
+            back_btn.callback = self._back_page
+            action_row.add_item(back_btn)
+            fwd_btn = discord.ui.Button(label="->", style=discord.ButtonStyle.secondary, custom_id="search_fwd", disabled=self.current_page == self.total_pages - 1)
+            fwd_btn.callback = self._fwd_page
+            action_row.add_item(fwd_btn)
+            self.container.add_item(action_row)
+
+    async def _back_page(self, interaction: discord.Interaction):
+        await interaction.response.edit_message(view=SearchResultsView(self.results, self.param, self.current_page - 1))
+
+    async def _fwd_page(self, interaction: discord.Interaction):
+        await interaction.response.edit_message(view=SearchResultsView(self.results, self.param, self.current_page + 1))
+
+    @staticmethod
+    def _collect_matches(data, key: str) -> list[str]:
+        matches = []
+        def _walk(d, path=""):
+            if isinstance(d, dict):
+                for k, v in d.items():
+                    current_path = f"{path}.{k}" if path else k
+                    if k == key and not isinstance(v, (dict, list)):
+                        matches.append(f"{current_path}: {v}")
+                    if isinstance(v, (dict, list)):
+                        _walk(v, current_path)
+            elif isinstance(d, list):
+                for i, item in enumerate(d):
+                    _walk(item, f"{path}[{i}]")
+        _walk(data)
+        return matches
         
 
