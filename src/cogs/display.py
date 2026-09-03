@@ -3,7 +3,7 @@ from typing import TYPE_CHECKING
 import discord
 from discord import app_commands
 from discord.ext import commands
-from ..classes.views import ClassView, ScrollView, SearchResultsView
+from ..classes.views import ClassView, ScrollView, SearchResultsView, ConversionRateView
 
 if TYPE_CHECKING:
     from ..bot import AQWMechanicsBot
@@ -38,7 +38,7 @@ class display(commands.Cog):
             )
         )
     
-        # 4️⃣ Return top 25
+
         return [
             discord.app_commands.Choice(
                 name=name,
@@ -69,7 +69,7 @@ class display(commands.Cog):
             )
         )
     
-        # 4️⃣ Return top 25
+
         return [
             discord.app_commands.Choice(
                 name=name,
@@ -93,7 +93,7 @@ class display(commands.Cog):
     @app_commands.autocomplete(name=class_autocomplete)
     async def class_(self, interaction: discord.Interaction, name: str):
         data = await self.bot.get_class_data(name)
-        view = ClassView(data)
+        view = ClassView(data, self.bot)
         await interaction.response.send_message(view=view)
 
     @app_commands.command(name="search")
@@ -112,7 +112,38 @@ class display(commands.Cog):
             await interaction.response.send_message(f"No results found for param `{param}`" + (f" with query `{query}`" if query else ""))
             return
         
-        view = SearchResultsView(results, param)
+        view = SearchResultsView(results, param, self.bot)
+        await interaction.response.send_message(view=view)
+
+    async def model_autocomplete(
+        self,
+        interaction: discord.Interaction,
+        current: str,
+    ) -> list[discord.app_commands.Choice[str]]:
+        models = await self.bot.get_all_models()
+        current = current.lower().strip()
+        if not current:
+            return []
+        matches = [m for m in models if current in m.lower()]
+        matches.sort()
+        return [discord.app_commands.Choice(name=m, value=m) for m in matches[:25]]
+
+    @app_commands.command(name="lookup")
+    @app_commands.allowed_installs(guilds=True, users=True)
+    @app_commands.allowed_contexts(guilds=True, dms=True, private_channels=True)
+    @app_commands.describe(model="The stat model to look up", level="The level (1-100)")
+    @app_commands.autocomplete(model=model_autocomplete)
+    async def lookup(self, interaction: discord.Interaction, model: str, level: int):
+        if level < 1 or level > 100:
+            await interaction.response.send_message("Level must be between 1 and 100.")
+            return
+        
+        data = await self.bot.get_conversion_data(model, level)
+        if not data:
+            await interaction.response.send_message(f"No conversion data found for model `{model}` at level `{level}`.")
+            return
+        
+        view = ConversionRateView(data)
         await interaction.response.send_message(view=view)
 
 async def setup(bot: AQWMechanicsBot):

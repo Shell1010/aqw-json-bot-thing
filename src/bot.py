@@ -122,7 +122,28 @@ class AQWMechanicsBot(commands.Bot):
         await self.tree.sync()
 
 
+    async def get_conversion_data(self, model: str, level: int) -> dict | None:
+        levels = self.conversion_rates.get("levels", {})
+        level_data = levels.get(str(level))
+        if not level_data:
+            return None
+        data = level_data.get(model.lower().title())
+        if not data:
+            return None
+        headers = self.conversion_rates.get("headers", {})
+        cols = {k: headers.get(k, {}) for k in data}
+        return {"model": model, "level": level, "data": data, "headers": cols, "base_info": {
+            "hp-1": self.conversion_rates.get("hp-1"),
+            "hp-2": self.conversion_rates.get("hp-2"),
+            "level_cap": self.conversion_rates.get("level_cap"),
+        }}
+
+    async def get_all_models(self) -> list[str]:
+        return list(self.conversion_rates.get("class_ranges", {}).keys())
+
     async def setup_hook(self) -> None:
         self.session = aiohttp.ClientSession()
         await self.load_all_cogs()
+        with open("conversion_rates.json") as f:
+            self.conversion_rates = json.load(f)
         return await super().setup_hook()
