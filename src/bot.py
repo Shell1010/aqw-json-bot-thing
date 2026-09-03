@@ -10,8 +10,8 @@ class AQWMechanicsBot(commands.Bot):
         super().__init__(*args, **kwargs)
         self.admins = admins
         self.token = token
-        self.class_url = "https://raw.githubusercontent.com/Shell1010/aqw-json-bot-thing/refs/heads/main/classes.json"
-        self.scroll_url = "https://raw.githubusercontent.com/Shell1010/aqw-json-bot-thing/refs/heads/main/scrolls.json"
+        self.class_url = "https://raw.githubusercontent.com/Shell1010/aqw-json-stuff/refs/heads/main/classes.json"
+        self.scroll_url = "https://raw.githubusercontent.com/Shell1010/aqw-json-stuff/refs/heads/main/scrolls.json"
 
     async def load_all_cogs(self):
         
