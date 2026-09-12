@@ -112,7 +112,7 @@ class display(commands.Cog):
             await interaction.response.send_message(f"No results found for param `{param}`" + (f" with query `{query}`" if query else ""))
             return
         
-        view = SearchResultsView(results, param, self.bot)
+        view = SearchResultsView(results, param, self.bot, query)
         await interaction.response.send_message(view=view)
 
     async def model_autocomplete(

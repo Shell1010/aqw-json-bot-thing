@@ -446,12 +446,18 @@ class SearchResultsView(discord.ui.LayoutView):
     PAGE_SIZE = 8
 
     def __init__(
-        self, results: list[dict], param: str, bot=None, current_page: int = 0
+        self,
+        results: list[dict],
+        param: str,
+        bot=None,
+        query: str | None = None,
+        current_page: int = 0,
     ):
         super().__init__()
         self.results = results[: self.MAX_RESULTS]
         self.param = param
         self.bot = bot
+        self.query = query
         self.current_page = current_page
         self.total_pages = max(
             1,
@@ -473,6 +479,7 @@ class SearchResultsView(discord.ui.LayoutView):
         )
         self.container.add_item(discord.ui.Separator())
 
+        blocks: list[list] = []
         for r in page_results:
             s = r["source"]
             n = r["name"]
@@ -480,12 +487,22 @@ class SearchResultsView(discord.ui.LayoutView):
             pfx = "Class" if s == "class" else "Scroll"
             icon = em("aqwclass") if s == "class" else em("aur")
             matches = self._collect_matches(d, self.param)
-            shown = matches[:5]
-            text = f"{icon} **{pfx}: {n}** ({len(matches)} matches)"
-            if shown:
-                text += "\n" + "\n".join(f"`{m}`" for m in shown)
-            if len(matches) > 5:
-                text += f"\n*... and {len(matches) - 5} more*"
+            if query:
+                hits = [(p, v) for p, v in matches if query.lower() in v.lower()]
+                matches = hits or matches
+            head = f"{icon} **{pfx}: {n}** ({len(matches)} matches)"
+            lines = [
+                f"`{p}: {self._snippet(v, query)}`" for p, v in matches[:3]
+            ]
+            blocks.append([r, head, lines, len(matches)])
+        self._fit_blocks(blocks)
+
+        for r, head, lines, total in blocks:
+            text = head
+            if lines:
+                text += "\n" + "\n".join(lines)
+            if total > len(lines):
+                text += f"\n*... and {total - len(lines)} more*"
             view_btn = discord.ui.Button(
                 label="View",
                 style=discord.ButtonStyle.primary,
@@ -546,19 +563,53 @@ class SearchResultsView(discord.ui.LayoutView):
     async def _back_page(self, interaction: discord.Interaction):
         await interaction.response.edit_message(
             view=SearchResultsView(
-                self.results, self.param, self.bot, self.current_page - 1
+                self.results, self.param, self.bot, self.query, self.current_page - 1
             )
         )
 
     async def _fwd_page(self, interaction: discord.Interaction):
         await interaction.response.edit_message(
             view=SearchResultsView(
-                self.results, self.param, self.bot, self.current_page + 1
+                self.results, self.param, self.bot, self.query, self.current_page + 1
             )
         )
 
     @staticmethod
-    def _collect_matches(data, key: str) -> list[str]:
+    def _snippet(val: str, query: str | None = None, size: int = 100) -> str:
+        val = str(val).replace("\n", " ").replace("`", "'")
+        if query:
+            i = val.lower().find(query.lower())
+            if i >= 0:
+                start = max(0, i - size // 2)
+                end = start + size
+                return (
+                    ("..." if start > 0 else "")
+                    + val[start:end]
+                    + ("..." if end < len(val) else "")
+                )
+        return val if len(val) <= size else val[:size] + "..."
+
+    @staticmethod
+    def _fit_blocks(blocks: list[list], budget: int = 3400):
+        def total():
+            s = 0
+            for _, head, lines, _ in blocks:
+                s += len(head) + sum(len(line) for line in lines) + 20
+            return s
+
+        while total() > budget:
+            idx = -1
+            for i, (_, _, lines, _) in enumerate(blocks):
+                if len(lines) > 1 and (
+                    idx < 0 or len(lines) > len(blocks[idx][2])
+                ):
+                    idx = i
+            if idx < 0:
+                break
+            blocks[idx][2].pop()
+
+    @staticmethod
+    def _collect_matches(data, key: str) -> list[tuple[str, str]]:
         matches = []
 
         def _walk(d, path=""):
@@ -566,7 +617,7 @@ class SearchResultsView(discord.ui.LayoutView):
                 for k, v in d.items():
                     current_path = f"{path}.{k}" if path else k
                     if k == key and not isinstance(v, (dict, list)):
-                        matches.append(f"{current_path}: {v}")
+                        matches.append((current_path, str(v)))
                     if isinstance(v, (dict, list)):
                         _walk(v, current_path)
             elif isinstance(d, list):
