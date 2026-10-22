@@ -657,10 +657,10 @@ class EnhancementProcView(discord.ui.LayoutView):
         else:
             self.container.add_item(discord.ui.TextDisplay("**Cooldown**: None"))
 
-        # Damage multiplier
+
         dmg = proc.get("damage", 0)
         if dmg > 0:
-            self.container.add_item(discord.ui.TextDisplay(f"**Damage Multiplier**: {dmg}x ({dmg * 100}%)"))
+            self.container.add_item(discord.ui.TextDisplay(f"**Damager**: {dmg}x ({dmg * 100}%)"))
 
         # Range
         rng = proc.get("range", 0)
