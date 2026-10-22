@@ -678,7 +678,7 @@ class EnhancementProcView(discord.ui.LayoutView):
         # Cooldown
         cd = proc.get("cd", 0)
         if cd > 0:
-            self.container.add_item(discord.ui.TextDisplay(f"{em('cooldown_reduction')} **Cooldown**: {cd}s"))
+            self.container.add_item(discord.ui.TextDisplay(f"{em('cooldown_reduction')} **Cooldown**: {cd}"))
         else:
             self.container.add_item(discord.ui.TextDisplay(f"{em('cooldown_reduction')} **Cooldown**: None"))
 
