@@ -308,7 +308,6 @@ class SkillsView(discord.ui.LayoutView):
             self.container.add_item(discord.ui.ActionRow(self.skill_select))
 
     async def skill_select_callback(self, interaction: discord.Interaction):
-        print(self.skill_select.values[0], self.current)
         await interaction.response.edit_message(
             view=SkillsView(self.data, int(self.skill_select.values[0]), self.bot)
         )
@@ -626,6 +625,127 @@ class SearchResultsView(discord.ui.LayoutView):
 
         _walk(data)
         return matches
+
+
+PROC_TYPE_EMOJI = {
+    "pm": "aqwsword",
+    "p": "aqwsword",
+    "m": "aqwwand",
+    "ma": "magicboost",
+}
+
+
+PROC_REF_EMOJI = {
+    "aa": "aqwclass",
+    "a1": "skills",
+    "a2": "skills",
+    "a3": "skills",
+    "a4": "skills",
+}
+
+
+PROC_TARGET_EMOJI = {
+    "h": "dmg",
+    "s": "healin",
+}
+
+
+class EnhancementProcView(discord.ui.LayoutView):
+    def __init__(self, proc: dict, bot=None):
+        super().__init__()
+        self.proc = proc
+        self.bot = bot
+
+        self.container = discord.ui.Container()
+        self.add_item(self.container)
+
+        name = proc["nam"]
+        self.container.add_item(discord.ui.TextDisplay(f"# {em('dmg')} {name}"))
+        self.container.add_item(discord.ui.Separator())
+        self.container.add_item(discord.ui.TextDisplay(f"*{proc['desc']}*"))
+        self.container.add_item(discord.ui.Separator(visible=False))
+
+        # Type
+        typ = proc.get("typ", "").lower()
+        type_emoji = PROC_TYPE_EMOJI.get(typ, "aqwclass")
+        type_name = {"pm": "Hybrid (Physical)", "p": "Physical", "m": "Magical", "ma": "True Damage"}.get(typ, typ.upper())
+        self.container.add_item(discord.ui.TextDisplay(f"{em(type_emoji)} **Type**: {type_name}"))
+
+        # Proc chance
+        pct = proc.get("pct", 0)
+        self.container.add_item(discord.ui.TextDisplay(f"{em('critchancce')} **Proc Chance**: {pct}%"))
+
+        # Cooldown
+        cd = proc.get("cd", 0)
+        if cd > 0:
+            self.container.add_item(discord.ui.TextDisplay(f"{em('cooldown_reduction')} **Cooldown**: {cd}s"))
+        else:
+            self.container.add_item(discord.ui.TextDisplay(f"{em('cooldown_reduction')} **Cooldown**: None"))
+
+        # Damage multiplier
+        dmg = proc.get("damage", 0)
+        if dmg > 0:
+            self.container.add_item(discord.ui.TextDisplay(f"{em('dmg')} **Damage Multiplier**: {dmg}x ({dmg}%)"))
+
+        # Range
+        rng = proc.get("range", 0)
+        if rng > 0:
+            self.container.add_item(discord.ui.TextDisplay(f"{em('range')} **Range**: {rng}"))
+
+        # Reference (what triggers it)
+        ref = proc.get("ref", "")
+        ref_emoji = PROC_REF_EMOJI.get(ref, "aqwclass")
+        ref_name = {"aa": "Auto Attack", "a1": "Skill 1", "a2": "Skill 2", "a3": "Skill 3", "a4": "Skill 4"}.get(ref, ref.upper())
+        self.container.add_item(discord.ui.TextDisplay(f"{em(ref_emoji)} **Trigger**: {ref_name}"))
+
+        # Target
+        tgt = proc.get("tgt", "")
+        tgt_emoji = PROC_TARGET_EMOJI.get(tgt, "dmg")
+        tgt_name = {"h": "Hostile/Enemy", "s": "Self"}.get(tgt, tgt.upper())
+        self.container.add_item(discord.ui.TextDisplay(f"{em(tgt_emoji)} **Target**: {tgt_name}"))
+
+        # Max targets
+        tgt_max = proc.get("tgtMax")
+        if tgt_max:
+            self.container.add_item(discord.ui.TextDisplay(f"**Max Targets**: {tgt_max}"))
+
+
+class EnhancementsView(discord.ui.LayoutView):
+    def __init__(self, procs: dict, bot=None):
+        super().__init__()
+        self.procs = procs
+        self.bot = bot
+
+        self.container = discord.ui.Container()
+        self.add_item(self.container)
+
+        self.container.add_item(discord.ui.TextDisplay(f"# {em('aqwclass')} Enhancement Procs"))
+        self.container.add_item(discord.ui.Separator())
+        self.container.add_item(discord.ui.TextDisplay(f"*Select an enhancement proc to view details*"))
+        self.container.add_item(discord.ui.Separator(visible=False))
+
+        # Create select options sorted by proc ID
+        sorted_procs = sorted(procs.items(), key=lambda x: int(x[0]))
+        options = [
+            discord.SelectOption(
+                label=proc["nam"][:100],
+                value=proc_id,
+                description=proc["desc"][:100] if len(proc["desc"]) > 100 else proc["desc"],
+            )
+            for proc_id, proc in sorted_procs
+        ]
+
+        self.proc_select = discord.ui.Select(
+            placeholder="Choose an enhancement proc...",
+            options=options,
+        )
+        self.proc_select.callback = self.proc_select_callback
+        self.container.add_item(discord.ui.ActionRow(self.proc_select))
+
+    async def proc_select_callback(self, interaction: discord.Interaction):
+        proc_id = self.proc_select.values[0]
+        proc = self.procs[proc_id]
+        await interaction.response.edit_message(view=EnhancementProcView(proc, self.bot))
 
 
 class ConversionRateView(discord.ui.LayoutView):

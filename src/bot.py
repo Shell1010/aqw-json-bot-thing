@@ -141,6 +141,11 @@ class AQWMechanicsBot(commands.Bot):
     async def get_all_models(self) -> list[str]:
         return list(self.conversion_rates.get("class_ranges", {}).keys())
 
+    async def get_all_enhancements(self) -> dict:
+        with open("enhancements.json") as f:
+            data = json.load(f)
+        return data.get("procs", {})
+
     async def setup_hook(self) -> None:
         self.session = aiohttp.ClientSession()
         await self.load_all_cogs()

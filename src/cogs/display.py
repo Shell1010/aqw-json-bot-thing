@@ -3,7 +3,7 @@ from typing import TYPE_CHECKING
 import discord
 from discord import app_commands
 from discord.ext import commands
-from ..classes.views import ClassView, ScrollView, SearchResultsView, ConversionRateView
+from ..classes.views import ClassView, ScrollView, SearchResultsView, ConversionRateView, EnhancementsView, EnhancementProcView
 
 if TYPE_CHECKING:
     from ..bot import AQWMechanicsBot
@@ -128,6 +128,37 @@ class display(commands.Cog):
         matches.sort()
         return [discord.app_commands.Choice(name=m, value=m) for m in matches[:25]]
 
+    async def enhancement_autocomplete(
+        self,
+        interaction: discord.Interaction,
+        current: str,
+    ) -> list[discord.app_commands.Choice[str]]:
+        procs = await self.bot.get_all_enhancements()
+        current = current.lower().strip()
+        if not current:
+            return [
+                discord.app_commands.Choice(name=proc["nam"], value=proc_id)
+                for proc_id, proc in sorted(procs.items(), key=lambda x: int(x[0]))[:25]
+            ]
+
+        matches = [
+            (proc_id, proc)
+            for proc_id, proc in procs.items()
+            if current in proc["nam"].lower()
+        ]
+
+        matches.sort(
+            key=lambda item: (
+                not item[1]["nam"].lower().startswith(current),
+                item[1]["nam"].lower(),
+            )
+        )
+
+        return [
+            discord.app_commands.Choice(name=proc["nam"], value=proc_id)
+            for proc_id, proc in matches[:25]
+        ]
+
     @app_commands.command(name="lookup")
     @app_commands.allowed_installs(guilds=True, users=True)
     @app_commands.allowed_contexts(guilds=True, dms=True, private_channels=True)
@@ -144,6 +175,24 @@ class display(commands.Cog):
             return
         
         view = ConversionRateView(data)
+        await interaction.response.send_message(view=view)
+
+    @app_commands.command(name="enhancements")
+    @app_commands.allowed_installs(guilds=True, users=True)
+    @app_commands.allowed_contexts(guilds=True, dms=True, private_channels=True)
+    @app_commands.autocomplete(name=enhancement_autocomplete)
+    async def enhancements(self, interaction: discord.Interaction, name: str | None = None):
+        procs = await self.bot.get_all_enhancements()
+
+        if name:
+            proc = procs.get(name)
+            if not proc:
+                await interaction.response.send_message(f"Enhancement proc `{name}` not found.")
+                return
+            view = EnhancementProcView(proc, self.bot)
+        else:
+            view = EnhancementsView(procs, self.bot)
+
         await interaction.response.send_message(view=view)
 
 async def setup(bot: AQWMechanicsBot):

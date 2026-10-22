@@ -1,0 +1,148 @@
+{
+  "procs": {
+    "10": {
+      "cd": 0,
+      "damage": 0.5,
+      "desc": "Deals 50% damage and applies Arcana's Concerto to your target, reducing Physical and Magical Resistance by 2% for 22 seconds, stacks to 11.",
+      "nam": "Arcana's Concerto",
+      "pct": 50,
+      "range": 3000,
+      "ref": "aa",
+      "tgt": "h",
+      "typ": "pm"
+    },
+    "11": {
+      "cd": 0,
+      "damage": 0.8,
+      "desc": "Deals 80% damage and applies Stygian, afflicting you with a rapid DoT based on max health that stacks to 30, but also increasing Outgoing Damage and Hit Chance by 30% for 6 seconds. Stygian also prevents Arcane Shield and Safeguard from applying.",
+      "nam": "Acheron",
+      "pct": 100,
+      "range": 3000,
+      "ref": "a2",
+      "tgt": "h",
+      "tgtMax": 2,
+      "typ": "m"
+    },
+    "12": {
+      "cd": 0,
+      "damage": 5,
+      "desc": "Deals 250 - 1125% unavoidable non-critical damage based on your missing mana and applies Elysian, an HoT that stacks to 3, regenerating 4 mana per second, and increasing Outgoing Damage by 10% for 8 seconds.",
+      "nam": "Elysium",
+      "pct": 100,
+      "range": 3000,
+      "ref": "a2",
+      "tgt": "h",
+      "tgtMax": 2,
+      "typ": "m"
+    },
+    "13": {
+      "cd": 4000,
+      "damage": 0.7,
+      "desc": "Deals 70% damage and applies Spinning Dragon to the target for 2 seconds, reducing the next hit they do to 0, and Praxis for 8 seconds, reducing dodge by 5%. Praxis prevents Spinning Dragon from applying but causes each successive hit from this skill to deal 10% more damage.",
+      "nam": "Praxis",
+      "pct": 100,
+      "range": 3000,
+      "ref": "a1",
+      "tgt": "h",
+      "typ": "pm"
+    },
+    "14": {
+      "cd": 3000,
+      "damage": 1.9,
+      "desc": "Deals 190 - 570% unavoidable critical damage, increasing the lower your health is and healing you for a portion of the damage dealt. Applies Dauntless for 12 seconds, increasing Crit Chance by 15%, Haste by 25%, and reducing mana costs by 50%. Also applies Decay for 6 seconds, negating all non lifesteal healing you receive.",
+      "nam": "Dauntless",
+      "pct": 100,
+      "range": 3000,
+      "ref": "a1",
+      "tgt": "h",
+      "typ": "p"
+    },
+    "15": {
+      "cd": 1000,
+      "damage": 0.75,
+      "desc": "Deals 75 - 338% damage, increasing the lower your target's HP percentage is and applies Ravenous, increasing your Outgoing Damage by 10% and Crit Chance by 25% for 10 seconds. Also applies Consumed to your target, reducing Outgoing Damage and Crit Chance by 10% + 1% per stack for 10 seconds, stacks to 20.",
+      "nam": "Ravenous",
+      "pct": 100,
+      "range": 3000,
+      "ref": "a2",
+      "tgt": "h",
+      "typ": "p"
+    },
+    "2": {
+      "cd": 0,
+      "damage": 2,
+      "desc": "Deals 200% damage and applies Spiral Carve, increasing Crit Chance by 25% for 10 seconds.",
+      "nam": "Spiral Carve",
+      "pct": 15,
+      "range": 3000,
+      "ref": "aa",
+      "tgt": "h",
+      "typ": "pm"
+    },
+    "3": {
+      "cd": 0,
+      "damage": 1,
+      "desc": "Deals 100% damage and applies Awe Blast, reducing your target's Crit Chance and Damage Resistance by 15% for 10 seconds.",
+      "nam": "Awe Blast",
+      "pct": 30,
+      "range": 3000,
+      "ref": "aa",
+      "tgt": "h",
+      "typ": "pm"
+    },
+    "4": {
+      "cd": 0,
+      "damage": 0.8,
+      "desc": "Deals 80% damage and lifesteals for 125% base damage (before stats).",
+      "nam": "Health Vampire",
+      "pct": 50,
+      "range": 3000,
+      "ref": "aa",
+      "tgt": "h",
+      "typ": "ma"
+    },
+    "5": {
+      "cd": 0,
+      "damage": 0.5,
+      "desc": "Deals 50% damage and restores 10 mana.",
+      "nam": "Mana Vampire",
+      "pct": 80,
+      "range": 3000,
+      "ref": "aa",
+      "tgt": "h",
+      "typ": "ma"
+    },
+    "6": {
+      "cd": 0,
+      "damage": 9999.99,
+      "desc": "Deals 999,999 damage.",
+      "nam": "Powerword Die",
+      "pct": 0.3,
+      "range": 3000,
+      "ref": "aa",
+      "tgt": "h",
+      "typ": "ma"
+    },
+    "8": {
+      "cd": 15000,
+      "damage": 5,
+      "desc": "Deals 500% damage.",
+      "nam": "Smite",
+      "pct": 100,
+      "range": 3000,
+      "ref": "a4",
+      "tgt": "h",
+      "typ": "pm"
+    },
+    "9": {
+      "cd": 15000,
+      "desc": "Applies Valiance, increasing Strength, Dexterity, Intellect, Wisdom, and Endurance by 30% and Luck by 15% for 20 seconds.",
+      "nam": "Valiance",
+      "pct": 100,
+      "range": 3000,
+      "ref": "aa",
+      "tgt": "s",
+      "typ": "p"
+    }
+  }
+}
