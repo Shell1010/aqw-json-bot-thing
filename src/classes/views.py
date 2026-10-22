@@ -627,29 +627,6 @@ class SearchResultsView(discord.ui.LayoutView):
         return matches
 
 
-PROC_TYPE_EMOJI = {
-    "pm": "aqwsword",
-    "p": "aqwsword",
-    "m": "aqwwand",
-    "ma": "magicboost",
-}
-
-
-PROC_REF_EMOJI = {
-    "aa": "aqwclass",
-    "a1": "skills",
-    "a2": "skills",
-    "a3": "skills",
-    "a4": "skills",
-}
-
-
-PROC_TARGET_EMOJI = {
-    "h": "dmg",
-    "s": "healin",
-}
-
-
 class EnhancementProcView(discord.ui.LayoutView):
     def __init__(self, proc: dict, bot=None):
         super().__init__()
@@ -667,42 +644,37 @@ class EnhancementProcView(discord.ui.LayoutView):
 
         # Type
         typ = proc.get("typ", "").lower()
-        type_emoji = PROC_TYPE_EMOJI.get(typ, "aqwclass")
-        type_name = {"pm": "Hybrid (Physical)", "p": "Physical", "m": "Magical", "ma": "True Damage"}.get(typ, typ.upper())
-        self.container.add_item(discord.ui.TextDisplay(f"{em(type_emoji)} **Type**: {type_name}"))
+        self.container.add_item(discord.ui.TextDisplay(f"**Type**: {typ}"))
 
         # Proc chance
         pct = proc.get("pct", 0)
-        self.container.add_item(discord.ui.TextDisplay(f"{em('critchancce')} **Proc Chance**: {pct}%"))
+        self.container.add_item(discord.ui.TextDisplay(f"**Proc Chance**: {pct}%"))
 
         # Cooldown
         cd = proc.get("cd", 0)
         if cd > 0:
-            self.container.add_item(discord.ui.TextDisplay(f"{em('cooldown_reduction')} **Cooldown**: {cd}"))
+            self.container.add_item(discord.ui.TextDisplay(f"**Cooldown**: {cd}"))
         else:
-            self.container.add_item(discord.ui.TextDisplay(f"{em('cooldown_reduction')} **Cooldown**: None"))
+            self.container.add_item(discord.ui.TextDisplay("**Cooldown**: None"))
 
         # Damage multiplier
         dmg = proc.get("damage", 0)
         if dmg > 0:
-            self.container.add_item(discord.ui.TextDisplay(f"{em('dmg')} **Damage Multiplier**: {dmg}x ({dmg * 100}%)"))
+            self.container.add_item(discord.ui.TextDisplay(f"**Damage Multiplier**: {dmg}x ({dmg * 100}%)"))
 
         # Range
         rng = proc.get("range", 0)
         if rng > 0:
-            self.container.add_item(discord.ui.TextDisplay(f"{em('range')} **Range**: {rng}"))
+            self.container.add_item(discord.ui.TextDisplay(f"**Range**: {rng}"))
 
         # Reference (what triggers it)
         ref = proc.get("ref", "")
-        ref_emoji = PROC_REF_EMOJI.get(ref, "aqwclass")
-        ref_name = {"aa": "Auto Attack", "a1": "Skill 1", "a2": "Skill 2", "a3": "Skill 3", "a4": "Skill 4"}.get(ref, ref.upper())
-        self.container.add_item(discord.ui.TextDisplay(f"{em(ref_emoji)} **Trigger**: {ref_name}"))
+        self.container.add_item(discord.ui.TextDisplay(f"**Trigger**: {ref}"))
 
         # Target
         tgt = proc.get("tgt", "")
-        tgt_emoji = PROC_TARGET_EMOJI.get(tgt, "dmg")
         tgt_name = {"h": "Hostile/Enemy", "s": "Self"}.get(tgt, tgt.upper())
-        self.container.add_item(discord.ui.TextDisplay(f"{em(tgt_emoji)} **Target**: {tgt_name}"))
+        self.container.add_item(discord.ui.TextDisplay(f"**Target**: {tgt_name}"))
 
         # Max targets
         tgt_max = proc.get("tgtMax")
